@@ -49,7 +49,7 @@ defmodule Ev2.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:excoveralls, "~> 0.7", only: :test},
-      {:pre_commit, "~> 0.1.4", only: :dev}
+      {:pre_commit, "~> 0.1.4"}
     ]
   end
 
