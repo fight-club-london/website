@@ -32,7 +32,7 @@ config :ev2, Ev2.Repo,
   ssl: true
 
 # Configure Docusign
-config :ev2, Engine.Sign,
+config :ev2, Ev2.Sign,
   username: System.get_env("DOCUSIGN_USERNAME"),
   password: System.get_env("DOCUSIGN_PASSWORD"),
   integrator_key: System.get_env("DOCUSIGN_INTEGRATOR_KEY"),
