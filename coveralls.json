@@ -9,6 +9,7 @@
     "lib/ev2_web/endpoint.ex",
     "lib/ev2_web/router.ex",
     "test/support/channel_case.ex",
-    "test/support/data_case.ex" 
+    "test/support/data_case.ex",
+    "lib/ev2_web/views/error_helpers.ex"
   ]
 }

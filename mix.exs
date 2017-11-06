@@ -48,7 +48,7 @@ defmodule Ev2.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:excoveralls, "~> 0.7", only: :test},
+      {:excoveralls, "~> 0.7", only: [:test, :dev]},
       {:pre_commit, "~> 0.1.4"}
     ]
   end

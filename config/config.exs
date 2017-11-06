@@ -23,7 +23,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 # Pre commit
-config :pre_commit, commands: ["MIX_ENV=test mix coveralls"]
+config :pre_commit, commands: ["env(\"test\")", "compile", "coveralls"]
 
 
 # Import environment specific config. This must remain at the bottom
