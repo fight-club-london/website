@@ -27,7 +27,8 @@ defmodule Ev2.Mixfile do
   def application do
     [
       mod: {Ev2.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :comeonin, :bamboo,
+                           :redix, :ex_aws, :hackney, :poison, :httpoison]
     ]
   end
 
@@ -48,8 +49,17 @@ defmodule Ev2.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:excoveralls, "~> 0.7", only: [:test, :dev]},
-      {:pre_commit, "~> 0.1.4"}
+      {:excoveralls, "~> 0.6.2"},
+      {:comeonin, "~> 3.0.2"},
+      {:bamboo, "~> 0.7"},
+      {:bamboo_smtp, "~> 1.2.1"},
+      {:mock, "~> 0.3.1", only: :test},
+      {:redix, ">= 0.0.0"},
+      {:ex_aws, "~> 1.0"},
+      {:poison, "~> 2.0"},
+      {:hackney, "~> 1.6"},
+      {:uuid, "~> 1.1" },
+      {:httpoison, "~> 0.11.1"}
     ]
   end
 
