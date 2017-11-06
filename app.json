@@ -1,0 +1,16 @@
+{
+  "name": "ev2",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis"
+  ],
+  "buildpacks": [
+
+  ]
+}
