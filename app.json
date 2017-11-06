@@ -1,7 +1,6 @@
 {
   "name": "ev2",
   "scripts": {},
-  "stack": "Cedar-14",
   "env": {
     "ADMIN_EMAIL": {
       "required": true
