@@ -1,0 +1,14 @@
+{
+  "coverage_options": {
+    "minimum_coverage": 100
+  },
+  "skip_files": [
+    "web/channels",
+    "lib/ev2/application.ex",
+    "lib/ev2_web.ex",
+    "lib/ev2_web/endpoint.ex",
+    "lib/ev2_web/router.ex",
+    "test/support/channel_case.ex",
+    "test/support/data_case.ex" 
+  ]
+}
