@@ -1,16 +1,93 @@
 {
   "name": "ev2",
-  "scripts": {
-  },
+  "scripts": {},
+  "stack": "cedar-14",
   "env": {
+    "ADMIN_EMAIL": {
+      "required": true
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "required": true
+    },
+    "BUCKET_NAME": {
+      "required": true
+    },
+    "DEV_URL": {
+      "required": true
+    },
+    "DOCUSIGN_INTEGRATOR_KEY": {
+      "required": true
+    },
+    "DOCUSIGN_PASSWORD": {
+      "required": true
+    },
+    "DOCUSIGN_USERNAME": {
+      "required": true
+    },
+    "LD_LIBRARY_PATH": {
+      "required": true
+    },
+    "POOL_SIZE": {
+      "required": true
+    },
+    "PROD_URL": {
+      "required": true
+    },
+    "REDIS_URL": {
+      "required": true
+    },
+    "SANDBOX_DOCUSIGN_PASSWORD": {
+      "required": true
+    },
+    "SANDBOX_DOCUSIGN_USERNAME": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "SES_PORT": {
+      "required": true
+    },
+    "SES_SERVER": {
+      "required": true
+    },
+    "SMTP_PASSWORD": {
+      "required": true
+    },
+    "SMTP_USERNAME": {
+      "required": true
+    }
   },
-  "formation": {
-  },
+  "formation": {},
   "addons": [
     "heroku-postgresql",
     "heroku-redis"
   ],
   "buildpacks": [
-
-  ]
+    {
+      "url": "https://github.com/fxtentacle/heroku-pdftk-buildpack.git"
+    },
+    {
+      "url": "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+    },
+    {
+      "url": "https://github.com/gjaldon/heroku-buildpack-phoenix-static.git"
+    }
+  ],
+  "environments": {
+    "test": {
+      "addons":[
+        "heroku-postgresql:hobby-dev",
+        "heroku-redis:hobby-dev"
+      ],
+      "scripts": {
+        "test-setup": "mix ecto.migrate",
+        "test": "mix test",
+        "postdeploy": "bash <(curl -s https://codecov.io/bash)"
+      }
+    }
+  }
 }
