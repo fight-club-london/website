@@ -56,3 +56,6 @@ config :ev2, Ev2.Repo,
   database: "ev2_dev",
   hostname: "localhost",
   pool_size: 10
+
+
+config :pre_commit, commands: ["test"]

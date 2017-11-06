@@ -30,7 +30,7 @@ defmodule Ev2.Mixfile do
       extra_applications: [:logger, :runtime_tools]
     ]
   end
-    
+
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_),     do: ["lib"]
@@ -48,7 +48,8 @@ defmodule Ev2.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:excoveralls, "~> 0.7", only: :test}
+      {:excoveralls, "~> 0.7", only: :test},
+      {:pre_commit, "~> 0.1.4", only: :dev}
     ]
   end
 
