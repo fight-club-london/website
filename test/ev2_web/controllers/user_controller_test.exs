@@ -3,9 +3,9 @@ defmodule Ev2Web.UserControllerTest do
 
   alias Ev2.Accounts
 
-  @create_attrs %{active: true, email: "some email", first_name: "some first_name", last_name: "some last_name", password_hash: "some password_hash", terms_accepted: true, verified: true}
-  @update_attrs %{active: false, email: "some updated email", first_name: "some updated first_name", last_name: "some updated last_name", password_hash: "some updated password_hash", terms_accepted: false, verified: false}
-  @invalid_attrs %{active: nil, email: nil, first_name: nil, last_name: nil, password_hash: nil, terms_accepted: nil, verified: nil}
+  @create_attrs %{active: true, email: "some email", first_name: "some first_name", last_name: "some last_name", password: "123Testpassword!", password_hash: "some password_hash", terms_accepted: true, verified: true}
+  @update_attrs %{active: false, email: "some updated email", first_name: "some updated first_name", last_name: "some updated last_name", password: "123Testpassword!", password_hash: "some updated password_hash", terms_accepted: false, verified: false}
+  @invalid_attrs %{active: nil, email: nil, first_name: nil, last_name: nil, password: "hehehe", password_hash: nil, terms_accepted: nil, verified: nil}
 
   def fixture(:user) do
     {:ok, user} = Accounts.create_user(@create_attrs)

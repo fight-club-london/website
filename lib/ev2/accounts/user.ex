@@ -25,6 +25,7 @@ defmodule Ev2.Accounts.User do
       :first_name,
       :last_name,
       :password,
+      :password_hash,
       :verified,
       :terms_accepted,
       :active
@@ -34,6 +35,7 @@ defmodule Ev2.Accounts.User do
       :first_name,
       :last_name,
       :password,
+      :password_hash,
       :verified,
       :terms_accepted,
       :active
