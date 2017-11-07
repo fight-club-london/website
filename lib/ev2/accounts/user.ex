@@ -1,7 +1,7 @@
 defmodule Ev2.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Ev2.Accounts.{User, Startpack, Role}
+  alias Ev2.Accounts.{User, Role}
 
 
   schema "users" do
@@ -13,9 +13,7 @@ defmodule Ev2.Accounts.User do
     field :password_hash, :string, nil: false
     field :terms_accepted, :boolean, nil: false, default: false
     field :verified, :boolean, nil: false, default: false
-    field :company_id, :id
-    has_one :role, Role
-    has_one :startpack, Startpack
+    belongs_to :role, Role
     timestamps()
   end
 
@@ -41,6 +39,5 @@ defmodule Ev2.Accounts.User do
       :active
     ])
     |> unique_constraint(:email)
-    |> unique_constraint(:startpack_id)
   end
 end
