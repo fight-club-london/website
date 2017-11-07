@@ -7,8 +7,6 @@ defmodule Ev2.Accounts.Role do
   schema "roles" do
     field :name, :string
     many_to_many :permissions, Permission, join_through: "roles_permissions"
-
-    timestamps()
   end
 
   @doc false
