@@ -47,7 +47,6 @@ defmodule Ev2.Accounts.UserAPI do
       """
       def create_user(user_type, attrs \\ %{}) do
         role = Repo.get_by(Role, name: user_type)
-        IO.inspect role
         %User{}
         |> User.registration_changeset(attrs)
         |> Ecto.Changeset.put_assoc(:role, role)

@@ -35,10 +35,9 @@ defmodule Ev2Web.UserController do
     case Accounts.create_user(user_type, user_params) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "#{user.first_name} created successfully.")
+        |> put_flash(:info, "#{user.email} created successfully.")
         |> redirect(to: user_path(conn, :new))
       {:error, %Ecto.Changeset{} = changeset} ->
-        IO.inspect changeset
         render(conn, "new.html", layout: {LayoutView, "pre_login.html"}, changeset: changeset, target_email: nil, target_email_hash: nil)
     end
   end
