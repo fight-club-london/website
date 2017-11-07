@@ -31,6 +31,13 @@ config :ev2, Ev2.Repo,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
 
+# Configure Docusign
+config :ev2, Ev2.Sign,
+  username: System.get_env("DOCUSIGN_USERNAME"),
+  password: System.get_env("DOCUSIGN_PASSWORD"),
+  integrator_key: System.get_env("DOCUSIGN_INTEGRATOR_KEY"),
+  url: "https://www.docusign.net/restapi/v2/login_information"
+
 # Do not print debug messages in production
 config :logger, level: :info
 

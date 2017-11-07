@@ -17,3 +17,12 @@ config :ev2, Ev2.Repo,
   database: "ev2_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Configure password hashing
+config :comeonin, :bcrypt_log_rounds, 4
+config :comeonin, :pbkdf2_rounds, 1
+
+
+# Configure Bamboo
+config :ev2, Ev2.Mailer,
+  adapter: Bamboo.TestAdapter
