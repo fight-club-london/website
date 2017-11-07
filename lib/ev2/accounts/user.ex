@@ -40,5 +40,7 @@ defmodule Ev2.Accounts.User do
       :terms_accepted,
       :active
     ])
+    |> unique_constraint(:email)
+    |> unique_constraint(:startpack_id)
   end
 end

@@ -16,5 +16,6 @@ defmodule Ev2.Accounts.Permission do
     permission
     |> cast(attrs, [:name])
     |> validate_required([:name])
+    |> unique_constraint(:name)
   end
 end
