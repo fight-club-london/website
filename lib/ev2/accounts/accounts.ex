@@ -3,12 +3,10 @@ defmodule Ev2.Accounts do
   The Accounts context.
   """
   import Ecto.Query, warn: false
-  alias Ev2.{Accounts, Repo}
+  alias Ev2.{Accounts}
 
-
+  # Import modules below
   use Accounts.CacheAPI
   use Accounts.UserAPI
-
-
 
 end

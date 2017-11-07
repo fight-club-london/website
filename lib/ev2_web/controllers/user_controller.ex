@@ -5,8 +5,6 @@ defmodule Ev2Web.UserController do
   alias Ev2.Accounts.User
   alias Ev2Web.{LayoutView}
 
-  # import Ev2.Accounts.CacheAPI, only: [get_target_email: 1]
-
   # admin view only
   def index(conn, _params) do
     users = Accounts.list_users()
