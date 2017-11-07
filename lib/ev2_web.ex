@@ -37,6 +37,7 @@ defmodule Ev2Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      import Ev2.ComponentHelpers
       import Ev2Web.Router.Helpers
       import Ev2Web.ErrorHelpers
       import Ev2Web.Gettext
