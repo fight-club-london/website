@@ -48,18 +48,18 @@ defmodule Ev2.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"},
-      {:excoveralls, "~> 0.6.2"},
+      {:cowboy, "~> 1.1.2"},
+      {:excoveralls, "~> 0.6.5"},
       {:comeonin, "~> 3.0.2"},
-      {:bamboo, "~> 0.7"},
+      {:bamboo, "~> 0.7.0"},
       {:bamboo_smtp, "~> 1.2.1"},
       {:mock, "~> 0.3.1", only: :test},
-      {:redix, ">= 0.0.0"},
-      {:ex_aws, "~> 1.0"},
-      {:poison, "~> 2.0"},
-      {:hackney, "~> 1.6"},
-      {:uuid, "~> 1.1" },
-      {:httpoison, "~> 0.11.1"}
+      {:redix, ">= 0.6.1"},
+      {:ex_aws, "~> 1.1.5"},
+      {:poison, "~> 2.2.0"},
+      {:hackney, "~> 1.8.6"},
+      {:uuid, "~> 1.1.8" },
+      {:httpoison, "~> 0.11.2"}
     ]
   end
 
