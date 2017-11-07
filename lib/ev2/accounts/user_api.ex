@@ -2,7 +2,7 @@ defmodule Ev2.Accounts.UserAPI do
   defmacro __using__(_) do
     quote do
       alias Ev2.{Repo}
-      alias Ev2.{Accounts.User}
+      alias Ev2.Accounts.{User, Role}
 
       @doc """
       Returns the list of users.
@@ -45,9 +45,12 @@ defmodule Ev2.Accounts.UserAPI do
           {:error, %Ecto.Changeset{}}
 
       """
-      def create_user(attrs \\ %{}) do
+      def create_user(user_type, attrs \\ %{}) do
+        role = Repo.get_by(Role, name: user_type)
+        IO.inspect role
         %User{}
-        |> User.changeset(attrs)
+        |> User.registration_changeset(attrs)
+        |> Ecto.Changeset.put_assoc(:role, role)
         |> Repo.insert()
       end
 
@@ -82,7 +85,7 @@ defmodule Ev2.Accounts.UserAPI do
       def change_user(%User{} = user) do
         User.changeset(user, %{})
       end
-      
+
     end
   end
 end

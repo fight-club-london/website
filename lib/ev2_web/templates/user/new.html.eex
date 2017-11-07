@@ -50,7 +50,11 @@
             link_name: "terms of use"
             %>
 
-            <%= component "submit_button.html", title: "Create" %>
+            <%= component "submit_button.html",
+            title: "Create"
+            %>
+
+            <%= hidden_input f, :crew, value: "true" %>
 
             <div class="tc">
             <h4 class="mv2">Already have an account?</h4>

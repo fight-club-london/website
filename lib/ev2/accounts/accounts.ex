@@ -6,7 +6,7 @@ defmodule Ev2.Accounts do
   alias Ev2.{Accounts, Repo}
 
 
-  import Accounts.CacheAPI
+  use Accounts.CacheAPI
   use Accounts.UserAPI
 
 

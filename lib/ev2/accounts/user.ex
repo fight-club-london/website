@@ -11,21 +11,20 @@ defmodule Ev2.Accounts.User do
     field :last_name, :string
     field :password, :string, virtual: true
     field :password_hash, :string, nil: false
-    field :terms_accepted, :boolean, nil: false, default: false
+    field :terms_accepted, :boolean
     field :verified, :boolean, nil: false, default: false
     belongs_to :role, Role
     timestamps()
   end
 
   @doc false
-  def changeset(%User{} = user, attrs) do
-    user
+  def changeset(struct, attrs) do
+    struct
     |> cast(attrs, [
       :email,
       :first_name,
       :last_name,
       :password,
-      :password_hash,
       :verified,
       :terms_accepted,
       :active
@@ -35,7 +34,6 @@ defmodule Ev2.Accounts.User do
       :first_name,
       :last_name,
       :password,
-      :password_hash,
       :verified,
       :terms_accepted,
       :active
@@ -51,8 +49,8 @@ defmodule Ev2.Accounts.User do
     |> unique_constraint(:email)
   end
 
-  def registration_changeset(struct, attrs \\ %{}) do
-    struct
+  def registration_changeset(%User{} = user, attrs \\ %{}) do
+    user
     |> changeset(attrs)
     |> terms_accepted(attrs)
     |> validate_password()
