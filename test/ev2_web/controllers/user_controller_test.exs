@@ -36,7 +36,7 @@ defmodule Ev2Web.UserControllerTest do
   describe "create user" do
     test "redirects to show when data is valid", %{conn: conn} do
       conn = post conn, user_path(conn, :create), user: @create_attrs
-      assert redirected_to(conn, 302) == user_path(conn, :new)
+      assert redirected_to(conn, 302) == session_path(conn, :new)
     end
 
     test "renders errors when data is invalid", %{conn: conn} do

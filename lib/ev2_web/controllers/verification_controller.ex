@@ -21,8 +21,7 @@ defmodule Ev2Web.VerificationController do
             |> put_flash(:error, "Email already verified")
             |> redirect(to: dashboard_path(conn, :index))
           user = %User{verified: false} ->
-            changeset = User.email_verification_changeset(user, %{verified: true})
-            {:ok, user} = Repo.update(changeset)
+            user = Accounts.verify_user(user)
             conn
             |> Auth.login(user)
             |> put_flash(:info, "Email #{user.email} verified")

@@ -110,6 +110,24 @@ defmodule Ev2.Accounts.UserAPI do
       end
 
       @doc """
+      Verifies a user.
+
+      ## Examples
+
+          iex> verify_user(user)
+          %User{}
+
+      """
+      def verify_user(%User{} = user) do
+        {:ok, user} =
+          user
+          |> User.email_verification_changeset(%{verified: true})
+          |> Repo.update()
+
+        user
+      end
+
+      @doc """
       Returns an `%Ecto.Changeset{}` for tracking user changes.
 
       ## Examples
