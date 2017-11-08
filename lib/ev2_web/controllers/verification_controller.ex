@@ -44,5 +44,4 @@ defmodule Ev2Web.VerificationController do
     |> redirect(to: session_path(conn, :new))
   end
 
-
 end

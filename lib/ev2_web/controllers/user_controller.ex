@@ -25,7 +25,7 @@ defmodule Ev2Web.UserController do
   def create(conn, %{"user" => user_params}) do
     case Accounts.create_user(user_params) do
       {:ok, user} ->
-        Ev2.Email.send_verification_email(user)
+        Email.send_verification_email(user)
         # *** to be inserted when offers exist *** [
         # update all offers user_ids that have been sent to this user
         # ]

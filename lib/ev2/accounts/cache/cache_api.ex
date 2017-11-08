@@ -55,7 +55,6 @@ defmodule Ev2.Accounts.CacheAPI do
         end
       end
 
-
     end
   end
 end

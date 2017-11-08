@@ -29,7 +29,7 @@ defmodule Ev2.Utils do
       "http://localhost:4000"
 
   """
-  def get_base_url() do
+  def get_base_url do
     dev_env? = Mix.env == :dev
     case dev_env? do
       true -> System.get_env("DEV_URL")

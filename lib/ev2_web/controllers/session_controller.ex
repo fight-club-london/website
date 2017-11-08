@@ -29,5 +29,5 @@ defmodule Ev2Web.SessionController do
     |> Auth.logout()
     |> redirect(to: session_path(conn, :new))
   end
-  
+
 end
