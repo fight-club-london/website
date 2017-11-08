@@ -6,13 +6,13 @@ defmodule Ev2.Seed.Accounts do
   """
 
   alias Ev2.Seed
-  alias Ev2.Accounts.{Permission, Role}
+  alias Ev2.Accounts.{Permission, PermissionAPI, Role, RoleAPI}
 
   # Ev2.Accounts.PermissionAPI
 
   def add_permissions() do
     seed = list_seed_permissions()
-    db = Ev2.Accounts.PermissionAPI.list_permission_names()
+    db = PermissionAPI.list_permission_names()
     difference = get_difference(seed, db)
 
     difference
@@ -22,12 +22,45 @@ defmodule Ev2.Seed.Accounts do
 
   def add_roles() do
     seed = list_seed_roles()
-    db = Ev2.Accounts.RoleAPI.list_role_names()
+    db = RoleAPI.list_names()
     difference = get_difference(seed, db)
 
     difference
     |> map_from(:name)
     |> insert_list(Role)
+  end
+
+  @doc """
+  Assume roles and permissions have already been added
+  This function takes gets the seed roles with permissions.
+  It maps through the roles, and calls another function to map through the
+  permissions belonging to that role.
+  """
+  def add_role_permissions do
+    # get seed roles with Permissions
+    seed = list_seed_roles_with_permissions()
+
+    # map through roles
+    Enum.map(seed, &add_permissions_for_role/1)
+  end
+
+  @doc """
+  This function is called by `add_role_permissions/0`
+  """
+  defp add_permissions_for_role({role, perms}) do
+    # get role from db for link to id
+    db_role =
+      role
+      |> Atom.to_string()
+      |> RoleAPI.get_by_name()
+
+    perms
+    |> Enum.map(fn seed_perm ->
+      # get the permission from db
+      db_perm = PermissionAPI.get_by_name(seed_perm)
+      # attempt to add the link to role_permissions
+      RoleAPI.create_link(db_role, db_perm)
+    end)
   end
 
 
@@ -77,6 +110,10 @@ defmodule Ev2.Seed.Accounts do
     Seed.AccountsData.roles
     |> Map.keys()
     |> Enum.map(&Atom.to_string/1)
+  end
+
+  def list_seed_roles_with_permissions() do
+    Seed.AccountsData.roles()
   end
 
 end
