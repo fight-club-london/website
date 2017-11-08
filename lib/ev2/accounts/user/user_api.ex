@@ -50,17 +50,12 @@ defmodule Ev2.Accounts.UserAPI do
           {:error, %Ecto.Changeset{}}
 
       """
-      def create_user(crew, attrs \\ %{}) do
-        crew? = crew == "true"
-        user_type =
-          case crew? do
-            true -> "CREW"
-            false -> "COMPANY"
-          end
-        role = Repo.get_by(Role, name: user_type)
+      def create_user(attrs \\ %{}) do
+        # %{"user_type" => user_type} = attrs
+        # role = Repo.get_by(Role, name: user_type)
         %User{}
         |> User.registration_changeset(attrs)
-        |> Changeset.put_assoc(:role, role)
+        # |> Changeset.put_assoc(:role, role)
         |> Repo.insert()
       end
 

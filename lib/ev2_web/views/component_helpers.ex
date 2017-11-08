@@ -9,7 +9,8 @@ defmodule Ev2Web.ComponentHelpers do
     ComponentView.render(template, assigns)
   end
 
-  def component(template, assigns, do: block) do
-    ComponentView.render(template, Keyword.merge(assigns, [do: block]))
-  end
+  # Used for rendering nested components (unused so far)
+  # def component(template, assigns, do: block) do
+  #   ComponentView.render(template, Keyword.merge(assigns, [do: block]))
+  # end
 end

@@ -10,11 +10,11 @@ defmodule Ev2.Accounts.User do
 
   schema "users" do
     field :active, :boolean, nil: false, default: true
-    field :email, :string, nil: false
+    field :email, :string
     field :first_name, :string
     field :last_name, :string
     field :password, :string, virtual: true
-    field :password_hash, :string, nil: false
+    field :password_hash, :string
     field :terms_accepted, :boolean
     field :verified, :boolean, nil: false, default: false
     belongs_to :role, Role

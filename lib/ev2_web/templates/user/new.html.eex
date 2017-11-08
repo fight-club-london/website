@@ -60,7 +60,7 @@
             title: "Create"
             %>
 
-            <%= hidden_input f, :crew, value: "true" %>
+            <%= hidden_input f, :user_type, value: "CREW" %>
 
             <div class="tc">
             <h4 class="mv2">Already have an account?</h4>

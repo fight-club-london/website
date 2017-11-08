@@ -58,9 +58,8 @@ defmodule Ev2.Mixfile do
       {:ex_aws, "~> 1.1.5"},
       {:poison, "~> 2.2.0"},
       {:hackney, "~> 1.8.6"},
-      {:uuid, "~> 1.1.8" },
-      {:httpoison, "~> 0.11.2"},
-      {:credo, "~> 0.8", only: [:dev, :test], runtime: false}
+      {:uuid, "~> 1.1.8"},
+      {:httpoison, "~> 0.11.2"}
     ]
   end
 

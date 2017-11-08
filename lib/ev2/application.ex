@@ -5,7 +5,7 @@ defmodule Ev2.Application do
   """
   use Application
 
-  alias Ev2.{Repo}
+  alias Ev2.{Repo, RedisClientSupervisor}
   alias Ev2Web.{Endpoint}
 
   # See https://hexdocs.pm/elixir/Application.html
@@ -21,6 +21,8 @@ defmodule Ev2.Application do
       supervisor(Endpoint, []),
       # To start your own worker, call: Ev2.Worker.start_link(arg1, arg2, arg3)
       # worker(Ev2.Worker, [arg1, arg2, arg3]),
+      # Start redis
+      supervisor(RedisClientSupervisor, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
