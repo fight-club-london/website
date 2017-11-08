@@ -8,7 +8,6 @@ defmodule Ev2.Accounts.Permission do
     field :name, :string
     many_to_many :roles, Role, join_through: "roles_permissions"
 
-    timestamps()
   end
 
   @doc false

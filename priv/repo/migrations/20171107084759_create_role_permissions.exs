@@ -6,7 +6,6 @@ defmodule Ev2.Repo.Migrations.CreateRolePermissions do
       add :role_id, references(:roles, on_delete: :nothing)
       add :permission_id, references(:permissions, on_delete: :nothing)
 
-      timestamps()
     end
 
     create index(:role_permissions, [:role_id])
