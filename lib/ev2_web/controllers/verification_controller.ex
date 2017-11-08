@@ -37,7 +37,7 @@ defmodule Ev2Web.VerificationController do
   def resend(conn, %{"hash" => hash}) do
     {:ok, email} = Accounts.get_email_from_hash(hash)
     user = Accounts.get_user_by_email(email)
-    Ev2.Email.send_verification_email(user)
+    Email.send_verification_email(user)
 
     conn
     |> put_flash(:info, "A new verification email has been sent to #{user.email}")
