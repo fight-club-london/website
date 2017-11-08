@@ -16,7 +16,7 @@ defmodule Ev2.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(Ev2.Repo, []),
+      supervisor(Repo, []),
       # Start the endpoint when the application starts
       supervisor(Endpoint, []),
       # To start your own worker, call: Ev2.Worker.start_link(arg1, arg2, arg3)
