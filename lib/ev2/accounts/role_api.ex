@@ -12,6 +12,11 @@ defmodule Ev2.Accounts.RoleAPI do
 
     @doc """
 
+  def get_by_name(name) do
+    Repo.get_by(Role, name: name)
+  end
+
+
     returns a list of role structs:
 
     [

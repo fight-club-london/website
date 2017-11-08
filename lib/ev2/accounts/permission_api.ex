@@ -9,6 +9,11 @@ defmodule Ev2.Accounts.PermissionAPI do
     alias Ev2.Repo
     alias Ev2.Accounts.Permission
 
+
+
+    def get_by_name(name) do
+      Repo.get_by(Permission, name: name)
+    end
     @doc """
 
     returns a list of permisssion structs:
