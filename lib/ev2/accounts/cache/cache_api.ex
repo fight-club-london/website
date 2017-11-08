@@ -5,7 +5,7 @@ defmodule Ev2.Accounts.CacheAPI do
   """
   defmacro __using__(_) do
     quote do
-      alias Ev2.{Accounts.Cache}
+      alias Ev2.{Accounts.Cache, Utils}
 
       @doc """
       Returns email from cache if it exists.
@@ -22,6 +22,39 @@ defmodule Ev2.Accounts.CacheAPI do
           {:ok, email} -> email
         end
       end
+
+      @doc """
+      Sets an email as a value for a random string and returns the string
+
+      ## Examples
+
+          iex> set_as_value(email)
+          {:ok, "OK"}
+
+      """
+      def set_as_value(email) do
+        rand_string = Utils.gen_rand_string(30)
+        Cache.query(["SET", rand_string, email])
+        rand_string
+      end
+
+      @doc """
+      Gets an email from a redis hash
+
+      ## Examples
+
+          iex> get_email_from_hash(hash)
+          {:ok, "example@email.com"}
+
+      """
+
+      def get_email_from_hash(hash) do
+        case Cache.get(hash) do
+          {:ok, nil} -> {:error, "User not in Redis"}
+          {:ok, email} -> {:ok, email}
+        end
+      end
+
 
     end
   end

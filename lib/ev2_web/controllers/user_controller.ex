@@ -25,9 +25,15 @@ defmodule Ev2Web.UserController do
   def create(conn, %{"user" => user_params}) do
     case Accounts.create_user(user_params) do
       {:ok, user} ->
+        Ev2.Email.send_verification_email(user)
+        # *** to be inserted when offers exist *** [
+        # update all offers user_ids that have been sent to this user
+        # ]
+        message = "A verification email has been sent to #{user.email}.
+        Click the link in the email to gain full access to engine"
         conn
-        |> put_flash(:info, "#{user.email} created successfully.")
-        |> redirect(to: user_path(conn, :new))
+        |> put_flash(:info, message)
+        |> redirect(to: session_path(conn, :new))
       {:error, %Ecto.Changeset{} = changeset} ->
         ops = get_target_email(conn.query_params)
         render(

@@ -49,6 +49,7 @@ defmodule Ev2Web do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Ev2.Auth, only: [authenticate: 2]
     end
   end
 

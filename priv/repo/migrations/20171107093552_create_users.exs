@@ -1,4 +1,7 @@
 defmodule Ev2.Repo.Migrations.CreateUsers do
+  @moduledoc """
+  User migration
+  """
   use Ecto.Migration
 
   def change do
