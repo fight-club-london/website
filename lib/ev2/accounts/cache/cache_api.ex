@@ -1,4 +1,8 @@
 defmodule Ev2.Accounts.CacheAPI do
+
+  @moduledoc """
+  Provides an API for cache functionality
+  """
   defmacro __using__(_) do
     quote do
       alias Ev2.{Accounts.Cache}

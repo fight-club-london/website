@@ -1,5 +1,12 @@
 defmodule Ev2.Application do
+
+  @moduledoc """
+  Ev2 Application module
+  """
   use Application
+
+  alias Ev2.{Repo}
+  alias Ev2Web.{Endpoint}
 
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
@@ -11,8 +18,8 @@ defmodule Ev2.Application do
       # Start the Ecto repository
       supervisor(Ev2.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(Ev2Web.Endpoint, []),
-      # Start your own worker by calling: Ev2.Worker.start_link(arg1, arg2, arg3)
+      supervisor(Endpoint, []),
+      # To start your own worker, call: Ev2.Worker.start_link(arg1, arg2, arg3)
       # worker(Ev2.Worker, [arg1, arg2, arg3]),
     ]
 
@@ -25,7 +32,7 @@ defmodule Ev2.Application do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    Ev2Web.Endpoint.config_change(changed, removed)
+    Endpoint.config_change(changed, removed)
     :ok
   end
 end

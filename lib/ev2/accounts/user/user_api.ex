@@ -1,8 +1,13 @@
 defmodule Ev2.Accounts.UserAPI do
+  @moduledoc """
+  Provides an API for all functions relating to users
+  """
   defmacro __using__(_) do
     quote do
+
       alias Ev2.{Repo}
       alias Ev2.Accounts.{User, Role}
+      alias Ecto.{Changeset}
 
       @doc """
       Returns the list of users.
@@ -45,11 +50,17 @@ defmodule Ev2.Accounts.UserAPI do
           {:error, %Ecto.Changeset{}}
 
       """
-      def create_user(user_type, attrs \\ %{}) do
+      def create_user(crew, attrs \\ %{}) do
+        crew? = crew == "true"
+        user_type =
+          case crew? do
+            true -> "CREW"
+            false -> "COMPANY"
+          end
         role = Repo.get_by(Role, name: user_type)
         %User{}
         |> User.registration_changeset(attrs)
-        |> Ecto.Changeset.put_assoc(:role, role)
+        |> Changeset.put_assoc(:role, role)
         |> Repo.insert()
       end
 
@@ -70,7 +81,6 @@ defmodule Ev2.Accounts.UserAPI do
         |> User.changeset(attrs)
         |> Repo.update()
       end
-
 
       @doc """
       Returns an `%Ecto.Changeset{}` for tracking user changes.

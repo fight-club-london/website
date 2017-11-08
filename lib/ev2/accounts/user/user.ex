@@ -1,4 +1,8 @@
 defmodule Ev2.Accounts.User do
+
+  @moduledoc """
+  Provides user schema and changeset functionality
+  """
   use Ecto.Schema
   import Ecto.Changeset
   alias Ev2.Accounts.{User, Role}
@@ -42,10 +46,11 @@ defmodule Ev2.Accounts.User do
   end
 
   def email_changeset(struct, attrs \\ %{}) do
+    email_format = ~r/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/
     struct
     |> cast(attrs, [:email])
     |> validate_required([:email])
-    |> validate_format(:email, ~r/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
+    |> validate_format(:email, email_format)
     |> unique_constraint(:email)
   end
 

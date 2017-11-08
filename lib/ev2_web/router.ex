@@ -16,7 +16,7 @@ defmodule Ev2Web.Router do
   scope "/", Ev2Web do
     pipe_through :browser # Use the default browser stack
 
-    resources "/users", UserController, only: [:new, :create, :index, :edit, :update, :show]
+    resources "/users", UserController, only: [:new, :create, :edit, :update, :show]
   end
 
   # Other scopes may use custom stacks.

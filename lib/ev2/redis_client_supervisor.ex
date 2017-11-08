@@ -1,4 +1,8 @@
 defmodule Ev2.RedisClientSupervisor do
+
+  @moduledoc """
+  Initiates Redis
+  """
   use Supervisor
 
   alias Ev2.Accounts.Cache

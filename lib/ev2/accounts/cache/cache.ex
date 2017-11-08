@@ -1,4 +1,7 @@
 defmodule Ev2.Accounts.Cache do
+  @moduledoc """
+  Provides cache functionality
+  """
   def start_link(connection, name) do
     Redix.start_link(connection, name: name)
   end

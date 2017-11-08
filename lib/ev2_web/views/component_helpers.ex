@@ -1,9 +1,15 @@
 defmodule Ev2Web.ComponentHelpers do
+  @moduledoc """
+  Provides helper functions for rendering HTML components
+  """
+
+  alias Ev2Web.ComponentView
+
   def component(template, assigns \\ []) do
-    Ev2Web.ComponentView.render(template, assigns)
+    ComponentView.render(template, assigns)
   end
 
   def component(template, assigns, do: block) do
-    Ev2Web.ComponentView.render(template, Keyword.merge(assigns, [do: block]))
+    ComponentView.render(template, Keyword.merge(assigns, [do: block]))
   end
 end
