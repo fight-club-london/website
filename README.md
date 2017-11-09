@@ -1,4 +1,4 @@
-# Ev2
+## Ev2
 
 To start your Phoenix server:
 
