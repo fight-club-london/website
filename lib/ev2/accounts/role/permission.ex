@@ -6,7 +6,8 @@ defmodule Ev2.Accounts.Permission do
 
   schema "permissions" do
     field :name, :string
-    many_to_many :roles, Role, join_through: "roles_permissions"
+    many_to_many :roles, Role, join_through: "role_permissions"
+
   end
 
   @doc false
