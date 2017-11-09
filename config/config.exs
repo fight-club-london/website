@@ -52,9 +52,9 @@ config :ev2, Ev2.Sign,
   integrator_key: System.get_env("DOCUSIGN_INTEGRATOR_KEY"),
   url: "https://demo.docusign.net/restapi/v2/login_information"
 
-# # Pre commit
-# config :pre_commit, commands: ["env(\"test\")", "compile", "coveralls"]
-
+# add custom environment variables
+config :ev2, env: Mix.env
+config :ev2, IS_STAGING: System.get_env("IS_STAGING")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

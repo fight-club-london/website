@@ -1,6 +1,8 @@
 {
   "name": "ev2",
-  "scripts": {},
+  "scripts": {
+    "postdeploy": "POOL_SIZE=2 mix ecto.migrate && POOL_SIZE=2 mix Ev2.Seed && POOL_SIZE=2 mix Ev2.SeedMock"
+  },
   "stack": "cedar-14",
   "env": {
     "ADMIN_EMAIL": {
@@ -59,6 +61,9 @@
     },
     "SMTP_USERNAME": {
       "required": true
+    },
+    "IS_STAGING": {
+      "required": true
     }
   },
   "formation": {},
@@ -79,6 +84,11 @@
   ],
   "environments": {
     "test": {
+      "env": {
+        "IS_STAGING": {
+          "required": false
+        }
+      },
       "addons":[
         "heroku-postgresql:hobby-dev",
         "heroku-redis:hobby-dev"
