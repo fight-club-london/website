@@ -140,6 +140,19 @@ defmodule Ev2.Accounts.UserAPI do
         User.changeset(user, %{})
       end
 
+      @doc """
+      Returns an `%Ecto.Changeset{}` for tracking user email changes.
+
+      ## Examples
+
+          iex> change_user_email(user)
+          %Ecto.Changeset{source: %User{}}
+
+      """
+      def change_user_email(%User{} = user) do
+        User.email_changeset(user, %{})
+      end
+
     end
   end
 end
