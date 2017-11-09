@@ -110,6 +110,24 @@ defmodule Ev2.Accounts.UserAPI do
       end
 
       @doc """
+      Updates a user's password.
+
+      ## Examples
+
+          iex> update_password(user, %{password: new_value})
+          {:ok, %User{}}
+
+          iex> update_user(user, %{field: bad_value})
+          {:error, %Ecto.Changeset{}}
+
+      """
+      def update_password(%User{} = user, attrs) do
+        user
+        |> User.new_password_changeset(attrs)
+        |> Repo.update()
+      end
+
+      @doc """
       Verifies a user.
 
       ## Examples
@@ -151,6 +169,19 @@ defmodule Ev2.Accounts.UserAPI do
       """
       def change_user_email(%User{} = user) do
         User.email_changeset(user, %{})
+      end
+
+      @doc """
+      Returns an `%Ecto.Changeset{}` for changing a user's password.
+
+      ## Examples
+
+          iex> change_password(user)
+          %Ecto.Changeset{source: %User{}}
+
+      """
+      def change_password(%User{} = user) do
+        User.new_password_changeset(user, %{})
       end
 
     end
