@@ -15,6 +15,7 @@
     "lib/ev2/seed/accounts.ex",
     "lib/ev2/seed/accounts_data.ex",
     "lib/ev2/seed/seed.ex",
+    "lib/ev2/seed/seed_mock.ex",
     "lib/ev2/accounts/role",
     "lib/ev2/accounts/permission_api.ex"
   ]

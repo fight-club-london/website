@@ -29,4 +29,7 @@ npm-debug.log
 # Environment variables
 .env
 
+# redis dump
+dump.rdb
+
 /cover
