@@ -52,8 +52,8 @@ config :ev2, Ev2.Sign,
   integrator_key: System.get_env("DOCUSIGN_INTEGRATOR_KEY"),
   url: "https://demo.docusign.net/restapi/v2/login_information"
 
-# # Pre commit
-# config :pre_commit, commands: ["env(\"test\")", "compile", "coveralls"]
+# Pre commit
+config :pre_commit, commands: ["env(\"test\")", "compile", "coveralls"]
 
 
 # Import environment specific config. This must remain at the bottom

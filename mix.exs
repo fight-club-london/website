@@ -60,7 +60,8 @@ defmodule Ev2.Mixfile do
       {:hackney, "~> 1.8.6"},
       {:uuid, "~> 1.1.8"},
       {:httpoison, "~> 0.11.2"},
-      {:credo, "~> 0.8", only: [:dev, :test], runtime: false}
+      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+      {:pre_commit, "~> 0.1.4", only: :dev}
     ]
   end
 
