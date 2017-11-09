@@ -2,7 +2,7 @@ defmodule Ev2Web.UserController do
   use Ev2Web, :controller
 
   alias Ev2.Accounts
-  alias Ev2.Accounts.User
+  alias Ev2.{Accounts.User, Email}
   alias Ev2Web.{LayoutView}
 
   # admin view only
