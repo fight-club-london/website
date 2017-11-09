@@ -12,6 +12,10 @@
     "test/support/data_case.ex",
     "lib/ev2_web/views/error_helpers.ex",
     "lib/ev2/redis_client_supervisor.ex",
-    "lib/ev2/accounts/role"
+    "lib/ev2/seed/accounts.ex",
+    "lib/ev2/seed/accounts_data.ex",
+    "lib/ev2/seed/seed.ex",
+    "lib/ev2/accounts/role",
+    "lib/ev2/accounts/permission_api.ex"
   ]
 }

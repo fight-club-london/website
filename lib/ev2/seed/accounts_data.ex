@@ -13,7 +13,7 @@ defmodule Ev2.Seed.AccountsData do
   This structure should probably change to an array of strings but
   this was the quickest way for now.
   """
-  def permissions() do
+  def permissions do
      %{
       CAN_HARD_DELETE_ALL: "CAN_HARD_DELETE_ALL",
       CAN_MANAGE_COMPANY:  "CAN_MANAGE_COMPANY",
@@ -39,13 +39,12 @@ defmodule Ev2.Seed.AccountsData do
     Map.fetch!(permissions(), permission)
   end
 
-
   @doc """
   Do not edit or delete as it will result in duplicates.
   If you need to edit/delete, then re-write `Ev2.Seed.Accounts`
   inserting functions
   """
-  def roles() do
+  def roles do
     %{
       SUPER_ADMIN: [
         p(:CAN_HARD_DELETE_ALL),

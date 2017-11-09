@@ -19,7 +19,7 @@ defmodule Ev2Web.Router do
     pipe_through :browser # Use the default browser stack
 
     resources "/", DashboardController, only: [:index]
-    resources "/users", UserController
+    resources "/users", UserController, except: [:delete]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
     get "/verification/:hash", VerificationController, :verify
     get "/verification/verify/:hash", VerificationController, :verify_again

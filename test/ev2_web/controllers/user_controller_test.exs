@@ -59,7 +59,7 @@ defmodule Ev2Web.UserControllerTest do
     end
 
     test "renders form with target email query param", %{conn: conn} do
-      check = Cache.query(["SET", "hlka98398yr249h", "test@email.com"])
+      Cache.query(["SET", "hlka98398yr249h", "test@email.com"])
       conn = get conn, user_path(conn, :new, te: "hlka98398yr249h")
       assert html_response(conn, 200) =~ "test@email.com"
     end
@@ -115,9 +115,4 @@ defmodule Ev2Web.UserControllerTest do
   #     assert html_response(conn, 200) =~ "Edit User"
   #   end
   # end
-
-  defp create_user(_) do
-    user = fixture(:user)
-    {:ok, user: user}
-  end
 end
