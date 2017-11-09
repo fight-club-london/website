@@ -54,6 +54,7 @@ defmodule Mix.Tasks.Ev2.Seed do
   def default_seed() do
     IO.inspect "runing default seeds"
     # seed Accounts
+    Accounts.seed_all()
     # seed Onboard data
   end
 

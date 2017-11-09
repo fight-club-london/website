@@ -8,7 +8,14 @@ defmodule Ev2.Seed.Accounts do
   alias Ev2.Seed
   alias Ev2.Accounts.{Permission, PermissionAPI, Role, RoleAPI}
 
-  # Ev2.Accounts.PermissionAPI
+  @doc """
+  This function gets called by the outer world. Seeds all default accounts data.
+  """
+  def seed_all() do
+    add_permissions()
+    add_roles()
+    add_role_permissions()
+  end
 
   def add_permissions() do
     seed = list_seed_permissions()
