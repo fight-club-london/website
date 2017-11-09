@@ -84,6 +84,11 @@
   ],
   "environments": {
     "test": {
+      "env": {
+        "IS_STAGING": {
+          "required": false
+        }
+      },
       "addons":[
         "heroku-postgresql:hobby-dev",
         "heroku-redis:hobby-dev"
