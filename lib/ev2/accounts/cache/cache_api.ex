@@ -39,7 +39,8 @@ defmodule Ev2.Accounts.CacheAPI do
       end
 
       @doc """
-      Sets an email as a value for a random string and returns the string
+      Sets an email as a value for a random string and
+      also the reverse and then returns the string
 
       ## Examples
 
