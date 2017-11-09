@@ -4,7 +4,7 @@ defmodule Ev2Web.SessionController do
   """
   use Ev2Web, :controller
 
-  alias Ev2.{Accounts.User, Auth}
+  alias Ev2.{Accounts, Accounts.User, Auth}
   alias Ev2Web.{LayoutView}
 
   def new(conn, _params) do
@@ -21,6 +21,26 @@ defmodule Ev2Web.SessionController do
         conn
         |> put_flash(:info, "You are already logged in!")
         |> redirect(to: dashboard_path(conn, :index))
+    end
+  end
+
+  def create(conn, %{"session" => %{"email" => email, "password" => password}}) do
+    case Auth.login_by_email_and_pass(conn, email, password, accounts: Accounts) do
+      {:ok, conn} ->
+        conn
+        |> put_flash(:info, "Welcome back!")
+        |> redirect(to: dashboard_path(conn, :index))
+      {:error, :unauthorized, conn} ->
+        conn
+        |> put_flash(:error, "Invalid email/password combination")
+        |> redirect(to: session_path(conn, :new))
+      {:error, :not_verified, conn} ->
+        rand_string = gen_rand_string(30)
+        RedisCli.query(["SET", rand_string, email])
+        RedisCli.query(["SET", email, rand_string])
+        conn
+        |> put_flash(:error, "Your email address is yet to be verified")
+        |> redirect(to: verification_path(conn, :verify_again, rand_string))
     end
   end
 
