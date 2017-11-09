@@ -56,7 +56,7 @@ defmodule Ev2.Auth do
 
   def authenticate(conn, _opts) do
     if conn.assigns.current_user do
-        conn
+      conn
     else
       conn
       |> put_flash(:error, "You must be logged in to view that page")

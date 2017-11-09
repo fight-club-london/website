@@ -24,8 +24,8 @@ defmodule Ev2Web.SessionController do
     end
   end
 
-  def create(conn, %{"session" => %{"email" => email, "password" => password}}) do
-    case Auth.login_by_email_and_pass(conn, email, password, accounts: Accounts) do
+  def create(conn, %{"session" => %{"email" => email, "password" => pass}}) do
+    case Auth.login_by_email_and_pass(conn, email, pass, accounts: Accounts) do
       {:ok, conn} ->
         conn
         |> put_flash(:info, "Welcome back!")

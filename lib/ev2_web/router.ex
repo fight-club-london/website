@@ -26,6 +26,11 @@ defmodule Ev2Web.Router do
     get "/verification/resend/:hash", VerificationController, :resend
   end
 
+  # authed routes
+  scope "/", Engine do
+    pipe_through [:browser, :authenticate]
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Ev2Web do
   #   pipe_through :api
