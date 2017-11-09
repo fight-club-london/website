@@ -18,6 +18,7 @@ defmodule Mix.Tasks.Ev2.Seed do
   # alias Ev2.Repo
   alias Ev2.Seed.Accounts
   # import Ecto
+  require Logger
 
   # required function for a Mix.Task
   def run(_) do
@@ -25,10 +26,9 @@ defmodule Mix.Tasks.Ev2.Seed do
     seed(Mix.env)
   end
 
-
   # seed dev environment
   def seed(:dev) do
-    IO.inspect "seeding in dev environment"
+    Logger.info "seeding in dev environment"
 
     # seed default data
     default_seed()
@@ -39,9 +39,8 @@ defmodule Mix.Tasks.Ev2.Seed do
     # Onboard
   end
 
-
   def seed(:prod) do
-    IO.inspect "seeding in prod environment"
+    Logger.info "seeding in prod environment"
 
     # seed default data
     default_seed()
@@ -50,12 +49,10 @@ defmodule Mix.Tasks.Ev2.Seed do
     # Ev2.Accounts.Seed.super_admins()
   end
 
-
-  def default_seed() do
-    IO.inspect "runing default seeds"
+  def default_seed do
+    Logger.info "runing default seeds"
     # seed Accounts
     Accounts.seed_all()
     # seed Onboard data
   end
-
 end
