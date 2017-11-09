@@ -4,7 +4,6 @@ defmodule Ev2.Repo.Migrations.CreateRoles do
   def change do
     create table(:roles) do
       add :name, :string, null: false
-
     end
 
     create unique_index(:roles, [:name])

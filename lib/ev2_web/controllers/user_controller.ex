@@ -3,6 +3,7 @@ defmodule Ev2Web.UserController do
 
   alias Ev2.Accounts
   alias Ev2.Accounts.User
+  alias Ev2Web.{LayoutView}
 
   # admin view only
   def index(conn, _params) do
@@ -12,41 +13,65 @@ defmodule Ev2Web.UserController do
 
   def new(conn, _params) do
     changeset = Accounts.change_user(%User{})
-    render(conn, "new.html", changeset: changeset)
+    ops = get_target_email(conn.query_params)
+    render(
+      conn,
+      "new.html",
+      [layout: {LayoutView, "pre_login.html"},
+      changeset: changeset] ++ ops
+    )
   end
 
   def create(conn, %{"user" => user_params}) do
     case Accounts.create_user(user_params) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "User created successfully.")
-        |> redirect(to: user_path(conn, :show, user))
+        |> put_flash(:info, "#{user.email} created successfully.")
+        |> redirect(to: user_path(conn, :new))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        ops = get_target_email(conn.query_params)
+        render(
+          conn,
+          "new.html",
+          [layout: {LayoutView, "pre_login.html"},
+          changeset: changeset] ++ ops
+        )
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    user = Accounts.get_user!(id)
-    render(conn, "show.html", user: user)
-  end
+  # def edit(conn, %{"id" => id}) do
+  #   user = Accounts.get_user!(id)
+  #   changeset = Accounts.change_user(user)
+  #   render(conn, "edit.html", user: user, changeset: changeset)
+  # end
 
-  def edit(conn, %{"id" => id}) do
-    user = Accounts.get_user!(id)
-    changeset = Accounts.change_user(user)
-    render(conn, "edit.html", user: user, changeset: changeset)
-  end
+  # def update(conn, %{"id" => id, "user" => user_params}) do
+  #   user = Accounts.get_user!(id)
+  #
+  #   case Accounts.update_user(user, user_params) do
+  #     {:ok, user} ->
+  #       conn
+  #       |> put_flash(:info, "User updated successfully.")
+  #       |> redirect(to: user_path(conn, :show, user))
+  #     {:error, %Ecto.Changeset{} = changeset} ->
+  #       render(conn, "edit.html", user: user, changeset: changeset)
+  #   end
+  # end
 
-  def update(conn, %{"id" => id, "user" => user_params}) do
-    user = Accounts.get_user!(id)
-
-    case Accounts.update_user(user, user_params) do
-      {:ok, user} ->
-        conn
-        |> put_flash(:info, "User updated successfully.")
-        |> redirect(to: user_path(conn, :show, user))
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", user: user, changeset: changeset)
+  defp get_target_email(query_params) do
+    case Map.has_key?(query_params, "te") do
+      true ->
+        target_email_hash = query_params["te"]
+        target_email = Accounts.get_target_email(target_email_hash)
+        [
+          target_email: target_email,
+          target_email_hash: target_email_hash
+        ]
+      false ->
+        [
+          target_email: nil,
+          target_email_hash: nil
+        ]
     end
   end
 end
