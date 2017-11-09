@@ -79,10 +79,14 @@ defmodule Ev2.Seed.Accounts do
     Permission
   )
   """
-  def insert_list(data, schema) do
+  defp insert_list(data, schema) do
     Ev2.Repo.insert_all(schema, data)
   end
 
+  @doc """
+  Gets difference between two lists.
+  First argument should be larger otherwise will always return empty list.
+  """
   defp get_difference(seed_data, db_data) do
     seed_data -- db_data
   end
@@ -112,13 +116,18 @@ defmodule Ev2.Seed.Accounts do
     |> Map.values()
   end
 
-
+  @doc """
+  get seed data
+  """
   def list_seed_roles() do
     Seed.AccountsData.roles
     |> Map.keys()
     |> Enum.map(&Atom.to_string/1)
   end
 
+  @doc """
+  get seed data
+  """
   def list_seed_roles_with_permissions() do
     Seed.AccountsData.roles()
   end

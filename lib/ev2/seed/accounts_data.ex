@@ -15,19 +15,19 @@ defmodule Ev2.Seed.AccountsData do
   """
   def permissions() do
      %{
-      can_hard_delete_all: "can_hard_delete_all",
-      can_manage_company:  "can_manage_company",
-      can_create_vehicle:  "can_create_vehicle",
-      can_create_project:  "can_create_project",
-      can_edit_project:  "can_edit_project",
-      can_view_roles_project:  "can_view_roles_project",
-      can_manage_roles_project:  "can_manage_roles_project",
-      can_view_approvers_project:  "can_view_approvers_project",
-      can_manage_approvers_project:  "can_manage_approvers_project",
-      can_view_offer:  "can_view_offer",
-      can_create_offer:  "can_create_offer",
-      can_send_offer:  "can_send_offer",
-      can_receive_offer: "can_receive_offer"
+      CAN_HARD_DELETE_ALL: "CAN_HARD_DELETE_ALL",
+      CAN_MANAGE_COMPANY:  "CAN_MANAGE_COMPANY",
+      CAN_CREATE_VEHICLE:  "CAN_CREATE_VEHICLE",
+      CAN_CREATE_PROJECT:  "CAN_CREATE_PROJECT",
+      CAN_EDIT_PROJECT:  "CAN_EDIT_PROJECT",
+      CAN_VIEW_ROLES_PROJECT:  "CAN_VIEW_ROLES_PROJECT",
+      CAN_MANAGE_ROLES_PROJECT:  "CAN_MANAGE_ROLES_PROJECT",
+      CAN_VIEW_APPROVERS_PROJECT:  "CAN_VIEW_APPROVERS_PROJECT",
+      CAN_MANAGE_APPROVERS_PROJECT:  "CAN_MANAGE_APPROVERS_PROJECT",
+      CAN_VIEW_OFFER:  "CAN_VIEW_OFFER",
+      CAN_CREATE_OFFER:  "CAN_CREATE_OFFER",
+      CAN_SEND_OFFER:  "CAN_SEND_OFFER",
+      CAN_RECEIVE_OFFER: "CAN_RECEIVE_OFFER"
     }
   end
 
@@ -39,67 +39,73 @@ defmodule Ev2.Seed.AccountsData do
     Map.fetch!(permissions(), permission)
   end
 
+
+  @doc """
+  Do not edit or delete as it will result in duplicates.
+  If you need to edit/delete, then re-write `Ev2.Seed.Accounts`
+  inserting functions
+  """
   def roles() do
     %{
-      super_admin: [
-        p(:can_hard_delete_all),
-        p(:can_edit_project),
-        p(:can_view_roles_project),
-        p(:can_manage_roles_project),
-        p(:can_view_approvers_project),
-        p(:can_manage_approvers_project),
-        p(:can_view_offer)
+      SUPER_ADMIN: [
+        p(:CAN_HARD_DELETE_ALL),
+        p(:CAN_EDIT_PROJECT),
+        p(:CAN_VIEW_ROLES_PROJECT),
+        p(:CAN_MANAGE_ROLES_PROJECT),
+        p(:CAN_VIEW_APPROVERS_PROJECT),
+        p(:CAN_MANAGE_APPROVERS_PROJECT),
+        p(:CAN_VIEW_OFFER)
         ],
-      company_admin: [
-        p(:can_manage_company),
-        p(:can_create_vehicle),
-        p(:can_edit_project),
-        p(:can_view_roles_project),
-        p(:can_manage_roles_project),
-        p(:can_view_approvers_project),
-        p(:can_manage_approvers_project),
-        p(:can_create_offer),
-        p(:can_view_offer),
-        p(:can_send_offer)
+      COMPANY_ADMIN: [
+        p(:CAN_MANAGE_COMPANY),
+        p(:CAN_CREATE_VEHICLE),
+        p(:CAN_EDIT_PROJECT),
+        p(:CAN_VIEW_ROLES_PROJECT),
+        p(:CAN_MANAGE_ROLES_PROJECT),
+        p(:CAN_VIEW_APPROVERS_PROJECT),
+        p(:CAN_MANAGE_APPROVERS_PROJECT),
+        p(:CAN_CREATE_OFFER),
+        p(:CAN_VIEW_OFFER),
+        p(:CAN_SEND_OFFER)
         ],
-      production_controller: [
-        p(:can_view_roles_project),
-        p(:can_manage_roles_project),
-        p(:can_view_approvers_project),
-        p(:can_manage_approvers_project),
-        p(:can_create_offer),
-        p(:can_view_offer),
-        p(:can_send_offer)
+      PRODUCTION_CONTROLLER: [
+        p(:CAN_VIEW_ROLES_PROJECT),
+        p(:CAN_MANAGE_ROLES_PROJECT),
+        p(:CAN_VIEW_APPROVERS_PROJECT),
+        p(:CAN_MANAGE_APPROVERS_PROJECT),
+        p(:CAN_CREATE_OFFER),
+        p(:CAN_VIEW_OFFER),
+        p(:CAN_SEND_OFFER)
         ],
-      production_admin: [
-        p(:can_edit_project),
-        p(:can_view_roles_project),
-        p(:can_view_approvers_project),
-        p(:can_manage_approvers_project),
-        p(:can_create_offer),
-        p(:can_view_offer)
+      PRODUCTION_ADMIN: [
+        p(:CAN_EDIT_PROJECT),
+        p(:CAN_VIEW_ROLES_PROJECT),
+        p(:CAN_VIEW_APPROVERS_PROJECT),
+        p(:CAN_MANAGE_APPROVERS_PROJECT),
+        p(:CAN_CREATE_OFFER),
+        p(:CAN_VIEW_OFFER)
         ],
-      department_controller: [
-        p(:can_create_offer),
-        p(:can_view_offer),
-        p(:can_send_offer)
+      DEPARTMENT_CONTROLLER: [
+        p(:CAN_CREATE_OFFER),
+        p(:CAN_VIEW_OFFER),
+        p(:CAN_SEND_OFFER)
         ],
-      department_admin: [
-        p(:can_create_offer),
-        p(:can_view_offer)
+      DEPARTMENT_ADMIN: [
+        p(:CAN_CREATE_OFFER),
+        p(:CAN_VIEW_OFFER)
         ],
-      accounts_controller: [
-        p(:can_view_roles_project),
-        p(:can_view_approvers_project),
-        p(:can_view_offer)
+      ACCOUNTS_CONTROLLER: [
+        p(:CAN_VIEW_ROLES_PROJECT),
+        p(:CAN_VIEW_APPROVERS_PROJECT),
+        p(:CAN_VIEW_OFFER)
         ],
-      accounts_admin: [
-        p(:can_view_roles_project),
-        p(:can_view_approvers_project),
-        p(:can_view_offer)
+      ACCOUNTS_ADMIN: [
+        p(:CAN_VIEW_ROLES_PROJECT),
+        p(:CAN_VIEW_APPROVERS_PROJECT),
+        p(:CAN_VIEW_OFFER)
         ],
-      crew_member: [
-        p(:can_receive_offer)
+      CREW_MEMBER: [
+        p(:CAN_RECEIVE_OFFER)
       ]
     }
   end
