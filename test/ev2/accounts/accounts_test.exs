@@ -74,7 +74,7 @@ defmodule Ev2.AccountsTest do
 
     test "verify_user/1 returns a verified user" do
       user = user_fixture()
-      assert %User{verified: true} == Accounts.verify_user(user)
+      assert Accounts.verify_user(user).verified == true
     end
 
     test "user schema" do
