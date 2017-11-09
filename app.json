@@ -1,7 +1,7 @@
 {
   "name": "ev2",
   "scripts": {
-    "postdeploy": "MIX_ENV=dev POOL_SIZE=2 mix ecto.migrate && mix Ev2.Seed"
+    "postdeploy": "POOL_SIZE=2 mix ecto.migrate && mix Ev2.Seed && mix Ev2.SeedMock"
   },
   "stack": "cedar-14",
   "env": {
@@ -60,6 +60,9 @@
       "required": true
     },
     "SMTP_USERNAME": {
+      "required": true
+    },
+    "IS_STAGING": {
       "required": true
     }
   },
