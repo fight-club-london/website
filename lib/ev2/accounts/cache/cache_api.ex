@@ -29,12 +29,28 @@ defmodule Ev2.Accounts.CacheAPI do
       ## Examples
 
           iex> set_as_value(email)
-          {:ok, "OK"}
+          "HKsefe09rth924fh"
 
       """
       def set_as_value(email) do
         rand_string = Utils.gen_rand_string(30)
         Cache.query(["SET", rand_string, email])
+        rand_string
+      end
+
+      @doc """
+      Sets an email as a value for a random string and returns the string
+
+      ## Examples
+
+          iex> set_as_key_and_value(email)
+          "JGhn380yn9r0u82-3"
+
+      """
+      def set_as_key_and_value(email) do
+        rand_string = Utils.gen_rand_string(30)
+        Cache.query(["SET", rand_string, email])
+        Cache.query(["SET", email, rand_string])
         rand_string
       end
 

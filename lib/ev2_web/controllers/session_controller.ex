@@ -35,9 +35,7 @@ defmodule Ev2Web.SessionController do
         |> put_flash(:error, "Invalid email/password combination")
         |> redirect(to: session_path(conn, :new))
       {:error, :not_verified, conn} ->
-        rand_string = gen_rand_string(30)
-        RedisCli.query(["SET", rand_string, email])
-        RedisCli.query(["SET", email, rand_string])
+        rand_string = Accounts.set_as_key_and_value(email)
         conn
         |> put_flash(:error, "Your email address is yet to be verified")
         |> redirect(to: verification_path(conn, :verify_again, rand_string))

@@ -2,7 +2,7 @@ defmodule Ev2Web.VerificationController do
   use Ev2Web, :controller
 
   alias Ev2.{Accounts.User, Auth}
-  alias Ev2.{Email, Accounts, Repo}
+  alias Ev2.{Email, Accounts}
 
   def verify(conn, %{"hash" => hash}) do
     case Accounts.get_email_from_hash(hash) do
@@ -18,7 +18,7 @@ defmodule Ev2Web.VerificationController do
             |> redirect(to: user_path(conn, :new))
           user = %User{verified: true} ->
             conn
-            |> put_flash(:error, "Email already verified")
+            |> put_flash(:error, "Email #{user.email} already verified")
             |> redirect(to: dashboard_path(conn, :index))
           user = %User{verified: false} ->
             user = Accounts.verify_user(user)

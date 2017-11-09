@@ -1,6 +1,8 @@
 defmodule Ev2Web.UserControllerTest do
   use Ev2Web.ConnCase
 
+  import Mock
+
   alias Ev2.Accounts
   alias Ev2.Accounts.{Cache}
 
@@ -35,8 +37,13 @@ defmodule Ev2Web.UserControllerTest do
 
   describe "create user" do
     test "redirects to show when data is valid", %{conn: conn} do
-      conn = post conn, user_path(conn, :create), user: @create_attrs
-      assert redirected_to(conn, 302) == session_path(conn, :new)
+      with_mock Ev2.Mailer, [deliver_later: fn(_) -> nil end] do
+        Mix.env(:dev)
+        conn = post conn, user_path(conn, :create), user: @create_attrs
+        assert redirected_to(conn, 302) == session_path(conn, :new)
+        assert Accounts.get_user_by_email("test@email.com")
+      end
+
     end
 
     test "renders errors when data is invalid", %{conn: conn} do

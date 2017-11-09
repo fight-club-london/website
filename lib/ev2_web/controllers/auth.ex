@@ -35,7 +35,7 @@ defmodule Ev2.Auth do
 
   def login_by_email_and_pass(conn, email, given_pass, opts) do
     accounts = Keyword.fetch!(opts, :accounts)
-    user = accounts.get_user_by_email(User, email: email)
+    user = accounts.get_user_by_email(email)
 
     cond do
       user && checkpw(given_pass, user.password_hash) && user.verified ->
