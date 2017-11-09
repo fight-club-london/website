@@ -1,8 +1,10 @@
 defmodule Ev2.Accounts.Permission do
+  @moduledoc """
+  Permission Schema
+  """
   use Ecto.Schema
   import Ecto.Changeset
   alias Ev2.Accounts.{Permission, Role}
-
 
   schema "permissions" do
     field :name, :string

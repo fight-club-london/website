@@ -5,19 +5,20 @@ defmodule Ev2.Seed.Accounts do
     `Ev2.Seed.AccountsData` contains the seed data we always want to seed.
   """
 
-  alias Ev2.Seed
+  alias Ev2.{Repo, Seed}
   alias Ev2.Accounts.{Permission, PermissionAPI, Role, RoleAPI}
+  alias Ev2.Seed.AccountsData
 
   @doc """
   This function gets called by the outer world. Seeds all default accounts data.
   """
-  def seed_all() do
+  def seed_all do
     add_permissions()
     add_roles()
     add_role_permissions()
   end
 
-  def add_permissions() do
+  def add_permissions do
     seed = list_seed_permissions()
     db = PermissionAPI.list_permission_names()
     difference = get_difference(seed, db)
@@ -27,7 +28,7 @@ defmodule Ev2.Seed.Accounts do
     |> insert_list(Permission)
   end
 
-  def add_roles() do
+  def add_roles do
     seed = list_seed_roles()
     db = RoleAPI.list_names()
     difference = get_difference(seed, db)
@@ -70,7 +71,6 @@ defmodule Ev2.Seed.Accounts do
     end)
   end
 
-
   @doc """
   Helper functions to insert list of data.
 
@@ -80,7 +80,7 @@ defmodule Ev2.Seed.Accounts do
   )
   """
   defp insert_list(data, schema) do
-    Ev2.Repo.insert_all(schema, data)
+    Repo.insert_all(schema, data)
   end
 
   @doc """
@@ -107,20 +107,19 @@ defmodule Ev2.Seed.Accounts do
     )
   end
 
-
   @doc """
   Returns all seed permissions as a list of strings
   """
-  def list_seed_permissions() do
-    Seed.AccountsData.permissions
+  def list_seed_permissions do
+    AccountsData.permissions
     |> Map.values()
   end
 
   @doc """
   get seed data
   """
-  def list_seed_roles() do
-    Seed.AccountsData.roles
+  def list_seed_roles do
+    AccountsData.roles
     |> Map.keys()
     |> Enum.map(&Atom.to_string/1)
   end
@@ -128,8 +127,7 @@ defmodule Ev2.Seed.Accounts do
   @doc """
   get seed data
   """
-  def list_seed_roles_with_permissions() do
+  def list_seed_roles_with_permissions do
     Seed.AccountsData.roles()
   end
-
 end

@@ -9,7 +9,6 @@ defmodule Ev2.Accounts.RoleAPI do
   alias Ev2.Repo
   alias Ev2.Accounts.{Role, Permission, RolePermission}
 
-
   @doc """
   get a role by id
   """
@@ -21,12 +20,11 @@ defmodule Ev2.Accounts.RoleAPI do
     Repo.get_by(Role, name: name)
   end
 
-  def create_link(role = %Role{}, perm = %Permission{}) do
+  def create_link(%Role{} = role, %Permission{} = perm) do
     link = %{role_id: role.id, permission_id: perm.id}
     changeset = RolePermission.changeset(%RolePermission{}, link)
     Repo.insert(changeset)
   end
-
 
   @doc """
 
@@ -60,18 +58,16 @@ defmodule Ev2.Accounts.RoleAPI do
     |> Enum.map(fn role -> role.name end)
   end
 
-
   @doc """
   returns a list of roles and their permissions preloaded
   """
-  def list_with_permissions() do
+  def list_with_permissions do
     list()
     |> Repo.preload(:permissions)
   end
 
-
   @doc """
-  returns a list of permission names for a list of roles
+  returns a list of permission names for a role
   """
   # def list_associated_permissions(roles) do
   #   list_roles()
