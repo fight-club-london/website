@@ -7,8 +7,6 @@ defmodule Ev2.Accounts.RolePermission do
   schema "role_permissions" do
     belongs_to :role, Role
     belongs_to :permission, Permission
-
-    timestamps()
   end
 
   @doc false
