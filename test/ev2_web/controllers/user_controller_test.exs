@@ -5,7 +5,6 @@ defmodule Ev2Web.UserControllerTest do
   alias Ev2.Accounts.{Cache}
 
   @create_attrs %{active: true, email: "test@email.com", first_name: "first_name", last_name: "last_name", password: "123Testpassword!", password_hash: "some password_hash", terms_accepted: true, verified: false}
-  @update_attrs %{active: false, email: "updated@email.com", first_name: "updated_first_name", last_name: "updated_last_name", password: "123Testpassword!", password_hash: "updated_password_hash", terms_accepted: false, verified: true}
   @invalid_attrs %{active: nil, email: nil, first_name: nil, last_name: nil, password: "hehehe", password_hash: nil, terms_accepted: nil, verified: nil}
 
   def fixture(:user) do
@@ -27,8 +26,8 @@ defmodule Ev2Web.UserControllerTest do
     end
 
     test "renders form with target email query param", %{conn: conn} do
-      check = Cache.query(["SET", "hlka98398yr249h", "test@email.com"])
-      conn = get conn, user_path(conn, :new, te: "hlka98398yr249h")
+      Cache.query(["SET", "random-string", "test@email.com"])
+      conn = get conn, user_path(conn, :new, te: "random-string")
       assert html_response(conn, 200) =~ "Create account"
     end
   end
@@ -70,10 +69,4 @@ defmodule Ev2Web.UserControllerTest do
   #     assert html_response(conn, 200) =~ "Edit User"
   #   end
   # end
-
-
-  defp create_user(_) do
-    user = fixture(:user)
-    {:ok, user: user}
-  end
 end
