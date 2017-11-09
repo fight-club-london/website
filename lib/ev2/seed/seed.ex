@@ -2,7 +2,6 @@ defmodule Mix.Tasks.Ev2.Seed do
 
   @moduledoc """
     This file handles seeding of data in all environments.
-    It is a mix task so can be run from terminal with ``
     It is a mix task so can be run from terminal with `$ mix Ev2.Seed`
 
     Seed data is split into default and mock.
@@ -15,9 +14,7 @@ defmodule Mix.Tasks.Ev2.Seed do
   """
 
   use Mix.Task
-  # alias Ev2.Repo
   alias Ev2.Seed.Accounts
-  # import Ecto
   require Logger
 
   # required function for a Mix.Task
