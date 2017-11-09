@@ -1,6 +1,8 @@
 {
   "name": "ev2",
-  "scripts": {},
+  "scripts": {
+    "postdeploy": "mix ecto.migrate && mix Ev2.Seed"
+  },
   "stack": "cedar-14",
   "env": {
     "ADMIN_EMAIL": {
