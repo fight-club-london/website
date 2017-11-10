@@ -18,7 +18,7 @@ defmodule Ev2.AccountsTest do
       password: "123Testpassword!",
       password_hash: "some password_hash",
       terms_accepted: true,
-      verified: false,
+      verified: true,
       user_type: "CREW"
     }
     @update_attrs %{
@@ -43,22 +43,14 @@ defmodule Ev2.AccountsTest do
       user_type: "CREW"
     }
 
-    def user_fixture(attrs \\ %{}) do
-      {:ok, user} =
-        attrs
-        |> Enum.into(@valid_attrs)
-        |> Accounts.create_user()
-      user
-    end
-
     test "list_users/0 returns all users" do
-      user = user_fixture()
+      user = fixture(:user)
       # assert Accounts.list_users() == [user]
       user = user
     end
 
     test "get_user!/1 returns the user with given id" do
-      user = user_fixture()
+      user = fixture(:user)
       # assert Accounts.get_user!(user.id) == user
       user = user
     end
@@ -70,7 +62,7 @@ defmodule Ev2.AccountsTest do
       assert user.first_name == "first_name"
       assert user.last_name == "last_name"
       assert user.terms_accepted == true
-      assert user.verified == false
+      assert user.verified == true
     end
 
     test "create_user/2 with invalid data returns error changeset" do
@@ -78,7 +70,7 @@ defmodule Ev2.AccountsTest do
     end
 
     test "update_user/2 with valid data updates the user" do
-      user = user_fixture()
+      user = fixture(:user)
       assert {:ok, user} = Accounts.update_user(user, @update_attrs)
       assert %User{} = user
       assert user.active == false
@@ -90,7 +82,7 @@ defmodule Ev2.AccountsTest do
     end
 
     test "update_user/2 with invalid data returns error changeset" do
-      user = user_fixture()
+      user = fixture(:user)
       invalid = @invalid_attrs
       assert {:error, %Ecto.Changeset{}} = Accounts.update_user(user, invalid)
       # assert user == Accounts.get_user!(user.id)
@@ -98,12 +90,12 @@ defmodule Ev2.AccountsTest do
     end
 
     test "change_user/1 returns a user changeset" do
-      user = user_fixture()
+      user = fixture(:user)
       assert %Ecto.Changeset{} = Accounts.change_user(user)
     end
 
     test "verify_user/1 returns a verified user" do
-      user = user_fixture()
+      user = fixture(:user)
       assert Accounts.verify_user(user).verified == true
     end
 

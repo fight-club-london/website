@@ -26,7 +26,8 @@ defmodule Ev2.TestHelpers do
     password: "Pass123!",
     password_hash: "some password_hash",
     terms_accepted: true,
-    verified: true
+    verified: true,
+    user_type: "CREW"
   }
 
   def fixture(:user, attrs \\ %{}) do
