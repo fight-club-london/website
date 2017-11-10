@@ -72,6 +72,11 @@ defmodule Ev2.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_user(user)
     end
 
+    test "verify_user/1 returns a verified user" do
+      user = user_fixture()
+      assert Accounts.verify_user(user).verified == true
+    end
+
     test "user schema" do
      actual = User.__schema__(:fields)
      expected = [

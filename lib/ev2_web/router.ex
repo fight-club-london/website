@@ -7,6 +7,8 @@ defmodule Ev2Web.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Ev2.Auth, accounts: Ev2.Accounts
+
   end
 
   pipeline :api do
@@ -16,7 +18,17 @@ defmodule Ev2Web.Router do
   scope "/", Ev2Web do
     pipe_through :browser # Use the default browser stack
 
+    resources "/", DashboardController, only: [:index]
     resources "/users", UserController, except: [:delete]
+    resources "/sessions", SessionController, only: [:new, :create, :delete]
+    get "/verification/:hash", VerificationController, :verify
+    get "/verification/verify/:hash", VerificationController, :verify_again
+    get "/verification/resend/:hash", VerificationController, :resend
+  end
+
+  # authed routes
+  scope "/", Engine do
+    pipe_through [:browser, :authenticate]
   end
 
   # Other scopes may use custom stacks.

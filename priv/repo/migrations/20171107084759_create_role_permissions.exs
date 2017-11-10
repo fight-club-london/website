@@ -1,4 +1,7 @@
 defmodule Ev2.Repo.Migrations.CreateRolePermissions do
+  @moduledoc """
+  Role Permissions migration
+  """
   use Ecto.Migration
 
   def change do
@@ -9,6 +12,10 @@ defmodule Ev2.Repo.Migrations.CreateRolePermissions do
 
     create index(:role_permissions, [:role_id])
     create index(:role_permissions, [:permission_id])
-    create unique_index(:role_permissions, [:role_id, :permission_id], name: :unique_role_permissions)
+    create unique_index(
+      :role_permissions,
+      [:role_id, :permission_id],
+      name: :unique_role_permissions
+    )
   end
 end

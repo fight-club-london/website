@@ -22,7 +22,7 @@ defmodule Ev2.Accounts.User do
   end
 
   @doc false
-  def changeset(struct, attrs) do
+  def changeset(struct, attrs \\ %{}) do
     struct
     |> cast(attrs, [
       :email,
@@ -52,6 +52,12 @@ defmodule Ev2.Accounts.User do
     |> validate_required([:email])
     |> validate_format(:email, email_format)
     |> unique_constraint(:email)
+  end
+
+  def email_verification_changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:verified])
+    |> validate_required([:verified])
   end
 
   def registration_changeset(%User{} = user, attrs \\ %{}) do

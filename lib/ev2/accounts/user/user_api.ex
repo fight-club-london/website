@@ -36,7 +36,39 @@ defmodule Ev2.Accounts.UserAPI do
           ** (Ecto.NoResultsError)
 
       """
+
       def get_user!(id), do: Repo.get!(User, id)
+
+      @doc """
+      Gets a single user.
+
+      Returns nil if not exists
+
+      ## Examples
+
+          iex> get_user(123)
+          %User{}
+
+          iex> get_user(456)
+          nil
+
+      """
+
+      def get_user(id), do: Repo.get(User, id)
+
+      @doc """
+      Gets a single user by email.
+
+      ## Examples
+
+          iex> get_user_by_email(example@email.com)
+          %User{}
+
+          iex> get_user_by_email("")
+          nil
+
+      """
+      def get_user_by_email(email), do: Repo.get_by(User, email: email)
 
       @doc """
       Creates a user.
@@ -75,6 +107,24 @@ defmodule Ev2.Accounts.UserAPI do
         user
         |> User.changeset(attrs)
         |> Repo.update()
+      end
+
+      @doc """
+      Verifies a user.
+
+      ## Examples
+
+          iex> verify_user(user)
+          %User{}
+
+      """
+      def verify_user(%User{} = user) do
+        {:ok, user} =
+          user
+          |> User.email_verification_changeset(%{verified: true})
+          |> Repo.update()
+
+        user
       end
 
       @doc """
