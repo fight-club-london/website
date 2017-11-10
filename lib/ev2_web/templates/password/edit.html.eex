@@ -1,0 +1,36 @@
+<div class="vh-100 w-100 mw7-ns center dt">
+  <div class="dtc v-mid">
+      <div class="ba b--black-10 br4-ns pa4 bg-white h-auto-ns h-100">
+        <div class="tc pt5">
+          <img src="/images/engine-logo-front.jpg" class="k-w32"/>
+        </div>
+        <div class="">
+          <%= form_for @changeset, password_path(@conn, :update, 1, hash: @hash), [method: "put"] , fn f -> %>
+          <h2 class="tc">Reset password</h2>
+            <%= if @changeset.action do %>
+              <div class="alert alert-danger mt3">
+                <p>Oops, something went wrong! Please check the errors below.</p>
+              </div>
+            <% end %>
+
+            <%= component "input.html",
+            form: f,
+            atom: :password,
+            type: "password",
+            placeholder: "Minimum 6 characters, inc: 1 capital, 1 digit, 1 special"
+            %>
+            <%= component "input.html",
+            form: f,
+            atom: :password_confirmation,
+            type: :password,
+            placeholder: "Must match password"
+            %>
+
+            <%= component "submit_button.html", title: "Reset" %>
+          <% end %>
+
+          <%= link "Back to log in", to: session_path(@conn, :new) %>
+        </div>
+      </div>
+    </div>
+</div>

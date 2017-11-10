@@ -10,7 +10,7 @@ defmodule Ev2.Accounts.Cache do
 
   def get(key), do: query(["get", key])
   def set(key, value), do: query(["set", key, value])
-  # def expire(key, seconds), do: query(["expire", key, seconds])
+  def expire(key, seconds), do: query(["expire", key, seconds])
   def flushdb do
     query(["flushdb"])
     :ok

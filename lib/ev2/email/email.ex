@@ -5,7 +5,7 @@ defmodule Ev2.Email do
   use Bamboo.Phoenix, view: Ev2Web.EmailView
 
   alias Ev2Web.{LayoutView}
-  alias Ev2.{Utils, Mailer, Accounts}
+  alias Ev2.{Utils, Mailer, Accounts, Accounts.Cache}
 
   def send_text_email(recipient, subject, url, template, assigns \\ []) do
     new_email()
@@ -33,6 +33,28 @@ defmodule Ev2.Email do
       email: user.email
     ]
     email = send_html_email(user.email, subject, url, "verify", assigns)
+
+    email
+    |> Mailer.deliver_later()
+  end
+
+  def send_reset_password_email(user, url) do
+    rand_string = Utils.gen_rand_string(30)
+    Cache.query(["SET", rand_string, user.email])
+    Cache.expire(rand_string, 60 * 5)
+    url = url <> "?hash=#{rand_string}"
+    assigns = [
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email
+    ]
+    email = send_html_email(
+      user.email,
+      "e n g i n e - reset your password",
+      url,
+      "password_reset",
+      assigns
+    )
 
     email
     |> Mailer.deliver_later()

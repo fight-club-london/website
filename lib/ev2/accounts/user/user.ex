@@ -68,6 +68,16 @@ defmodule Ev2.Accounts.User do
     |> put_password_hash()
   end
 
+  def new_password_changeset(struct, params \\ %{}) do
+    message = "Passwords do not match"
+    struct
+    |> cast(params, [:password])
+    |> validate_required([:password])
+    |> validate_confirmation(:password, required: true, message: message)
+    |> validate_password()
+    |> put_password_hash()
+  end
+
   defp terms_accepted(changeset, attrs) do
     message = "You must agree to the terms and conditions"
     changeset

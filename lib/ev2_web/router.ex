@@ -21,6 +21,7 @@ defmodule Ev2Web.Router do
     resources "/", DashboardController, only: [:index]
     resources "/users", UserController, except: [:delete]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+    resources "/password", PasswordController, except: [:delete, :show, :index]
     get "/verification/:hash", VerificationController, :verify
     get "/verification/verify/:hash", VerificationController, :verify_again
     get "/verification/resend/:hash", VerificationController, :resend
