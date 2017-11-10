@@ -10,9 +10,38 @@ defmodule Ev2.AccountsTest do
   describe "users" do
     alias Ev2.Accounts.User
 
-    @valid_attrs %{active: true, email: "test@email.com", first_name: "first_name", last_name: "last_name", password: "123Testpassword!", password_hash: "some password_hash", terms_accepted: true, verified: false, user_type: "CREW"}
-    @update_attrs %{active: false, email: "updated@email.com", first_name: "updated_first_name", last_name: "updated_last_name", password: "123Testpassword!", password_hash: "some updated password_hash", terms_accepted: true, verified: true}
-    @invalid_attrs %{active: nil, email: nil, first_name: nil, last_name: nil, password: "123Testpassword!",  password_hash: "123Testpassword!", terms_accepted: nil, verified: nil, user_type: "CREW"}
+    @valid_attrs %{
+      active: true,
+      email: "test@email.com",
+      first_name: "first_name",
+      last_name: "last_name",
+      password: "123Testpassword!",
+      password_hash: "some password_hash",
+      terms_accepted: true,
+      verified: false,
+      user_type: "CREW"
+    }
+    @update_attrs %{
+      active: false,
+      email: "updated@email.com",
+      first_name: "updated_first_name",
+      last_name: "updated_last_name",
+      password: "123Testpassword!",
+      password_hash: "some updated password_hash",
+      terms_accepted: true,
+      verified: true
+    }
+    @invalid_attrs %{
+      active: nil,
+      email: nil,
+      first_name: nil,
+      last_name: nil,
+      password: "123Testpassword!",
+      password_hash: "123Testpassword!",
+      terms_accepted: nil,
+      verified: nil,
+      user_type: "CREW"
+    }
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
@@ -62,9 +91,10 @@ defmodule Ev2.AccountsTest do
 
     test "update_user/2 with invalid data returns error changeset" do
       user = user_fixture()
-      assert {:error, %Ecto.Changeset{}} = Accounts.update_user(user, @invalid_attrs)
+      invalid = @invalid_attrs
+      assert {:error, %Ecto.Changeset{}} = Accounts.update_user(user, invalid)
       # assert user == Accounts.get_user!(user.id)
-      assert user = user
+      assert user == user
     end
 
     test "change_user/1 returns a user changeset" do

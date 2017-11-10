@@ -4,8 +4,8 @@ defmodule Ev2Web.SessionController do
   """
   use Ev2Web, :controller
 
-  alias Ev2.{Accounts, Accounts.User, Auth}
-  alias Ev2Web.{LayoutView}
+  alias Ev2.{Accounts, Accounts.User}
+  alias Ev2Web.{Auth, LayoutView}
 
   def new(conn, _params) do
     case conn.assigns.current_user do

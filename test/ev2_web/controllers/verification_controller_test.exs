@@ -1,4 +1,4 @@
-defmodule Ev2.VerificationControllerTest do
+defmodule Ev2Web.VerificationControllerTest do
   @moduledoc """
   VerificationController tests
   """
@@ -8,40 +8,23 @@ defmodule Ev2.VerificationControllerTest do
 
   import Mock
 
-  alias Ev2.{Accounts, Mailer}
+  alias Ev2.{Mailer}
   alias Ev2.Accounts.{Cache}
 
   setup do
     Cache.flushdb()
   end
 
-  @create_attrs %{
-    active: true,
-    email: "test@email.com",
-    first_name: "first_name",
-    last_name: "last_name",
-    password: "123Testpassword!",
-    password_hash: "some password_hash",
-    terms_accepted: true,
-    verified: false
-  }
-
-  def fixture(:user, attrs \\ %{}) do
-    combined_attrs = Map.merge(@create_attrs, attrs)
-    {:ok, user} = Accounts.create_user(combined_attrs)
-    user
-  end
-
   describe "verify" do
     test "/verification/:hash email exists", %{conn: conn} do
-      user = fixture(:user)
+      user = fixture(:user, %{verified: false})
       Cache.set("RAND0M5TR1NG", user.email)
       conn = get conn, "/verification/RAND0M5TR1NG"
       assert redirected_to(conn, 302) == "/"
     end
 
     test "/verification/:hash email exists verified user", %{conn: conn} do
-      user = fixture(:user)
+      user = fixture(:user, %{verified: false})
       Cache.set("RAND0M5TR1NG", user.email)
       conn = get conn, "/verification/RAND0M5TR1NG"
       assert redirected_to(conn, 302) == "/"
@@ -59,7 +42,7 @@ defmodule Ev2.VerificationControllerTest do
     end
 
     test "/verification/:hash user already verified", %{conn: conn} do
-      user = fixture(:user, %{verified: true})
+      user = fixture(:user)
       Cache.set("RAND0M5TR1NG", user.email)
       conn = get conn, "/verification/RAND0M5TR1NG"
       assert redirected_to(conn, 302) == "/"
@@ -76,7 +59,7 @@ defmodule Ev2.VerificationControllerTest do
   describe "resend" do
     test "/verification/resend/:hash", %{conn: conn} do
       with_mock Mailer, [deliver_later: fn(_) -> nil end] do
-        user = fixture(:user)
+        user = fixture(:user, %{verified: false})
         Cache.set("RAND0M5TR1NG", user.email)
         conn = get conn, verification_path(conn, :resend, "RAND0M5TR1NG")
         assert redirected_to(conn, 302) == "/sessions/new"

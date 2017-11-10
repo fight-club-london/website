@@ -1,4 +1,4 @@
-defmodule Ev2.Auth do
+defmodule Ev2Web.Auth do
 
   @moduledoc """
   Handles authentication

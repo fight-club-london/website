@@ -1,28 +1,11 @@
-defmodule Ev2.AuthTest do
+defmodule Ev2Web.AuthTest do
   @moduledoc """
   Authentication tests
   """
   use Ev2Web.ConnCase, async: false
 
-  alias Ev2.{Accounts, Accounts.User, Auth}
-  alias Ev2Web.{Router}
-
-  @create_attrs %{
-    active: true,
-    email: "test@email.com",
-    first_name: "first_name",
-    last_name: "last_name",
-    password: "Pass123!",
-    password_hash: "some password_hash",
-    terms_accepted: true,
-    verified: true
-  }
-
-  def fixture(:user, attrs \\ %{}) do
-    combined_attrs = Map.merge(@create_attrs, attrs)
-    {:ok, user} = Accounts.create_user(combined_attrs)
-    user
-  end
+  alias Ev2.{Accounts, Accounts.User}
+  alias Ev2Web.{Auth, Router}
 
   describe "auth" do
     setup %{conn: conn} do

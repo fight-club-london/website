@@ -19,16 +19,7 @@ defmodule Ev2Web.UserControllerTest do
     terms_accepted: true,
     verified: false
   }
-  # @update_attrs %{
-  #   active: false,
-  #   email: "updated@email.com",
-  #   first_name: "updated_first_name",
-  #   last_name: "updated_last_name",
-  #   password: "123Testpassword!",
-  #   password_hash: "updated_password_hash",
-  #   terms_accepted: false,
-  #   verified: true
-  # }
+
   @invalid_attrs %{
     active: nil,
     email: nil,
@@ -39,11 +30,6 @@ defmodule Ev2Web.UserControllerTest do
     terms_accepted: nil,
     verified: nil
   }
-
-  def fixture(:user) do
-    {:ok, user} = Accounts.create_user(@create_attrs)
-    user
-  end
 
   describe "index" do
     test "lists all users", %{conn: conn} do

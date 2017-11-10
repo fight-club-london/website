@@ -22,6 +22,7 @@ defmodule Ev2.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import Ev2.DataCase
+      import Ev2.TestHelpers
     end
   end
 

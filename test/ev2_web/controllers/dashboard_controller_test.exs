@@ -6,26 +6,9 @@ defmodule Ev2Web.DashboardControllerTest do
 
   alias Ev2.{Accounts}
 
-  @create_attrs %{
-    active: true,
-    email: "test@email.com",
-    first_name: "first_name",
-    last_name: "last_name",
-    password: "123Testpassword!",
-    password_hash: "some password_hash",
-    terms_accepted: true,
-    verified: false
-  }
-
-  def fixture(:user, attrs \\ %{}) do
-    combined_attrs = Map.merge(@create_attrs, attrs)
-    {:ok, user} = Accounts.create_user(combined_attrs)
-    user
-  end
-
   describe "index" do
     test "renders the dashboard when logged in", %{conn: conn} do
-      user = fixture(:user, %{verified: true})
+      user = fixture(:user)
       conn =
         conn
         |> assign(:current_user, user)

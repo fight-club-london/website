@@ -1,8 +1,9 @@
 defmodule Ev2Web.VerificationController do
   use Ev2Web, :controller
 
-  alias Ev2.{Accounts.User, Auth}
+  alias Ev2.{Accounts.User}
   alias Ev2.{Email, Accounts}
+  alias Ev2Web.{Auth}
 
   def verify(conn, %{"hash" => hash}) do
     case Accounts.get_email_from_hash(hash) do
