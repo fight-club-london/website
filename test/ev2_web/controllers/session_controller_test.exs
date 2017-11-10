@@ -1,27 +1,10 @@
-defmodule Ev2.SessionControllerTest do
+defmodule Ev2Web.SessionControllerTest do
   @moduledoc """
   SessionController tests
   """
   use Ev2Web.ConnCase
 
   alias Ev2.{Accounts, Accounts.Cache}
-
-  @create_attrs %{
-    active: true,
-    email: "test@email.com",
-    first_name: "first_name",
-    last_name: "last_name",
-    password: "Pass123!",
-    password_hash: "some password_hash",
-    terms_accepted: true,
-    verified: false
-  }
-
-  def fixture(:user, attrs \\ %{}) do
-    combined_attrs = Map.merge(@create_attrs, attrs)
-    {:ok, user} = Accounts.create_user(combined_attrs)
-    user
-  end
 
   describe "new" do
     test "renders the login page when user not logged in", %{conn: conn} do
@@ -30,7 +13,7 @@ defmodule Ev2.SessionControllerTest do
     end
 
     test "renders the dashboard when user logged in", %{conn: conn} do
-      user = fixture(:user, %{verified: true})
+      user = fixture(:user)
       conn =
         conn
         |> assign(:current_user, user)
@@ -41,7 +24,7 @@ defmodule Ev2.SessionControllerTest do
 
   describe "create" do
     setup do
-      user = fixture(:user, %{verified: true})
+      user = fixture(:user)
 
       conn = assign(build_conn(), :current_user, Accounts.get_user(user.id))
       {:ok, conn: conn}
@@ -71,9 +54,9 @@ defmodule Ev2.SessionControllerTest do
     end
 
     test "Login: Not verified", %{conn: conn} do
-      user = fixture(:user, %{email: "test2@test.com", verified: false})
+      user = fixture(:user, %{verified: false, email: "test2@email.com"})
       conn = post conn, session_path(conn, :create,
-      %{"session" => %{"email" => "test2@test.com", "password" => "Pass123!"}})
+      %{"session" => %{"email" => "test2@email.com", "password" => "Pass123!"}})
       {:ok, hash} = Cache.get(user.email)
       assert html_response(conn, 302) =~ "/verification/verify/#{hash}"
     end
@@ -81,7 +64,7 @@ defmodule Ev2.SessionControllerTest do
 
   describe "delete" do
     test "Logout", %{conn: conn} do
-      user = fixture(:user, %{email: "test2@test.com", verified: true})
+      user = fixture(:user)
       conn =
         conn
         |> assign(:current_user, user)

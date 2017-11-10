@@ -7,7 +7,7 @@ defmodule Ev2Web.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug Ev2.Auth, accounts: Ev2.Accounts
+    plug Ev2Web.Auth, accounts: Ev2.Accounts
 
   end
 
@@ -28,7 +28,7 @@ defmodule Ev2Web.Router do
   end
 
   # authed routes
-  scope "/", Engine do
+  scope "/", Ev2Web do
     pipe_through [:browser, :authenticate]
   end
 

@@ -20,6 +20,7 @@ defmodule Ev2Web.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
       import Ev2Web.Router.Helpers
+      import Ev2.TestHelpers
 
       # The default endpoint for testing
       @endpoint Ev2Web.Endpoint

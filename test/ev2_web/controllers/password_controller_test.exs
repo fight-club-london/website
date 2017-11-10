@@ -6,12 +6,17 @@ defmodule Ev2.PasswordControllerTest do
 
   import Mock
 
-  alias Ev2.{Accounts, Accounts.Cache, Mailer}
+  alias Ev2.{Accounts.Cache, Mailer}
   alias Phoenix.{Controller}
 
   setup do
     Cache.flushdb()
   end
+
+  @valid_password %{
+    password: "Password123!",
+    password_confirmation: "Password123!"
+  }
 
   @create_attrs %{
     active: true,
@@ -22,11 +27,6 @@ defmodule Ev2.PasswordControllerTest do
     password_hash: "some password_hash",
     terms_accepted: true,
     verified: false
-  }
-
-  @valid_password %{
-    password: "Password123!",
-    password_confirmation: "Password123!"
   }
 
   @invalid_attrs %{
@@ -40,12 +40,6 @@ defmodule Ev2.PasswordControllerTest do
     verified: false
   }
 
-  def fixture(:user, attrs \\ %{}) do
-    combined_attrs = Map.merge(@create_attrs, attrs)
-    {:ok, user} = Accounts.create_user(combined_attrs)
-    user
-  end
-
   describe "new" do
     test "renders the new password page", %{conn: conn} do
       conn = get(conn, password_path(conn, :new))
@@ -56,7 +50,7 @@ defmodule Ev2.PasswordControllerTest do
   describe "create" do
     test "password :create with recognised email address", %{conn: conn} do
     with_mock Mailer, [deliver_later: fn(_) -> nil end] do
-        user = fixture(:user)
+        user = fixture(:user, %{verified: false})
         conn = post(conn, password_path(conn, :create), user: @create_attrs)
         # test response
         assert redirected_to(conn) == password_path(conn, :new)
@@ -93,7 +87,7 @@ defmodule Ev2.PasswordControllerTest do
 
   describe "update" do
     test "password :update with good email", %{conn: conn} do
-      fixture(:user)
+      fixture(:user, %{verified: false})
       Cache.set("RAND0M5TR1NG", "test@email.com")
       conn = put(
         conn,
@@ -110,7 +104,7 @@ defmodule Ev2.PasswordControllerTest do
     end
 
     test "password :update with good email, but bad password/confirm password", %{conn: conn} do
-      fixture(:user)
+      fixture(:user, %{verified: false})
       Cache.set("RAND0M5TR1NG", "test@email.com")
       invalid_passwords = %{@valid_password | password_confirmation: "11111111"}
       conn = put(

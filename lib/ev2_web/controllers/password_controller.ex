@@ -1,8 +1,8 @@
 defmodule Ev2Web.PasswordController do
   use Ev2Web, :controller
 
-  alias Ev2Web.{LayoutView}
-  alias Ev2.{Accounts, Accounts.User, Email, Utils, Auth}
+  alias Ev2Web.{Auth, LayoutView}
+  alias Ev2.{Accounts, Accounts.User, Email, Utils}
 
   def new(conn, _params) do
     changeset = Accounts.change_user_email(%User{})
