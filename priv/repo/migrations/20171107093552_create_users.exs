@@ -1,4 +1,4 @@
-defmodule Ev2.Repo.Migrations.CreateUsers do
+defmodule Lfc.Repo.Migrations.CreateUsers do
   @moduledoc """
   User migration
   """

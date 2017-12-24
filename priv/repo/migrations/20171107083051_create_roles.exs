@@ -1,4 +1,4 @@
-defmodule Ev2.Repo.Migrations.CreateRoles do
+defmodule Lfc.Repo.Migrations.CreateRoles do
   use Ecto.Migration
 
   def change do

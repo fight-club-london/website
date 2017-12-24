@@ -1,9 +1,9 @@
-defmodule Ev2.TestHelpers do
+defmodule Lfc.TestHelpers do
   @moduledoc """
   Test helpers
   """
 
-  alias Ev2.{Accounts}
+  alias Lfc.{Accounts}
   alias Phoenix.{ConnTest}
   alias Plug.{Conn}
 

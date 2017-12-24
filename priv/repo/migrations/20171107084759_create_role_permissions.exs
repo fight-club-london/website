@@ -1,4 +1,4 @@
-defmodule Ev2.Repo.Migrations.CreateRolePermissions do
+defmodule Lfc.Repo.Migrations.CreateRolePermissions do
   @moduledoc """
   Role Permissions migration
   """

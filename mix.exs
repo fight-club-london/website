@@ -1,9 +1,9 @@
-defmodule Ev2.Mixfile do
+defmodule Lfc.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :ev2,
+      app: lfc,
       version: "0.0.1",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
@@ -26,7 +26,7 @@ defmodule Ev2.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Ev2.Application, []},
+      mod: {Lfc.Application, []},
       extra_applications: [:logger, :runtime_tools, :comeonin, :bamboo,
                            :redix, :ex_aws, :hackney, :poison, :httpoison]
     ]
@@ -72,7 +72,7 @@ defmodule Ev2.Mixfile do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      "ecto.setup": ["ecto.create", "ecto.migrate", "Ev2.Seed"],
+      "ecto.setup": ["ecto.create", "ecto.migrate", "Lfc.Seed"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       "test": ["ecto.migrate", "test"]
     ]

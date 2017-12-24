@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :ev2,
-  ecto_repos: [Ev2.Repo]
+config lfc,
+  ecto_repos: [Lfc.Repo]
 
 # Configures the endpoint
-config :ev2, Ev2Web.Endpoint,
+config lfc, LfcWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "oevVJb6s1rUdotvoFbBItcLIKtryrNIwyrOFUbgdtifxL2Ceovd+c/K5wUv8c9MH",
-  render_errors: [view: Ev2Web.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Ev2.PubSub,
+  render_errors: [view: LfcWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Lfc.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
@@ -23,7 +23,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 # Configure mailing
-config :ev2, Ev2.Mailer,
+config lfc, Lfc.Mailer,
   adapter: Bamboo.SMTPAdapter,
   server: System.get_env("SES_SERVER"),
   port: System.get_env("SES_PORT"),
@@ -45,16 +45,9 @@ config :ex_aws,
    region: "eu-west-1"
   ]
 
-# docusign
-config :ev2, Ev2.Sign,
-  username: System.get_env("SANDBOX_DOCUSIGN_USERNAME"),
-  password: System.get_env("SANDBOX_DOCUSIGN_PASSWORD"),
-  integrator_key: System.get_env("DOCUSIGN_INTEGRATOR_KEY"),
-  url: "https://demo.docusign.net/restapi/v2/login_information"
-
 # add custom environment variables
-config :ev2, env: Mix.env
-config :ev2, IS_STAGING: System.get_env("IS_STAGING")
+config lfc, env: Mix.env
+config lfc, IS_STAGING: System.get_env("IS_STAGING")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
