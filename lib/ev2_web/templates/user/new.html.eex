@@ -1,0 +1,73 @@
+<div class="vh-100 w-100 mw7-ns center dt">
+  <div class="dtc v-mid">
+      <div class="ba b--black-10 br4-ns pa4 bg-white h-auto-ns h-100">
+        <div class="tc pt3">
+          <img src="/images/engine-logo-front.jpg" class="k-w32"/>
+          <h2>Create account</h2>
+        </div>
+        <% query_params =
+            case @target_email_hash do
+              nil -> []
+              hash -> [te: hash]
+            end
+        %>
+        <div class="">
+            <%= form_for @changeset, user_path(@conn, :create, query_params), fn f -> %>
+            <%= if @changeset.action do %>
+              <div class="alert light-red mt3">
+                <p>Oops, something went wrong! Please check the errors below.</p>
+              </div>
+            <% end %>
+
+            <%= component "input.html",
+            form: f,
+            atom: :first_name,
+            placeholder: ""
+            %>
+
+            <%= component "input.html",
+            form: f,
+            atom: :last_name,
+            placeholder: ""
+            %>
+
+            <%= component "input.html",
+            form: f,
+            atom: :email,
+            placeholder: "",
+            class: "mt5",
+            readonly: (@target_email != nil),
+            value: @target_email
+            %>
+
+            <%= component "input.html",
+            form: f,
+            atom: :password,
+            label: "Password (for Engine)",
+            placeholder: "Minimum 6 characters, inc: 1 capital, 1 digit, 1 special",
+            type: "password"
+            %>
+
+            <%= component "checkbox.html",
+            form: f,
+            atom: :terms_accepted,
+            label: "I have read and accept the ",
+            link: "/terms",
+            link_name: "terms of use"
+            %>
+
+            <%= component "submit_button.html",
+            title: "Create"
+            %>
+
+            <%= hidden_input f, :user_type, value: "CREW" %>
+
+            <div class="tc">
+            <h4 class="mv2">Already have an account?</h4>
+            <%= link "Log in", to: user_path(@conn, :new), class: "k-dark-indigo link underline mb2" %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

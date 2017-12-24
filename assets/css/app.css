@@ -1,0 +1,558 @@
+/*engine elements*/
+
+html {
+font-size: 10px;
+font-family:sans-serif;
+-webkit-text-size-adjust:100%;
+-ms-text-size-adjust:100%
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  margin:0
+}
+
+  article {
+    margin-top: 12rem;
+  }
+
+.alert {
+  text-align: center;
+}
+
+.alert-danger {
+  color: white;
+  background-color: #ff725c;
+  border-radius: 3px;
+}
+
+.k-right-0-5 {
+  right: 0.5rem;
+}
+
+.top--header {
+  top: -6rem;
+}
+
+.k-top--0-5 {
+  top: -0.5rem;
+}
+
+.k-top-0-5 {
+  top: 0.5rem
+}
+
+
+
+.nunito {
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
+.k-button-no-underline:hover {
+  text-decoration: none;
+}
+
+.k-date-select select {
+  background-color: #E9EAEB;
+  border: none;
+  outline: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none !important;
+    border: 1px solid #3f51b5;
+}
+
+a {
+  outline: none !important;
+}
+
+.lato {
+  font-family: 'Lato', sans-serif;
+}
+
+.no-placeholder:focus::-webkit-input-placeholder {
+opacity: 0;
+}
+
+.no-placeholder:focus:-moz-placeholder {
+  opacity: 0;
+}
+
+.app-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.button-active {
+  border-width: 1px;
+}
+
+.button-active:focus {
+  border: 1px solid #eeeeee;
+}
+
+.button-active:active {
+  border: 1px solid #eeeeee;
+}
+
+.button-active:hover {
+  cursor: pointer;
+}
+
+.k-pt2-8 {
+  padding-top: 2.8rem;
+}
+
+@media screen and (min-width: 30em) and (max-width: 60em){
+  .app-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media screen and (min-width: 30em) {
+  .app-container {
+    max-width: 110rem;
+  }
+  .k-pt2-8 {
+    padding-top: 2.5rem;
+  }
+}
+
+.k-left--05 {
+  left: -0.5rem;
+}
+
+.k-min-h-10 {
+  min-height: 10rem;
+}
+
+.k-min-h-4-7 {
+  min-height: 4.7rem;
+}
+
+.k-minw-320 {
+  min-width: 320px;
+}
+
+.k-top--4 {
+  top: -4rem;
+}
+
+.pa1-5 {
+  padding: 1.5rem;
+}
+
+.k-pr4-5 {
+  padding-right: 3rem;
+}
+
+/*Nav hamburger animation*/
+
+/*mobile*/
+nav {
+  overflow: hidden;
+  transition: .5s;
+}
+
+.height-auto {
+  height: auto;
+  transition: 1s;
+}
+
+.height-fixed {
+  height: 16rem;
+}
+
+@media screen and (min-width: 30em)  {
+  #hamburger {
+    display: none;
+  }
+
+  .height-auto {
+    height: auto;
+    transition: 1s;
+  }
+
+  .height-fixed {
+    height: 8rem;
+  }
+}
+
+/*engine Colours*/
+
+/*backgrounds*/
+.k-bg-indigo {
+  background-color: #3f51b5;
+}
+
+.k-bg-dark-indigo {
+  background-color: #002984;
+}
+
+.k-bg-light-indigo {
+  background-color: #757de8;
+}
+
+.k-bg-lighter-grey {
+  background-color: #F0F0F0;
+}
+
+.k-bg-grey {
+  background-color: #9e9e9e;
+}
+
+.k-bg-dark-grey {
+  background-color: #707070;
+}
+
+.k-bg-darker-grey {
+  background-color: #525252;
+}
+
+.k-bg-input {
+  background-color: #E9EAEB;
+}
+
+.k-bg-light-grey {
+  background-color: #cfcfcf;
+}
+
+.k-bg-offer-grey {
+  background-color: #eeeeee;
+}
+
+.k-bg-black {
+  background-color: #333333;
+}
+
+.k-bg-accent {
+  background-color: #eec643;
+}
+
+.k-bg-success {
+  background-color: #9eebcf;
+}
+
+.k-bg-error {
+  background-color: #ff725c;
+}
+
+
+/*borders*/
+
+.k-b--indigo {
+  border-color: #3f51b5;
+}
+
+.k-b--dark-indigo {
+  border-color: #002984;
+}
+
+.k-b--light-indigo {
+  border-color: #757de8;
+}
+
+.k-b--grey {
+  border-color: #eeeeee;
+}
+
+.k-b--black {
+  border-color: #333333;
+}
+
+.k-b--accent {
+  border-color: #eec643;
+}
+
+.k-b--success {
+  border-color: #9eebcf;
+}
+
+.k-b--error {
+  border-color: #ff725c;
+}
+
+.k-b--input {
+  border-color: #E9EAEB;
+}
+
+/*font-colour*/
+
+.k-indigo {
+  color: #3f51b5;
+}
+
+.k-dark-indigo {
+  color: #002984;
+}
+
+.k-light-indigo {
+  color: #757de8;
+}
+
+.k-grey {
+  color: #9e9e9e;
+}
+
+.k-dark-grey {
+  color: #707070;
+}
+
+.k-darker-grey {
+  color: #525252;
+}
+
+.k-light-grey {
+  color: #cfcfcf;
+}
+
+.k-black {
+  color: #333333;
+}
+
+.k-accent {
+  color: #eec643;
+}
+
+.k-success {
+  color: #9eebcf;
+}
+
+.k-error {
+  color: #ff725c;
+}
+
+.k-link {
+  color: #337ab7;
+}
+
+select {
+  color: #3f51b5;
+}
+
+.help-block {
+  text-transform: capitalize;
+  color: #757de8;
+}
+
+/*engine layout/custom components*/
+
+.hover-purple:hover {
+    color: #757de8;
+ }
+
+.engine-input::after {
+  content : "";
+  position: absolute;
+  left    : 0;
+  bottom  : 0;
+  height  : 1px;
+  width   : 50%;  /* or 100px */
+  border-bottom: 3px solid #707070;
+}
+
+.k-pb3 {
+   padding-bottom: 0.75rem;
+}
+
+.k-f2-5 {
+  font-size: 2rem;
+}
+
+
+.k-ftitle {
+  font-size: 7rem;
+}
+
+.k-hide-file-upload {
+  opacity: 0;
+  position: absolute;
+  z-index: 1000;
+  cursor: pointer;
+  right: 0;
+  top: 0;
+  height: 100%;
+  font-size: 24px;
+  width: 100%;
+}
+
+
+.k-h1px {
+  height: 1px;
+}
+
+.k-h3-5r {
+  height: 3.5rem;
+}
+
+.k-h6 {
+  height: 6rem;
+}
+
+.k-h10 {
+  height: 10rem;
+}
+
+
+.k-f2-5 {
+  font-size: 2rem;
+}
+
+.b-h3 {
+  height: 4rem;
+}
+
+.k-lh-3 {
+  line-height: 3;
+}
+
+.k-left-0-5 {
+  left: 0.5rem
+}
+
+.k-m-auto {
+  margin: 0 auto;
+}
+
+.k-mb0-5r {
+  margin-bottom: 0.5rem;
+}
+
+.k-minw-10 {
+  min-width: 10rem;
+}
+
+.k-minw-20 {
+  min-width: 20rem;
+}
+
+.k-mt0-1 {
+  margin-top: 0.1rem;
+}
+
+.k-mt0-4 {
+  margin-top: 0.4rem;
+}
+
+.k-mt1-5 {
+  margin-top: 1.5rem;
+}
+
+.k-mt3-5 {
+  margin-top: 1.7rem;
+}
+
+.k-mt9 {
+  margin-top: 9rem;
+}
+
+
+
+/* 4-5 =~ 4.5 because it's between 4 and 5 in tachyons*/
+.k-pl4-5 {
+  padding-left: 3rem;
+}
+
+
+
+.k-top-2-5 {
+  top: 2.5rem;
+}
+
+.k-right--0-5 {
+  right: -0.5rem;
+}
+
+.k-top-center {
+  top: 50%;
+  margin-top: -15px;
+}
+
+.k-shadow-1 {
+  box-shadow: 2px 2px 5px #888888;
+}
+
+.k-top0-5 {
+  top: 0.5rem;
+}
+
+.k-w1-5 {
+  width: 1.5rem;
+}
+
+.k-w2-5 {
+  width: 3rem;
+}
+
+.k-w3 {
+  width: 9rem;
+}
+
+.k-w4-5 {
+  width: 10rem;
+}
+
+.k-w6 {
+  width: 24rem;
+}
+
+.k-w1px {
+  width: 1px;
+}
+
+.k-w32 {
+  width: 32rem;
+}
+
+.alert:empty {
+  display: none;
+}
+
+
+.arrow {
+  right: 50%;
+  margin-right: -16px;
+  top: -4rem;
+}
+
+.help-block {
+  text-transform: capitalize;
+  color: #757de8;
+}
+
+.no-outline-focus:focus {
+  outline: 0;
+}
+
+.pointer_not-allowed:hover {
+  cursor: not-allowed;
+}
+
+.radio {
+  top: 50%;
+  margin-top: -8px;
+}
+
+
+.k-inline-checkbox-label {
+  margin-left: 2rem;
+  transform: translateY(23px);
+}
+
+/* conditional checkbox in form */
+[conditional]  input[type=checkbox]:checked  + [conditional_child] {
+  display: block;
+}
+[conditional]  input[type=checkbox] + [conditional_child] {
+  display: none;
+}
