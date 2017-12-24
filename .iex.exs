@@ -1,5 +1,5 @@
-IO.puts "sourcing aliases from ev2/.iex.exs"
+IO.puts "sourcing aliases from lfc/.iex.exs"
 
-alias Ev2.Repo
+alias Lfc.Repo
 
-alias Ev2.Accounts.{Permission, Role, RolePermission}
+alias Lfc.Accounts.{Permission, Role, RolePermission}

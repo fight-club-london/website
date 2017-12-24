@@ -1,4 +1,4 @@
-defmodule Ev2.Repo.Migrations.CreatePermissions do
+defmodule Lfc.Repo.Migrations.CreatePermissions do
   use Ecto.Migration
 
   def change do

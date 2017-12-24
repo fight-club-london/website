@@ -4,20 +4,20 @@
   },
   "skip_files": [
     "web/channels",
-    "lib/ev2/application.ex",
-    "lib/ev2_web.ex",
-    "lib/ev2_web/endpoint.ex",
-    "lib/ev2_web/router.ex",
+    "lib/lfc/application.ex",
+    "lib/lfc_web.ex",
+    "lib/lfc_web/endpoint.ex",
+    "lib/lfc_web/router.ex",
     "test/support/channel_case.ex",
     "test/support/data_case.ex",
     "test/support/test_helpers.ex",
-    "lib/ev2_web/views/error_helpers.ex",
-    "lib/ev2/redis_client_supervisor.ex",
-    "lib/ev2/seed/accounts.ex",
-    "lib/ev2/seed/accounts_data.ex",
-    "lib/ev2/seed/seed.ex",
-    "lib/ev2/seed/seed_mock.ex",
-    "lib/ev2/accounts/role",
-    "lib/ev2/accounts/permission_api.ex"
+    "lib/lfc_web/views/error_helpers.ex",
+    "lib/lfc/redis_client_supervisor.ex",
+    "lib/lfc/seed/accounts.ex",
+    "lib/lfc/seed/accounts_data.ex",
+    "lib/lfc/seed/seed.ex",
+    "lib/lfc/seed/seed_mock.ex",
+    "lib/lfc/accounts/role",
+    "lib/lfc/accounts/permission_api.ex"
   ]
 }

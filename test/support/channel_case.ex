@@ -1,4 +1,4 @@
-defmodule Ev2Web.ChannelCase do
+defmodule LfcWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule Ev2Web.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint Ev2Web.Endpoint
+      @endpoint LfcWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Ev2.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Lfc.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Ev2.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Lfc.Repo, {:shared, self()})
     end
     :ok
   end
