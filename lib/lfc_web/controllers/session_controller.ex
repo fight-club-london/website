@@ -29,7 +29,7 @@ defmodule LfcWeb.SessionController do
       {:ok, conn} ->
         conn
         |> put_flash(:info, "Welcome back!")
-        |> redirect(to: dashboard_path(conn, :index))
+        |> redirect(to: admin_dashboard_path(conn, :index))
       {:error, :unauthorized, conn} ->
         conn
         |> put_flash(:error, "Invalid email/password combination")
