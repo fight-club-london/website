@@ -4,19 +4,8 @@ defmodule LfcWeb.DashboardController do
   """
   use LfcWeb, :controller
 
-  def index(conn, _params, user) do
-    case user == nil do
-      true ->
-        conn
-        |> redirect(to: session_path(conn, :new))
-        |> halt()
-      false ->
-        render conn, "index.html"
-    end
+  def index(conn, _params) do
+    render conn, "index.html"
   end
 
-  def action(conn, _) do
-    apply(__MODULE__, action_name(conn),
-          [conn, conn.params, conn.assigns.current_user])
-  end
 end
