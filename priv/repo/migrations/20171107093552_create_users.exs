@@ -11,7 +11,6 @@ defmodule Lfc.Repo.Migrations.CreateUsers do
       add :last_name, :string
       add :password_hash, :string, null: false
       add :verified, :boolean, default: false, null: false
-      add :terms_accepted, :boolean, default: false, null: false
       add :active, :boolean, default: true, null: false
       add :role_id, references(:roles, on_delete: :nothing)
 

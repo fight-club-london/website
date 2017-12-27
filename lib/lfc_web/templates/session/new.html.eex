@@ -20,7 +20,7 @@
           atom: :password,
           type: :password,
           autofill: "on",
-          placeholder: "Minimum 6 characters, inc: 1 capital, 1 digit, 1 special"
+          placeholder: "Minimum 6 characters"
           %>
 
           <div class="tc">
@@ -28,7 +28,10 @@
               <%= submit "Sign in", class: "white l-b--blue l-bg-blue k-min-h-4-7 ttu pa3 pl4 pr4 k-f2-5 br2 w-100 lato mt3 no-outline-focus button-active" %>
             </div>
           </div>
-
+          <div class="pa4 tc">
+            <%= link "Forgot / reset password", to: password_path(@conn, :new), class: "white underline" %>
+            <%= component "divider.html" %>
+          </div>
         <% end %>
       </div>
     </div>

@@ -1,8 +1,8 @@
-<div class="vh-100 w-100 mw7-ns center dt">
+<div class="vh-100 w-100 mw7-ns center dt roboto white">
   <div class="dtc v-mid">
-      <div class="ba b--black-10 br4-ns pa4 bg-white h-auto-ns h-100">
-        <div class="tc pt5">
-          <img src="/images/engine-logo-front.jpg" class="k-w32"/>
+      <div class="ba b--black-10 br4-ns pa4 bg-white h-auto-ns h-100 l-bg-dark-grey">
+        <div class="tc mt4">
+          <div class="f2">New password</div>
         </div>
         <div class="">
           <%= form_for @changeset, password_path(@conn, :update, 1, hash: @hash), [method: "put"] , fn f -> %>
@@ -17,7 +17,7 @@
             form: f,
             atom: :password,
             type: "password",
-            placeholder: "Minimum 6 characters, inc: 1 capital, 1 digit, 1 special"
+            placeholder: "Minimum 6 characters"
             %>
             <%= component "input.html",
             form: f,
@@ -26,10 +26,14 @@
             placeholder: "Must match password"
             %>
 
-            <%= component "submit_button.html", title: "Reset" %>
+            <div class="tc">
+              <div class="mb4">
+                <%= submit "Reset", class: "white l-b--blue l-bg-blue k-min-h-4-7 ttu pa3 pl4 pr4 k-f2-5 br2 w-100 lato mt3 no-outline-focus button-active" %>
+              </div>
+            </div>
           <% end %>
 
-          <%= link "Back to log in", to: session_path(@conn, :new) %>
+          <%= link "Back to log in", to: session_path(@conn, :new), class: "white" %>
         </div>
       </div>
     </div>
