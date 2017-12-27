@@ -1,37 +1,35 @@
-<div class="vh-100 w-100 mw7-ns center dt">
+<div class="vh-100 w-100 mw7-ns center dt roboto white">
   <div class="dtc v-mid">
-    <div class="ba b--black-10 br4 pa4 bg-white h-auto-ns h-100">
-        <div class="tc pt5">
-          <img src="/images/engine-logo-front.jpg" class="k-w32"/>
-        </div>
-        <div class="mt4">
-          <%= form_for @conn, session_path(@conn, :create), [as: :session], fn f -> %>
+    <div class="ba b--black-10 br4 pa4 bg-white h-auto-ns h-100 l-bg-dark-grey">
+      <div class="tc mt4">
+        <div class="f2">London Fight Club</div>
+      </div>
+      <div class="mt5">
+        <%= form_for @conn, session_path(@conn, :create), [as: :session], fn f -> %>
 
-            <%= component "input.html",
-            form: f,
-            image_name: "user",
-            atom: :email,
-            autofill: "on",
-            placeholder: "example@email.com"
-            %>
-            <%= component "input.html",
-            form: f,
-            image_name: "locked",
-            atom: :password,
-            type: :password,
-            autofill: "on",
-            placeholder: "Minimum 6 characters, inc: 1 capital, 1 digit, 1 special"
-            %>
+          <%= component "input.html",
+          form: f,
+          image_name: "user",
+          atom: :email,
+          autofill: "on",
+          placeholder: "example@email.com"
+          %>
+          <%= component "input.html",
+          form: f,
+          image_name: "locked",
+          atom: :password,
+          type: :password,
+          autofill: "on",
+          placeholder: "Minimum 6 characters, inc: 1 capital, 1 digit, 1 special"
+          %>
 
-            <%= component "submit_button.html", title: "Log in" %>
+          <div class="tc">
+            <div class="mb4">
+              <%= submit "Sign in", class: "white l-b--blue l-bg-blue k-min-h-4-7 ttu pa3 pl4 pr4 k-f2-5 br2 w-100 lato mt3 no-outline-focus button-active" %>
+            </div>
+          </div>
 
-          <% end %>
-        </div>
-        <div class="pa4 tc">
-          <%= link "Forgot / reset password", to: password_path(@conn, :new), class: "k-dark-indigo underline" %>
-          <%= component "divider.html" %>
-          <h4 class="mt4 mb2">New to engine?</h4>
-          <%= link "Create an account", to: user_path(@conn, :new), class: "k-dark-indigo underline" %>
+        <% end %>
       </div>
     </div>
   </div>

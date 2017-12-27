@@ -156,6 +156,10 @@ opacity: 0;
   padding-right: 3rem;
 }
 
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
 /*Nav hamburger animation*/
 
 /*mobile*/
@@ -186,6 +190,67 @@ nav {
   .height-fixed {
     height: 8rem;
   }
+}
+
+ /*lfc colours*/
+
+.l-b--dark-grey {
+  border-color: #313540;
+}
+
+.l-b--light-blue {
+  border-color: #F8FCFF;
+}
+
+.l-b--blue {
+  border-color: #0095E4;
+}
+
+.l-b--light-grey {
+  border-color: #7F878D;
+}
+
+.l-b--pink {
+  border-color: #F34C76;
+}
+.l-bg-dark-grey {
+  background-color: #313540;
+}
+
+.l-bg-light-blue {
+  background-color: #F8FCFF;
+}
+
+.l-bg-blue {
+  background-color: #0095E4;
+}
+
+.l-bg-light-grey {
+  background-color: #7F878D;
+}
+
+.l-bg-pink {
+  background-color: #F34C76;
+}
+
+.l-dark-grey {
+  background-color: #313540;
+}
+
+.l-light-blue {
+  color: #F8FCFF;
+}
+
+.l-blue {
+  color: #0095E4;
+}
+
+.l-light-grey {
+  color: #7F878D;
+}
+
+.l-pink {
+  color: #F34C76;
 }
 
 /*engine Colours*/
