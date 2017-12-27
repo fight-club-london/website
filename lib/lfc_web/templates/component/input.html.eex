@@ -1,7 +1,7 @@
 <% border =
   case assigns[:form].errors[assigns[:atom]] != nil do
     true -> "k-b--error"
-    false -> "k-b--input"
+    false -> ""
   end %>
 <% class = assigns[:class] || "" %>
 <% container_id = assigns[:container_id] || "" %>
@@ -18,8 +18,8 @@
       _ -> "k-bg-input"
     end %>
     <% padding = case assigns[:image_name] do
-      nil -> "pl3"
-      _ -> "k-pl4-5"
+      nil -> "pa3"
+      _ -> "pt3 pb3 k-pl4-5"
     end %>
     <%= if assigns[:helper_text] do %>
     <div class="k-light-indigo"><%= assigns[:helper_text] %></div>
