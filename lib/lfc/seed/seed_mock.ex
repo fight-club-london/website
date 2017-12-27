@@ -24,8 +24,8 @@ defmodule Mix.Tasks.Lfc.SeedMock do
   or in development environment
   """
   def seed_mock do
-    is_dev? = Application.get_env(lfc, :env) == :dev
-    is_staging? = Application.get_env(lfc, :IS_STAGING)
+    is_dev? = Application.get_env(:lfc, :env) == :dev
+    is_staging? = Application.get_env(:lfc, :IS_STAGING)
     if is_staging? || is_dev? do
       Logger.info "Seeding mock data"
     end
