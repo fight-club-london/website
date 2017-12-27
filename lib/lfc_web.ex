@@ -41,6 +41,7 @@ defmodule LfcWeb do
       import LfcWeb.Router.Helpers
       import LfcWeb.ErrorHelpers
       import LfcWeb.Gettext
+      import LfcWeb.ViewHelpers
     end
   end
 

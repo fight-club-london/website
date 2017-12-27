@@ -160,6 +160,11 @@ opacity: 0;
   font-family: 'Roboto', sans-serif;
 }
 
+table, th, td {
+    border: 1px solid #eaeaea;
+    border-collapse: collapse;
+}
+
 /*Nav hamburger animation*/
 
 /*mobile*/
@@ -239,6 +244,10 @@ nav {
 
 .l-light-blue {
   color: #F8FCFF;
+}
+
+.l-lighter-grey {
+  color: #d0d0d0;
 }
 
 .l-blue {

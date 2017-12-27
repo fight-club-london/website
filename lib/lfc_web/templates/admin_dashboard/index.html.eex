@@ -1,24 +1,35 @@
+<%
+  total_fighters = length(@fighters)
+  new_this_month = this_month(@fighters)
+  IO.inspect new_this_month
+%>
 <h1 class="white top--header absolute mb0 fw1">Dashboard</h1>
 <div class="l-minh-100vh l-dark-grey pt4">
   <div>
     <div>Recent activity</div>
-    <table class="w-100">
-      <tr>
-        <td>
-          test
-        </td>
-        <td>
-          test
-        </td>
-      </tr>
-      <tr>
-        <td>
-          test
-        </td>
-        <td>
-          test
-        </td>
-      </tr>
-    </table>
+    <div class="pt3">
+      <table class="w-100">
+        <tr>
+          <td class="tc pt3 pb3 w-50">
+            <div class="f1"><%= total_fighters %></div>
+            <div class="l-lighter-grey">Total fighters</div>
+          </td>
+          <td class="tc pt3 pb3 w-50">
+            <div class="f1"><%= new_this_month %></div>
+            <div class="l-lighter-grey">New this month</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc pt3 pb3 w-50">
+            <div>
+
+            </div>
+          </td>
+          <td class="tc pt3 pb3 w-50">
+            test
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
