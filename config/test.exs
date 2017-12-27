@@ -2,7 +2,7 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config lfc, LfcWeb.Endpoint,
+config :lfc, LfcWeb.Endpoint,
   http: [port: 4001],
   server: false
 
@@ -10,7 +10,7 @@ config lfc, LfcWeb.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config lfc, Lfc.Repo,
+config :lfc, Lfc.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
@@ -24,5 +24,5 @@ config :comeonin, :pbkdf2_rounds, 1
 
 
 # Configure Bamboo
-config lfc, Lfc.Mailer,
+config :lfc, Lfc.Mailer,
   adapter: Bamboo.TestAdapter

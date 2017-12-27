@@ -6,11 +6,11 @@
 use Mix.Config
 
 # General application configuration
-config lfc,
+config :lfc,
   ecto_repos: [Lfc.Repo]
 
 # Configures the endpoint
-config lfc, LfcWeb.Endpoint,
+config :lfc, LfcWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "oevVJb6s1rUdotvoFbBItcLIKtryrNIwyrOFUbgdtifxL2Ceovd+c/K5wUv8c9MH",
   render_errors: [view: LfcWeb.ErrorView, accepts: ~w(html json)],
@@ -23,7 +23,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 # Configure mailing
-config lfc, Lfc.Mailer,
+config :lfc, Lfc.Mailer,
   adapter: Bamboo.SMTPAdapter,
   server: System.get_env("SES_SERVER"),
   port: System.get_env("SES_PORT"),
@@ -46,8 +46,8 @@ config :ex_aws,
   ]
 
 # add custom environment variables
-config lfc, env: Mix.env
-config lfc, IS_STAGING: System.get_env("IS_STAGING")
+config :lfc, env: Mix.env
+config :lfc, IS_STAGING: System.get_env("IS_STAGING")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
