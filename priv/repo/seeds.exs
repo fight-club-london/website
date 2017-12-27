@@ -12,6 +12,7 @@
 
 alias Lfc.{Repo}
 alias Lfc.Accounts.{User}
+alias Lfc.Main.{Fighter}
 
 case Repo.get_by(User, first_name: "Admin") do
   nil ->
@@ -24,3 +25,40 @@ case Repo.get_by(User, first_name: "Admin") do
     }
   _user -> IO.puts "Admin already in database"
 end
+
+Repo.insert! %Fighter{
+  title: "Mr",
+  first_name: "John",
+  last_name: "Smith",
+  email: "johnsmith@email.com",
+  mobile_number: "07888444777",
+  location: "London",
+  occupation: "Accountant"
+}
+Repo.insert! %Fighter{
+  title: "Mr",
+  first_name: "John",
+  last_name: "Smith",
+  email: "johnsmith@email.com",
+  mobile_number: "07888444777",
+  location: "London",
+  occupation: "Accountant"
+}
+Repo.insert! %Fighter{
+  title: "Mr",
+  first_name: "John",
+  last_name: "Smith",
+  email: "johnsmith@email.com",
+  mobile_number: "07888444777",
+  location: "London",
+  occupation: "Accountant"
+}
+Repo.insert! %Fighter{
+  title: "Mr",
+  first_name: "John",
+  last_name: "Smith",
+  email: "johnsmith@email.com",
+  mobile_number: "07888444777",
+  location: "London",
+  occupation: "Accountant"
+}

@@ -32,7 +32,7 @@ body {
 }
 
 .top--header {
-  top: -6rem;
+  top: -6.5rem;
 }
 
 .k-top--0-5 {
@@ -234,7 +234,7 @@ nav {
 }
 
 .l-dark-grey {
-  background-color: #313540;
+  color: #313540;
 }
 
 .l-light-blue {
@@ -519,6 +519,10 @@ select {
 
 .k-mt9 {
   margin-top: 9rem;
+}
+
+.l-minh-100vh {
+  min-height: 100vh;
 }
 
 

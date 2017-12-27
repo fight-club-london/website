@@ -1,1 +1,24 @@
-<h1 class="white top--header absolute fw4 mb0">Dashboard</h1>
+<h1 class="white top--header absolute mb0 fw1">Dashboard</h1>
+<div class="l-minh-100vh l-dark-grey pt4">
+  <div>
+    <div>Recent activity</div>
+    <table class="w-100">
+      <tr>
+        <td>
+          test
+        </td>
+        <td>
+          test
+        </td>
+      </tr>
+      <tr>
+        <td>
+          test
+        </td>
+        <td>
+          test
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
