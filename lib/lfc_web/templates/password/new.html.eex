@@ -1,10 +1,10 @@
-<div class="vh-100 w-100 mw7-ns center dt">
+<div class="vh-100 w-100 mw7-ns center dt roboto white">
   <div class="dtc v-mid">
-    <div class="ba b--black-10 br4 pa4 bg-white h-auto-ns h-100">
-      <div class="tc pt5">
-        <img src="/images/engine-logo-front.jpg" class="k-w32"/>
+    <div class="ba b--black-10 br4 pa4 bg-white h-auto-ns h-100 l-bg-dark-grey">
+      <div class="tc mt4">
+        <div class="f2">Reset password</div>
       </div>
-      <div class="mt4 mb6">
+      <div class="mt4 mb3">
         <%= form_for @changeset, password_path(@conn, :create), fn f -> %>
           <%= if @changeset.action do %>
             <div class="alert alert-danger mt3">
@@ -18,10 +18,14 @@
           placeholder: "Enter your email address"
           %>
 
-          <%= component "submit_button.html", title: "Send reset email" %>
+          <div class="tc">
+            <div class="mb4">
+              <%= submit "Send reset email", class: "white l-b--blue l-bg-blue k-min-h-4-7 ttu pa3 pl4 pr4 k-f2-5 br2 w-100 lato mt3 no-outline-focus button-active" %>
+            </div>
+          </div>
         <% end %>
-        <div class="tc k-indigo">
-          <%= link "Back to log in", to: session_path(@conn, :new), class: "k-dark-indigo" %>
+        <div class="tc k-indigo pt4">
+          <%= link "Back to log in", to: session_path(@conn, :new), class: "white" %>
         </div>
       </div>
     </div>

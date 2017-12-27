@@ -15,7 +15,6 @@ defmodule Lfc.Accounts.User do
     field :last_name, :string
     field :password, :string, virtual: true
     field :password_hash, :string
-    field :terms_accepted, :boolean
     field :verified, :boolean, nil: false, default: false
     belongs_to :role, Role
     timestamps()
@@ -30,7 +29,6 @@ defmodule Lfc.Accounts.User do
       :last_name,
       :password,
       :verified,
-      :terms_accepted,
       :active
     ])
     |> validate_required([
@@ -39,7 +37,6 @@ defmodule Lfc.Accounts.User do
       :last_name,
       :password,
       :verified,
-      :terms_accepted,
       :active
     ])
     |> email_changeset(attrs)
@@ -63,7 +60,6 @@ defmodule Lfc.Accounts.User do
   def registration_changeset(%User{} = user, attrs \\ %{}) do
     user
     |> changeset(attrs)
-    |> terms_accepted(attrs)
     |> validate_password()
     |> put_password_hash()
   end
@@ -76,14 +72,6 @@ defmodule Lfc.Accounts.User do
     |> validate_confirmation(:password, required: true, message: message)
     |> validate_password()
     |> put_password_hash()
-  end
-
-  defp terms_accepted(changeset, attrs) do
-    message = "You must agree to the terms and conditions"
-    changeset
-    |> cast(attrs, [:terms_accepted])
-    |> validate_required([:terms_accepted])
-    |> validate_inclusion(:terms_accepted, [true], message: message)
   end
 
   defp validate_password(changeset) do

@@ -1,7 +1,7 @@
 <% border =
   case assigns[:form].errors[assigns[:atom]] != nil do
     true -> "k-b--error"
-    false -> ""
+    false -> "l-b--dark-grey"
   end %>
 <% class = assigns[:class] || "" %>
 <% container_id = assigns[:container_id] || "" %>
@@ -32,7 +32,7 @@
       placeholder: assigns[:placeholder],
       value: assigns[:value],
       type: assigns[:type] || "",
-      class: "border-box k-dark-grey pa3 br2 w-100 outline-0 lato ba #{border} #{padding} #{bg_color}",
+      class: "border-box pa3 br2 w-100 outline-0 lato ba #{border} #{padding} #{bg_color}",
       autocomplete: assigns[:autocomplete] || "on",
       id: assigns[:id]
       %>
@@ -43,7 +43,7 @@
       readonly: assigns[:readonly] || false,
       placeholder: assigns[:placeholder],
       type: assigns[:type] || "",
-      class: "border-box k-dark-grey pa3 br2 w-100 outline-0 lato ba #{border} #{padding} #{bg_color}",
+      class: "border-box pa3 br2 w-100 outline-0 lato ba #{border} #{padding} #{bg_color}",
       autocomplete: assigns[:autocomplete] || "on",
       id: assigns[:id]
       %>
