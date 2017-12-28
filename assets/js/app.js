@@ -41,14 +41,14 @@ function timerListeners(day, month, year) {
     var eventHours = eventMinutes / 60;
     var todayHours = todayMinutes / 60;
     var hoursOut = eventHours - todayHours;
-    var roundedHours = Math.round(hoursOut % 24);
+    var roundedHours = Math.floor(hoursOut % 24);
     var hourContainer = document.getElementById('hours');
     hourContainer.innerHTML = zeroPad(roundedHours);
     // days
     var eventDays = eventHours / 24;
     var todayDays = todayHours / 24;
-    var daysOut = (eventDays - todayDays) - 30;
-    var roundedDays = Math.round(daysOut % 365);
+    var daysOut = (eventDays - todayDays) - 31;
+    var roundedDays = Math.floor(daysOut % 365);
     var dayContainer = document.getElementById('days');
     dayContainer.innerHTML = zeroPad(roundedDays);
   }, 1000)
@@ -76,14 +76,14 @@ function smallTimerListeners(day, month, year) {
     var eventHours = eventMinutes / 60;
     var todayHours = todayMinutes / 60;
     var hoursOut = eventHours - todayHours;
-    var roundedHours = Math.round(hoursOut % 24);
+    var roundedHours = Math.floor(hoursOut % 24);
     var hourContainer = document.getElementById('hours-s');
     hourContainer.innerHTML = zeroPad(roundedHours);
     // days
     var eventDays = eventHours / 24;
     var todayDays = todayHours / 24;
-    var daysOut = (eventDays - todayDays) - 30;
-    var roundedDays = Math.round(daysOut % 365);
+    var daysOut = (eventDays - todayDays) - 31;
+    var roundedDays = Math.floor(daysOut % 365);
     var dayContainer = document.getElementById('days-s');
     dayContainer.innerHTML = zeroPad(roundedDays);
   }, 1000)

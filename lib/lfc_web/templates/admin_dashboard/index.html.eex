@@ -46,6 +46,11 @@
         </tr>
         <tr>
           <td class="tc pt4 pb4 w-50 data-td">
+            <%= if next_event do %>
+              <div class="l-mb--1 pt2"><%= format_long_date(next_event) %></div>
+            <% else %>
+              <div class="l-mb--1 pt2">No upcoming events</div>
+            <% end %>
             <div>
               <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1" id="days-s">00</div>
@@ -102,6 +107,11 @@
             </div>
           </td>
           <td class="tc pt4 pb4 w-50 data-td">
+            <%= if next_event do %>
+              <div class="l-mb--1 pt2"><%= format_long_date(next_event) %></div>
+            <% else %>
+              <div class="l-mb--1 pt2">No upcoming events</div>
+            <% end %>
             <div>
               <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1" id="days">00</div>
@@ -138,7 +148,7 @@
           </tr>
         </table>
         <div class="pt4 pb4">
-          <div class="f1 tc l-lighter-grey">No future events created yet!</div>
+          <div class="f1 tc l-lighter-grey">No upcoming events!</div>
         </div>
       </div>
     <% else %>
