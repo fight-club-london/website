@@ -160,7 +160,12 @@ opacity: 0;
   font-family: 'Roboto', sans-serif;
 }
 
-table, th, td {
+.data-table, .data-th, .data-td {
+    border: 1px solid #eaeaea;
+    border-collapse: collapse;
+}
+
+.fighter-table, .fighter-th, .fighter-td {
     border: 1px solid #eaeaea;
     border-collapse: collapse;
 }
@@ -411,7 +416,8 @@ nav {
 }
 
 select {
-  color: #3f51b5;
+  color: #313540;
+  border-style: none;
 }
 
 .help-block {

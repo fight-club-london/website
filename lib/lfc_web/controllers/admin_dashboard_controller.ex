@@ -3,12 +3,15 @@ defmodule LfcWeb.AdminDashboardController do
 
   alias LfcWeb.LayoutView
   alias Lfc.Main
+  alias Lfc.Main.{Event}
 
   def index(conn, _params) do
     fighters = Main.list_fighters()
+    changeset = Main.change_event(%Event{})
     render(conn,
     "index.html",
     layout: {LayoutView, "admin.html"},
-    fighters: fighters)
+    fighters: fighters,
+    changeset: changeset)
   end
 end

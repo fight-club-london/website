@@ -1,35 +1,92 @@
 <%
   total_fighters = length(@fighters)
   new_this_month = this_month(@fighters)
-  IO.inspect new_this_month
 %>
 <h1 class="white top--header absolute mb0 fw1">Dashboard</h1>
 <div class="l-minh-100vh l-dark-grey pt4">
   <div>
     <div>Recent activity</div>
-    <div class="pt3">
-      <table class="w-100">
+    <div class="pt3 pb4 overflow-scroll">
+      <table class="w-100 data-table">
         <tr>
-          <td class="tc pt3 pb3 w-50">
+          <td class="tc pt3 pb3 w-50 data-td">
             <div class="f1"><%= total_fighters %></div>
             <div class="l-lighter-grey">Total fighters</div>
           </td>
-          <td class="tc pt3 pb3 w-50">
+          <td class="tc pt3 pb3 w-50 data-td">
             <div class="f1"><%= new_this_month %></div>
             <div class="l-lighter-grey">New this month</div>
           </td>
         </tr>
         <tr>
-          <td class="tc pt3 pb3 w-50">
+          <td class="tc pt3 pb3 w-50 data-td">
             <div>
-
+              <%= form_for @changeset, event_path(@conn, :create), fn f -> %>
+                <%= component "date.html",
+                    atom: :date,
+                    form: f,
+                    label: "" %>
+                <div class="tc">
+                  <div>
+                    <%= submit "Create", class: "white l-b--blue l-bg-blue k-min-h-4-7 ttu pa2 pl4 pr4 f3 br2 lato mt3 no-outline-focus button-active" %>
+                  </div>
+                </div>
+              <% end %>
+              <div class="l-lighter-grey pt3">Next event</div>
             </div>
           </td>
-          <td class="tc pt3 pb3 w-50">
+          <td class="tc pt3 pb3 w-50 data-td">
             test
           </td>
         </tr>
       </table>
     </div>
+    <div class="pt5">Recent sign ups</div>
+    <%= if length(@fighters) == 0 do %>
+      <div class="pt3 overflow-scroll">
+        <table class="w-100 data-table">
+          <tr class="data-tr bb">
+            <th align="left" class="nowrap pa4">Name</th>
+            <th align="left" class="nowrap pa4">Email</th>
+            <th align="left" class="nowrap pa4">Mobile number</th>
+            <th align="left" class="nowrap pa4">Occupation</th>
+            <th align="left" class="nowrap pa4">Location</th>
+            <th align="left" class="nowrap pa4">Signed up</th>
+          </tr>
+        </table>
+        <div class="pt4 pb4">
+          <div class="f1 tc l-lighter-grey">No sign ups yet!</div>
+        </div>
+      </div>
+    <% else %>
+      <div class="pt3 pb4 overflow-scroll">
+        <table class="w-100 data-table">
+          <tr class="data-tr bb">
+            <th align="left" class="nowrap pa4">Name</th>
+            <th align="left" class="nowrap pa4">Email</th>
+            <th align="left" class="nowrap pa4">Mobile number</th>
+            <th align="left" class="nowrap pa4">Occupation</th>
+            <th align="left" class="nowrap pa4">Location</th>
+            <th align="left" class="nowrap pa4">Signed up</th>
+          </tr>
+          <%= for {fighter, index} <- Enum.with_index(@fighters) do %>
+          <% background_colour =
+            case rem(index, 2) == 0 || index == 0 do
+              true -> "l-bg-light-blue"
+              false -> ""
+            end
+            %>
+            <tr class="bb">
+              <td class="nowrap pa4 <%= background_colour %>"><%= "#{fighter.title} #{fighter.first_name} #{fighter.last_name}" %></td>
+              <td class="nowrap pa4 <%= background_colour %>"><%= fighter.email %></td>
+              <td class="nowrap pa4 <%= background_colour %>"><%= fighter.mobile_number %></td>
+              <td class="nowrap pa4 <%= background_colour %>"><%= fighter.occupation %></td>
+              <td class="nowrap pa4 <%= background_colour %>"><%= fighter.location %></td>
+              <td class="nowrap pa4 <%= background_colour %>"><%= get_time(fighter.inserted_at) %></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+    <% end %>
   </div>
 </div>

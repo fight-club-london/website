@@ -1,0 +1,29 @@
+<div>
+  <%= case assigns[:label] do
+   nil -> label assigns[:form], assigns[:atom], class: "dib mw-100 mb2 fw4"
+   _ -> label assigns[:form], assigns[:atom], assigns[:label], class: "dib mw-100 mb2 fw4"
+   end %>
+   <% year_from = assigns[:year_from] || Date.utc_today().year
+      year_to = assigns[:year_to] || Date.utc_today().year + 10 %>
+  <div class="dib b-h3 pt3 br3 l-dark-grey">
+    <%= date_select assigns[:form],
+    assigns[:atom],
+    class: "dib h1 f6 l-dark-grey bg-white ba b--dark-grey br2 w-100 bn",
+    year: [options: year_from..year_to],
+    builder: fn b -> %>
+      <%= b.(:day, [prompt: "day"]) %> /
+      <%= b.(:month, [prompt: "month"]) %> /
+      <%= b.(:year, [prompt: "year"]) %>
+    <% end %>
+  </div>
+  <%= error_tag assigns[:form], assigns[:atom] %>
+</div>
+
+<!--
+assigns:
+atom,
+form,
+year_from (optional),
+year_to (optional),
+label (optional)
+ -->

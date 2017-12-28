@@ -32,6 +32,7 @@ defmodule LfcWeb.Router do
     pipe_through [:browser, :authenticate]
 
     resources "/dashboard", AdminDashboardController, only: [:index]
+    resources "/events", EventController, only: [:create]
   end
 
   # Other scopes may use custom stacks.

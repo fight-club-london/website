@@ -11,4 +11,19 @@ defmodule LfcWeb.ViewHelpers do
     |> Enum.filter(fn fighter -> fighter.inserted_at.month == month end)
     |> length()
   end
+
+  def get_time(date) do
+    hour = date.hour
+    minute = date.minute
+    day = date.day
+    month = date.month
+    year = date.year
+    am_pm =
+      case hour > 11 do
+        true -> "pm"
+        false -> "am"
+      end
+    "#{day}/#{month}/#{year} #{hour}:#{minute}#{am_pm}"
+  end
+
 end
