@@ -77,6 +77,24 @@ defmodule Lfc.Main.EventApi do
       end
 
       @doc """
+      Deletes an Event.
+
+      ## Examples
+
+          iex> delete_event(event)
+          {:ok, %Event{}}
+
+          iex> delete_event(event)
+          {:error, %Ecto.Changeset{}}
+
+      """
+      def delete_event(%Event{} = event) do
+        event
+        |> Changeset.change
+        |> Repo.delete()
+      end
+
+      @doc """
       Returns an `%Ecto.Changeset{}` for tracking event changes.
 
       ## Examples

@@ -1,6 +1,7 @@
 <%
   total_fighters = length(@fighters)
   new_this_month = this_month(@fighters)
+  future_events = future_events(@events)
 %>
 <h1 class="white top--header absolute mb0 fw1">Dashboard</h1>
 <div class="l-minh-100vh l-dark-grey pt4">
@@ -123,7 +124,7 @@
       </table>
     </div>
     <div class="pt5">Future events</div>
-    <%= if length(@events) == 0 do %>
+    <%= if length(future_events) == 0 do %>
       <div class="pt3 overflow-scroll">
         <table class="w-100 data-table">
           <tr class="data-tr bb">
@@ -132,7 +133,7 @@
           </tr>
         </table>
         <div class="pt4 pb4">
-          <div class="f1 tc l-lighter-grey">No events created yet!</div>
+          <div class="f1 tc l-lighter-grey">No future events created yet!</div>
         </div>
       </div>
     <% else %>
@@ -142,7 +143,7 @@
             <th align="left" class="nowrap pa4">Date</th>
             <th align="left" class="nowrap pa4"></th>
           </tr>
-          <%= for {event, index} <- Enum.with_index(@events) do %>
+          <%= for {event, index} <- Enum.with_index(future_events) do %>
           <% background_colour =
             case rem(index, 2) == 0 || index == 0 do
               true -> "l-bg-light-blue"
@@ -152,7 +153,9 @@
           <tr class="data-tr bb <%= background_colour %>">
             <td align="left" class="nowrap pa4"><%= format_long_date(event.date) %></td>
             <td align="right" class="nowrap pa4">
-              <img src="/images/cancel.svg" class="w2 pt1" />
+              <%= link to: event_path(@conn, :delete, event), method: :delete do %>
+                <img src="/images/cancel.svg" class="w2 pt1" />
+              <% end %>
             </td>
           </tr>
           <% end %>

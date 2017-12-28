@@ -61,4 +61,19 @@ defmodule LfcWeb.ViewHelpers do
     end
   end
 
+  def future_events(events) do
+    {{year, month, day}, {hour, minute, second}} = :calendar.universal_time()
+    {:ok, date_today} = Date.new(year, month, day)
+
+    events
+    |> Enum.filter(fn event ->
+        year = event.date.year
+        day = event.date.day
+        month = event.date.month
+        {:ok, start} = Date.from_erl({year, month, day})
+        Date.compare(date_today, start) != :gt
+      end
+    )
+  end
+
 end
