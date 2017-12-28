@@ -122,6 +122,43 @@
         </tr>
       </table>
     </div>
+    <div class="pt5">Future events</div>
+    <%= if length(@events) == 0 do %>
+      <div class="pt3 overflow-scroll">
+        <table class="w-100 data-table">
+          <tr class="data-tr bb">
+            <th align="left" class="nowrap pa4">Date</th>
+            <th align="left" class="nowrap pa4"></th>
+          </tr>
+        </table>
+        <div class="pt4 pb4">
+          <div class="f1 tc l-lighter-grey">No events created yet!</div>
+        </div>
+      </div>
+    <% else %>
+      <div class="pt3 overflow-scroll">
+        <table class="w-100 data-table">
+          <tr class="data-tr bb">
+            <th align="left" class="nowrap pa4">Date</th>
+            <th align="left" class="nowrap pa4"></th>
+          </tr>
+          <%= for {event, index} <- Enum.with_index(@events) do %>
+          <% background_colour =
+            case rem(index, 2) == 0 || index == 0 do
+              true -> "l-bg-light-blue"
+              false -> ""
+            end
+            %>
+          <tr class="data-tr bb <%= background_colour %>">
+            <td align="left" class="nowrap pa4"><%= format_long_date(event.date) %></td>
+            <td align="right" class="nowrap pa4">
+              <img src="/images/cancel.svg" class="w2 pt1" />
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    <% end %>
     <div class="pt5">Recent sign ups</div>
     <%= if length(@fighters) == 0 do %>
       <div class="pt3 overflow-scroll">

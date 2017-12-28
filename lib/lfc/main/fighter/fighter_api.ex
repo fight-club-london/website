@@ -19,7 +19,9 @@ defmodule Lfc.Main.FighterApi do
 
       """
       def list_fighters do
-        Repo.all(Fighter)
+        query = from f in Fighter,
+          order_by: f.inserted_at
+        Repo.all(query)
       end
 
       @doc """
@@ -112,19 +114,6 @@ defmodule Lfc.Main.FighterApi do
       """
       def change_fighter_email(%Fighter{} = fighter) do
         Fighter.email_changeset(fighter, %{})
-      end
-
-      @doc """
-      Returns an `%Ecto.Changeset{}` for changing a fighter's password.
-
-      ## Examples
-
-          iex> change_password(fighter)
-          %Ecto.Changeset{source: %Fighter{}}
-
-      """
-      def change_password(%Fighter{} = fighter) do
-        Fighter.new_password_changeset(fighter, %{})
       end
 
     end

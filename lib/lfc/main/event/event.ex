@@ -6,7 +6,7 @@ defmodule Lfc.Main.Event do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "fighters" do
+  schema "events" do
     field :date, :date
     timestamps()
   end

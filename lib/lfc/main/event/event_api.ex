@@ -19,7 +19,9 @@ defmodule Lfc.Main.EventApi do
 
       """
       def list_events do
-        Repo.all(Event)
+        query = from e in Event,
+          order_by: e.date
+        Repo.all(query)
       end
 
       @doc """
@@ -57,20 +59,6 @@ defmodule Lfc.Main.EventApi do
       def get_event(id), do: Repo.get(Event, id)
 
       @doc """
-      Gets a single event by email.
-
-      ## Examples
-
-          iex> get_event_by_email(example@email.com)
-          %Event{}
-
-          iex> get_event_by_email("")
-          nil
-
-      """
-      def get_event_by_email(email), do: Repo.get_by(Event, email: email)
-
-      @doc """
       Creates a event.
 
       ## Examples
@@ -99,32 +87,6 @@ defmodule Lfc.Main.EventApi do
       """
       def change_event(%Event{} = event) do
         Event.changeset(event, %{})
-      end
-
-      @doc """
-      Returns an `%Ecto.Changeset{}` for tracking event email changes.
-
-      ## Examples
-
-          iex> change_event_email(event)
-          %Ecto.Changeset{source: %Event{}}
-
-      """
-      def change_event_email(%Event{} = event) do
-        Event.email_changeset(event, %{})
-      end
-
-      @doc """
-      Returns an `%Ecto.Changeset{}` for changing a event's password.
-
-      ## Examples
-
-          iex> change_password(event)
-          %Ecto.Changeset{source: %Event{}}
-
-      """
-      def change_password(%Event{} = event) do
-        Event.new_password_changeset(event, %{})
       end
 
     end
