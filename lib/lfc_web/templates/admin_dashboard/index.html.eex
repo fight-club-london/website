@@ -6,20 +6,22 @@
 <div class="l-minh-100vh l-dark-grey pt4">
   <div>
     <div>Recent activity</div>
-    <div class="pt3 pb4 overflow-scroll">
+    <div class="pt3 pb4 overflow-scroll l-s">
       <table class="w-100 data-table">
         <tr>
-          <td class="tc pt3 pb3 w-50 data-td">
+          <td class="tc pt4 pb4 w-50 data-td">
             <div class="f1"><%= total_fighters %></div>
             <div class="l-lighter-grey">Total fighters</div>
           </td>
-          <td class="tc pt3 pb3 w-50 data-td">
+        </tr>
+        <tr>
+          <td class="tc pt4 pb4 w-50 data-td">
             <div class="f1"><%= new_this_month %></div>
             <div class="l-lighter-grey">New this month</div>
           </td>
         </tr>
         <tr>
-          <td class="tc pt3 pb3 w-50 data-td">
+          <td class="tc pt4 pb4 w-50 data-td overflow-scroll nowrap">
             <div>
               <%= form_for @changeset, event_path(@conn, :create), fn f -> %>
                 <%= component "date.html",
@@ -35,8 +37,77 @@
               <div class="l-lighter-grey pt3">Next event</div>
             </div>
           </td>
-          <td class="tc pt3 pb3 w-50 data-td">
-            test
+        </tr>
+        <tr>
+          <td class="tc pt4 pb4 w-50 data-td">
+            <div>
+              <div class="dib ma4">
+                <div class="dib f1">00</div>
+                <div class="l-blue">days</div>
+              </div>
+              <div class="dib f1 clock-separator">:</div>
+              <div class="dib ma4">
+                <div class="dib f1">00</div>
+                <div class="l-blue">hours</div>
+              </div>
+              <div class="dib f1 clock-separator">:</div>
+              <div class="dib ma4">
+                <div class="dib f1">00</div>
+                <div class="l-blue">seconds</div>
+              </div>
+            </div>
+            <div class="l-lighter-grey pt3">Time until next event</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="pt3 pb4 overflow-scroll l-ns">
+      <table class="w-100 data-table">
+        <tr>
+          <td class="tc pt4 pb4 w-50 data-td">
+            <div class="f1"><%= total_fighters %></div>
+            <div class="l-lighter-grey">Total fighters</div>
+          </td>
+          <td class="tc pt4 pb4 w-50 data-td">
+            <div class="f1"><%= new_this_month %></div>
+            <div class="l-lighter-grey">New this month</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc pt4 pb4 w-50 data-td overflow-scroll nowrap">
+            <div>
+              <%= form_for @changeset, event_path(@conn, :create), fn f -> %>
+                <%= component "date.html",
+                    atom: :date,
+                    form: f,
+                    label: "" %>
+                <div class="tc">
+                  <div>
+                    <%= submit "Create", class: "white l-b--blue l-bg-blue k-min-h-4-7 ttu pa2 pl4 pr4 f3 br2 lato mt3 no-outline-focus button-active" %>
+                  </div>
+                </div>
+              <% end %>
+              <div class="l-lighter-grey pt3">Next event</div>
+            </div>
+          </td>
+          <td class="tc pt4 pb4 w-50 data-td">
+            <div>
+              <div class="dib ma4">
+                <div class="dib f1">00</div>
+                <div class="l-blue">days</div>
+              </div>
+              <div class="dib f1 clock-separator">:</div>
+              <div class="dib ma4">
+                <div class="dib f1">00</div>
+                <div class="l-blue">hours</div>
+              </div>
+              <div class="dib f1 clock-separator">:</div>
+              <div class="dib ma4">
+                <div class="dib f1">00</div>
+                <div class="l-blue">seconds</div>
+              </div>
+            </div>
+            <div class="l-lighter-grey pt3">Time until next event</div>
           </td>
         </tr>
       </table>

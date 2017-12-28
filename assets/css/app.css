@@ -27,6 +27,13 @@ body {
   border-radius: 3px;
 }
 
+.clock-separator {
+  top: 50%;
+	-webkit-transform: translateY(-66%);
+	-o-transform: translateY(-66%);
+	transform: translateY(-66%);
+}
+
 .k-right-0-5 {
   right: 0.5rem;
 }
@@ -170,6 +177,14 @@ opacity: 0;
     border-collapse: collapse;
 }
 
+.l-s {
+  display: inline-block;
+}
+
+.l-ns {
+  display: none;
+}
+
 /*Nav hamburger animation*/
 
 /*mobile*/
@@ -199,6 +214,13 @@ nav {
 
   .height-fixed {
     height: 8rem;
+  }
+  .l-s {
+    display: none;
+  }
+
+  .l-ns {
+    display: block;
   }
 }
 
@@ -539,8 +561,6 @@ select {
 .l-minh-100vh {
   min-height: 100vh;
 }
-
-
 
 /* 4-5 =~ 4.5 because it's between 4 and 5 in tachyons*/
 .k-pl4-5 {
