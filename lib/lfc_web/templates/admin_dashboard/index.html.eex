@@ -34,25 +34,30 @@
                   </div>
                 </div>
               <% end %>
-              <div class="l-lighter-grey pt3">Next event</div>
+              <div class="l-lighter-grey pt3">New event</div>
             </div>
           </td>
         </tr>
         <tr>
           <td class="tc pt4 pb4 w-50 data-td">
             <div>
-              <div class="dib ma4">
-                <div class="dib f1">00</div>
+              <div class="dib mt4 mb4 l-minw-60">
+                <div class="dib f1" id="days">00</div>
                 <div class="l-blue">days</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
-              <div class="dib ma4">
-                <div class="dib f1">00</div>
+              <div class="dib mt4 mb4 l-minw-60">
+                <div class="dib f1" id="hours">00</div>
                 <div class="l-blue">hours</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
-              <div class="dib ma4">
-                <div class="dib f1">00</div>
+              <div class="dib mt4 mb4 l-minw-60">
+                <div class="dib f1" id="minutes">00</div>
+                <div class="l-blue">minutes</div>
+              </div>
+              <div class="dib f1 clock-separator">:</div>
+              <div class="dib mt4 mb4 l-minw-60">
+                <div class="dib f1" id="seconds">00</div>
                 <div class="l-blue">seconds</div>
               </div>
             </div>
@@ -92,18 +97,23 @@
           </td>
           <td class="tc pt4 pb4 w-50 data-td">
             <div>
-              <div class="dib ma4">
+              <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1">00</div>
                 <div class="l-blue">days</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
-              <div class="dib ma4">
+              <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1">00</div>
                 <div class="l-blue">hours</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
-              <div class="dib ma4">
-                <div class="dib f1">00</div>
+              <div class="dib mt4 mb4 l-minw-60">
+                <div class="dib f1" id="minutes">00</div>
+                <div class="l-blue">minutes</div>
+              </div>
+              <div class="dib f1 clock-separator">:</div>
+              <div class="dib mt4 mb4 l-minw-60">
+                <div class="dib f1" id="seconds">00</div>
                 <div class="l-blue">seconds</div>
               </div>
             </div>

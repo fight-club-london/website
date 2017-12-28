@@ -185,6 +185,10 @@ opacity: 0;
   display: none;
 }
 
+.l-minw-60 {
+  min-width: 60px;
+}
+
 /*Nav hamburger animation*/
 
 /*mobile*/
