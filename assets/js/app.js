@@ -20,22 +20,21 @@ import "phoenix_html"
 
 // import socket from "./socket"
 function timerListeners(day, month, year) {
-
   setInterval(function () {
     var eventDate = new Date(year, month, day, 19).getTime();
     var today = new Date().getTime();
     // seconds
-    var eventSeconds = eventDate / 1000;
-    var todaySeconds = today / 1000;
+    var eventSeconds = Math.round(eventDate / 1000);
+    var todaySeconds = Math.round(today / 1000);
     var secondsOut = eventSeconds - todaySeconds;
-    var roundedSeconds = Math.round(secondsOut % 60);
+    var roundedSeconds = secondsOut % 60;
     var secondContainer = document.getElementById('seconds');
     secondContainer.innerHTML = zeroPad(roundedSeconds);
     // minutes
     var eventMinutes = eventSeconds / 60;
     var todayMinutes = todaySeconds / 60;
     var minutesOut = eventMinutes - todayMinutes;
-    var roundedMinutes = Math.round(minutesOut % 60);
+    var roundedMinutes = Math.floor(minutesOut % 60);
     var minuteContainer = document.getElementById('minutes');
     minuteContainer.innerHTML = zeroPad(roundedMinutes);
     // hours
@@ -56,22 +55,21 @@ function timerListeners(day, month, year) {
 }
 
 function smallTimerListeners(day, month, year) {
-
   setInterval(function () {
     var eventDate = new Date(year, month, day, 19).getTime();
     var today = new Date().getTime();
     // seconds
-    var eventSeconds = eventDate / 1000;
-    var todaySeconds = today / 1000;
+    var eventSeconds = Math.round(eventDate / 1000);
+    var todaySeconds = Math.round(today / 1000);
     var secondsOut = eventSeconds - todaySeconds;
-    var roundedSeconds = Math.round(secondsOut % 60);
+    var roundedSeconds = secondsOut % 60;
     var secondContainer = document.getElementById('seconds-s');
     secondContainer.innerHTML = zeroPad(roundedSeconds);
     // minutes
     var eventMinutes = eventSeconds / 60;
     var todayMinutes = todaySeconds / 60;
     var minutesOut = eventMinutes - todayMinutes;
-    var roundedMinutes = Math.round(minutesOut % 60);
+    var roundedMinutes = Math.floor(minutesOut % 60);
     var minuteContainer = document.getElementById('minutes-s');
     minuteContainer.innerHTML = zeroPad(roundedMinutes);
     // hours
