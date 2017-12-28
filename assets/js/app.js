@@ -19,3 +19,86 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+function timerListeners(day, month, year) {
+
+  setInterval(function () {
+    var eventDate = new Date(year, month, day, 19).getTime();
+    var today = new Date().getTime();
+    // seconds
+    var eventSeconds = eventDate / 1000;
+    var todaySeconds = today / 1000;
+    var secondsOut = eventSeconds - todaySeconds;
+    var roundedSeconds = Math.round(secondsOut % 60);
+    var secondContainer = document.getElementById('seconds');
+    secondContainer.innerHTML = zeroPad(roundedSeconds);
+    // minutes
+    var eventMinutes = eventSeconds / 60;
+    var todayMinutes = todaySeconds / 60;
+    var minutesOut = eventMinutes - todayMinutes;
+    var roundedMinutes = Math.round(minutesOut % 60);
+    var minuteContainer = document.getElementById('minutes');
+    minuteContainer.innerHTML = zeroPad(roundedMinutes);
+    // hours
+    var eventHours = eventMinutes / 60;
+    var todayHours = todayMinutes / 60;
+    var hoursOut = eventHours - todayHours;
+    var roundedHours = Math.round(hoursOut % 24);
+    var hourContainer = document.getElementById('hours');
+    hourContainer.innerHTML = zeroPad(roundedHours);
+    // days
+    var eventDays = eventHours / 24;
+    var todayDays = todayHours / 24;
+    var daysOut = (eventDays - todayDays) - 30;
+    var roundedDays = Math.round(daysOut % 365);
+    var dayContainer = document.getElementById('days');
+    dayContainer.innerHTML = zeroPad(roundedDays);
+  }, 1000)
+}
+
+function smallTimerListeners(day, month, year) {
+
+  setInterval(function () {
+    var eventDate = new Date(year, month, day, 19).getTime();
+    var today = new Date().getTime();
+    // seconds
+    var eventSeconds = eventDate / 1000;
+    var todaySeconds = today / 1000;
+    var secondsOut = eventSeconds - todaySeconds;
+    var roundedSeconds = Math.round(secondsOut % 60);
+    var secondContainer = document.getElementById('seconds-s');
+    secondContainer.innerHTML = zeroPad(roundedSeconds);
+    // minutes
+    var eventMinutes = eventSeconds / 60;
+    var todayMinutes = todaySeconds / 60;
+    var minutesOut = eventMinutes - todayMinutes;
+    var roundedMinutes = Math.round(minutesOut % 60);
+    var minuteContainer = document.getElementById('minutes-s');
+    minuteContainer.innerHTML = zeroPad(roundedMinutes);
+    // hours
+    var eventHours = eventMinutes / 60;
+    var todayHours = todayMinutes / 60;
+    var hoursOut = eventHours - todayHours;
+    var roundedHours = Math.round(hoursOut % 24);
+    var hourContainer = document.getElementById('hours-s');
+    hourContainer.innerHTML = zeroPad(roundedHours);
+    // days
+    var eventDays = eventHours / 24;
+    var todayDays = todayHours / 24;
+    var daysOut = (eventDays - todayDays) - 30;
+    var roundedDays = Math.round(daysOut % 365);
+    var dayContainer = document.getElementById('days-s');
+    dayContainer.innerHTML = zeroPad(roundedDays);
+  }, 1000)
+}
+
+function zeroPad(time) {
+  var timeString = time.toString();
+  var padded = "0" + timeString;
+  var sliced = padded.slice(-2);
+  return sliced;
+}
+
+export var App = {
+  timerListeners: timerListeners,
+  smallTimerListeners: smallTimerListeners
+}

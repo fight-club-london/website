@@ -2,6 +2,11 @@
   total_fighters = length(@fighters)
   new_this_month = this_month(@fighters)
   future_events = future_events(@events)
+  next_event =
+    case length(future_events) > 0 do
+      true -> hd(future_events).date
+      false -> nil
+    end
 %>
 <h1 class="white top--header absolute mb0 fw1">Dashboard</h1>
 <div class="l-minh-100vh l-dark-grey pt4">
@@ -43,22 +48,22 @@
           <td class="tc pt4 pb4 w-50 data-td">
             <div>
               <div class="dib mt4 mb4 l-minw-60">
-                <div class="dib f1" id="days">00</div>
+                <div class="dib f1" id="days-s">00</div>
                 <div class="l-blue">days</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
               <div class="dib mt4 mb4 l-minw-60">
-                <div class="dib f1" id="hours">00</div>
+                <div class="dib f1" id="hours-s">00</div>
                 <div class="l-blue">hours</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
               <div class="dib mt4 mb4 l-minw-60">
-                <div class="dib f1" id="minutes">00</div>
+                <div class="dib f1" id="minutes-s">00</div>
                 <div class="l-blue">minutes</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
               <div class="dib mt4 mb4 l-minw-60">
-                <div class="dib f1" id="seconds">00</div>
+                <div class="dib f1" id="seconds-s">00</div>
                 <div class="l-blue">seconds</div>
               </div>
             </div>
@@ -93,18 +98,18 @@
                   </div>
                 </div>
               <% end %>
-              <div class="l-lighter-grey pt3">Next event</div>
+              <div class="l-lighter-grey pt3">New event</div>
             </div>
           </td>
           <td class="tc pt4 pb4 w-50 data-td">
             <div>
               <div class="dib mt4 mb4 l-minw-60">
-                <div class="dib f1">00</div>
+                <div class="dib f1" id="days">00</div>
                 <div class="l-blue">days</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
               <div class="dib mt4 mb4 l-minw-60">
-                <div class="dib f1">00</div>
+                <div class="dib f1" id="hours">00</div>
                 <div class="l-blue">hours</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
@@ -211,3 +216,8 @@
     <% end %>
   </div>
 </div>
+<script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+<%= if next_event do %>
+  <script>require("js/app").App.timerListeners(<%= next_event.day %>, <%= next_event.month %>, <%= next_event.year %>)</script>
+  <script>require("js/app").App.smallTimerListeners(<%= next_event.day %>, <%= next_event.month %>, <%= next_event.year %>)</script>
+<% end %>
