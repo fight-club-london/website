@@ -26,12 +26,11 @@
           <div class="app-container w-100 h4 mt2 center">
               <a href="/" class="h4 ml0-ns">
                 <div class="h3 dt pb3 dib fl mr4">
-                  <img src="/images/logo-blue.png" class="w3 pv2 dib dtc" />
-                  <p class="dib f3 pl2 fw4 white ma0 dtc v-mid">engine</p>
+                  <p class="dib f3 pl1 fw4 white ma0 dtc v-mid pt4">Fight Club London</p>
                 </div>
               </a>
               <%= if @current_user do %>
-                <div class="white fr k-mt3-5 fw4">
+                <div class="white fr k-mt3-5 fw4 pt1">
                   <%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete", class: "back-button hover-purple link white ml4-ns ml3 mv4 mb0-ns outline-0" %>
                 </div>
               <% end %>
