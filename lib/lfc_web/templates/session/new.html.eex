@@ -2,7 +2,7 @@
   <div class="dtc v-mid">
     <div class="ba b--black-10 br4 pa4 bg-white h-auto-ns h-100 l-bg-dark-grey">
       <div class="tc mt4">
-        <div class="f2">London Fight Club</div>
+        <div class="f2">Fight Club London</div>
       </div>
       <div class="mt5">
         <%= form_for @conn, session_path(@conn, :create), [as: :session], fn f -> %>

@@ -27,12 +27,19 @@ body {
   border-radius: 3px;
 }
 
+.clock-separator {
+  top: 50%;
+	-webkit-transform: translateY(-66%);
+	-o-transform: translateY(-66%);
+	transform: translateY(-66%);
+}
+
 .k-right-0-5 {
   right: 0.5rem;
 }
 
 .top--header {
-  top: -6rem;
+  top: -6.5rem;
 }
 
 .k-top--0-5 {
@@ -160,6 +167,28 @@ opacity: 0;
   font-family: 'Roboto', sans-serif;
 }
 
+.data-table, .data-th, .data-td {
+    border: 1px solid #eaeaea;
+    border-collapse: collapse;
+}
+
+.fighter-table, .fighter-th, .fighter-td {
+    border: 1px solid #eaeaea;
+    border-collapse: collapse;
+}
+
+.l-s {
+  display: inline-block;
+}
+
+.l-ns {
+  display: none;
+}
+
+.l-minw-60 {
+  min-width: 60px;
+}
+
 /*Nav hamburger animation*/
 
 /*mobile*/
@@ -189,6 +218,13 @@ nav {
 
   .height-fixed {
     height: 8rem;
+  }
+  .l-s {
+    display: none;
+  }
+
+  .l-ns {
+    display: block;
   }
 }
 
@@ -234,11 +270,15 @@ nav {
 }
 
 .l-dark-grey {
-  background-color: #313540;
+  color: #313540;
 }
 
 .l-light-blue {
   color: #F8FCFF;
+}
+
+.l-lighter-grey {
+  color: #d0d0d0;
 }
 
 .l-blue {
@@ -251,6 +291,10 @@ nav {
 
 .l-pink {
   color: #F34C76;
+}
+
+.l-mb--1 {
+  margin-bottom: -1rem;
 }
 
 /*engine Colours*/
@@ -402,7 +446,8 @@ nav {
 }
 
 select {
-  color: #3f51b5;
+  color: #313540;
+  border-style: none;
 }
 
 .help-block {
@@ -521,7 +566,9 @@ select {
   margin-top: 9rem;
 }
 
-
+.l-minh-100vh {
+  min-height: 100vh;
+}
 
 /* 4-5 =~ 4.5 because it's between 4 and 5 in tachyons*/
 .k-pl4-5 {
