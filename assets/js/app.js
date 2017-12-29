@@ -21,7 +21,7 @@ import "phoenix_html"
 // import socket from "./socket"
 function timerListeners(day, month, year) {
   setInterval(function () {
-    var eventDate = new Date(year, month - 1, day - 1, 20).getTime();
+    var eventDate = new Date(year, month - 1, day, 20).getTime();
     var today = new Date().getTime();
     // seconds
     var eventSeconds = Math.round(eventDate / 1000);
@@ -56,7 +56,7 @@ function timerListeners(day, month, year) {
 
 function smallTimerListeners(day, month, year) {
   setInterval(function () {
-    var eventDate = new Date(year, month - 1, day - 1, 20).getTime();
+    var eventDate = new Date(year, month - 1, day, 20).getTime();
     var today = new Date().getTime();
     // seconds
     var eventSeconds = Math.round(eventDate / 1000);
