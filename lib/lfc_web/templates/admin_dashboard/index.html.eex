@@ -228,6 +228,6 @@
 </div>
 <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
 <%= if next_event do %>
-  <script>require("js/app").App.timerListeners(<%= next_event.day %>, <%= next_event.month %>, <%= next_event.year %>)</script>
-  <script>require("js/app").App.smallTimerListeners(<%= next_event.day %>, <%= next_event.month %>, <%= next_event.year %>)</script>
+  <script>require("js/app").App.timerListeners(<%= next_event.day %>, <%= next_event.month %>, <%= next_event.year %>, "")</script>
+  <script>require("js/app").App.timerListeners(<%= next_event.day %>, <%= next_event.month %>, <%= next_event.year %>, "-s")</script>
 <% end %>

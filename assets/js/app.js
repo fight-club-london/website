@@ -19,7 +19,7 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
-function timerListeners(day, month, year) {
+function timerListeners(day, month, year, id) {
   setInterval(function () {
     var eventDate = new Date(year, month - 1, day, 20).getTime();
     var today = new Date().getTime();
@@ -28,63 +28,28 @@ function timerListeners(day, month, year) {
     var todaySeconds = Math.round(today / 1000);
     var secondsOut = eventSeconds - todaySeconds;
     var roundedSeconds = secondsOut % 60;
-    var secondContainer = document.getElementById('seconds');
+    var secondContainer = document.getElementById('seconds' + id);
     secondContainer.innerHTML = zeroPad(roundedSeconds);
     // minutes
     var eventMinutes = eventSeconds / 60;
     var todayMinutes = todaySeconds / 60;
     var minutesOut = eventMinutes - todayMinutes;
     var roundedMinutes = Math.floor(minutesOut % 60);
-    var minuteContainer = document.getElementById('minutes');
+    var minuteContainer = document.getElementById('minutes' + id);
     minuteContainer.innerHTML = zeroPad(roundedMinutes);
     // hours
     var eventHours = eventMinutes / 60;
     var todayHours = todayMinutes / 60;
     var hoursOut = eventHours - todayHours;
     var roundedHours = Math.floor(hoursOut % 24);
-    var hourContainer = document.getElementById('hours');
+    var hourContainer = document.getElementById('hours' + id);
     hourContainer.innerHTML = zeroPad(roundedHours);
     // days
     var eventDays = eventHours / 24;
     var todayDays = todayHours / 24;
     var daysOut = (eventDays - todayDays);
     var roundedDays = Math.floor(daysOut % 365);
-    var dayContainer = document.getElementById('days');
-    dayContainer.innerHTML = zeroPad(roundedDays);
-  }, 1000)
-}
-
-function smallTimerListeners(day, month, year) {
-  setInterval(function () {
-    var eventDate = new Date(year, month - 1, day, 20).getTime();
-    var today = new Date().getTime();
-    // seconds
-    var eventSeconds = Math.round(eventDate / 1000);
-    var todaySeconds = Math.round(today / 1000);
-    var secondsOut = eventSeconds - todaySeconds;
-    var roundedSeconds = secondsOut % 60;
-    var secondContainer = document.getElementById('seconds-s');
-    secondContainer.innerHTML = zeroPad(roundedSeconds);
-    // minutes
-    var eventMinutes = eventSeconds / 60;
-    var todayMinutes = todaySeconds / 60;
-    var minutesOut = eventMinutes - todayMinutes;
-    var roundedMinutes = Math.floor(minutesOut % 60);
-    var minuteContainer = document.getElementById('minutes-s');
-    minuteContainer.innerHTML = zeroPad(roundedMinutes);
-    // hours
-    var eventHours = eventMinutes / 60;
-    var todayHours = todayMinutes / 60;
-    var hoursOut = eventHours - todayHours;
-    var roundedHours = Math.floor(hoursOut % 24);
-    var hourContainer = document.getElementById('hours-s');
-    hourContainer.innerHTML = zeroPad(roundedHours);
-    // days
-    var eventDays = eventHours / 24;
-    var todayDays = todayHours / 24;
-    var daysOut = (eventDays - todayDays) - 31;
-    var roundedDays = Math.floor(daysOut % 365);
-    var dayContainer = document.getElementById('days-s');
+    var dayContainer = document.getElementById('days' + id);
     dayContainer.innerHTML = zeroPad(roundedDays);
   }, 1000)
 }
@@ -97,6 +62,5 @@ function zeroPad(time) {
 }
 
 export var App = {
-  timerListeners: timerListeners,
-  smallTimerListeners: smallTimerListeners
+  timerListeners: timerListeners
 }
