@@ -15,13 +15,13 @@
     <div class="pt3 pb4 overflow-scroll l-s">
       <table class="w-100 data-table">
         <tr>
-          <td class="tc pt4 pb4 w-50 data-td">
+          <td class="tc pt5 pb5 w-50 data-td">
             <div class="f1"><%= total_fighters %></div>
             <div class="l-lighter-grey">Total fighters</div>
           </td>
         </tr>
         <tr>
-          <td class="tc pt4 pb4 w-50 data-td">
+          <td class="tc pt5 pb5 w-50 data-td">
             <div class="f1"><%= new_this_month %></div>
             <div class="l-lighter-grey">New this month</div>
           </td>
@@ -80,11 +80,11 @@
     <div class="pt3 pb4 overflow-scroll l-ns">
       <table class="w-100 data-table">
         <tr>
-          <td class="tc pt4 pb4 w-50 data-td">
+          <td class="tc pt5 pb5 w-50 data-td">
             <div class="f1"><%= total_fighters %></div>
             <div class="l-lighter-grey">Total fighters</div>
           </td>
-          <td class="tc pt4 pb4 w-50 data-td">
+          <td class="tc pt5 pb5 w-50 data-td">
             <div class="f1"><%= new_this_month %></div>
             <div class="l-lighter-grey">New this month</div>
           </td>
