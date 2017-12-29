@@ -1,4 +1,9 @@
-/*engine elements*/
+/*lfc elements*/
+
+@font-face {
+	font-family: destroy;
+	src: url('/fonts/DESTROY_.ttf');
+}
 
 html {
 font-size: 10px;
@@ -32,6 +37,10 @@ body {
 	-webkit-transform: translateY(-66%);
 	-o-transform: translateY(-66%);
 	transform: translateY(-66%);
+}
+
+.l-destroy {
+  font-family: destroy;
 }
 
 .k-right-0-5 {
