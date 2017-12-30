@@ -22,39 +22,41 @@
   </head>
   <body class="k-bg-lighter-grey k-indigo mb0">
     <header>
-      <nav role="navigation" class="flex k-h6 bb k-bg-dark-indigo relative bn">
-          <div class="app-container w-100 h4 mt2 center">
+      <nav role="navigation" class="flex k-h6 bb l-bg-dark-grey fixed w-100 z-999 bn">
+          <div class="app-container w-100 h4 mt2 center l-bg-dark-grey">
               <a href="/" class="h4 ml0-ns">
                 <div class="h3 dt pb3 dib fl mr4">
-                  <p class="dib f3 pl1 fw4 white ma0 dtc v-mid pt4">Fight Club London</p>
+                  <p class="dib f3 pl1 fw4 white ma0 dtc v-mid l-pt-1-6">Fight Club London</p>
                 </div>
               </a>
               <%= if @current_user do %>
-                <div class="white fr k-mt3-5 fw4 pt1">
+                <div class="white fr k-mt3-5 fw4">
                   <%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete", class: "back-button hover-purple link white ml4-ns ml3 mv4 mb0-ns outline-0" %>
                 </div>
               <% end %>
+              <div class="white fr k-mt3-5 fw4">
+                <%= link "Sign up", to: fighter_path(@conn, :new), class: "back-button hover-purple link white ml4-ns ml3 mv4 mb0-ns outline-0" %>
+              </div>
           </div>
       </nav>
     </header>
     <p class="absolute w-100 tc alert pa1-5 br2 mt0 dark-grey bg-light-green b--dark-green" role="alert"><%= get_flash(@conn, :info) %></p>
     <p class="absolute w-100 tc alert pa1-5 br2 mt0 mb4 white bg-light-red b--red" role="alert"><%= get_flash(@conn, :error) %></p>
     <div class="center h-100 bg-white relative-ns min-vh-100-ns relative">
-      <main role="main" class="h-100 bg-white center relative">
+      <main role="main" class="h-100 bg-white center relative l-minh-100vh">
         <%= render @view_module, @view_template, assigns %>
       </main>
     </div> <!-- /container -->
 
     <!-- FOOTER -->
-    <footer class="relative k-bg-darker-grey white">
+    <footer class="relative l-bg-dark-grey white">
       <div class="w-100 h6-ns h-100 bottom-0 app-container center">
         <div class="mt0 mb4 b--black-20 bt">
           <article class="cf mt0">
             <div class="fl w-100 tl pt4-ns pt2 mb3 mb0-ns">
               <a href="http://www.teamengine.co.uk" target="_blank">
                 <div class="h3 dt pb3 dib fl mr4">
-                  <img src="/images/footer-logo.svg" class="k-w2-5 pv2 dib dtc" />
-                  <p class="dib f4 pl2 fw5 white ma0 dtc v-mid"><span class="k-light-grey fw3">team</span> engine</p>
+                  <p class="dib f4 pl2 pt1 fw5 white ma0 dtc v-mid">Fight Club London</p>
                 </div>
               </a>
               <%
