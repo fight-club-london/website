@@ -22,20 +22,23 @@
   </head>
   <body class="k-bg-lighter-grey k-indigo mb0">
     <header>
-      <nav role="navigation" class="flex k-h6 bb l-bg-dark-grey fixed w-100 z-999 bn">
-          <div class="app-container w-100 h4 mt2 center l-bg-dark-grey">
+      <nav role="navigation" class="flex k-h6 bb bg-white l-dark-grey fixed w-100 z-999 bn">
+          <div class="app-container w-100 h4 mt2 center l-dark-grey">
               <a href="/" class="h4 ml0-ns">
                 <div class="h3 dt pb3 dib fl mr4">
-                  <p class="dib f3 pl1 fw4 white ma0 dtc v-mid l-pt-1-6">Fight Club London</p>
+                  <p class="dib f3 pl1 fw4 l-dark-grey ma0 dtc v-mid l-pt-1-6">Fight Club London</p>
                 </div>
               </a>
               <%= if @current_user do %>
-                <div class="white fr k-mt3-5 fw4">
-                  <%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete", class: "back-button hover-purple link white ml4-ns ml3 mv4 mb0-ns outline-0" %>
+                <div class="l-dark-grey fr k-mt3-5 fw4">
+                  <%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete", class: "back-button hover-purple link l-dark-grey ml4-ns ml3 mv4 mb0-ns outline-0" %>
+                </div>
+                <div class="l-dark-grey fr k-mt3-5 fw4">
+                  <%= link "Admin", to: admin_dashboard_path(@conn, :index), class: "back-button hover-purple link l-dark-grey ml4-ns ml3 mv4 mb0-ns outline-0" %>
                 </div>
               <% end %>
-              <div class="white fr k-mt3-5 fw4">
-                <%= link "Sign up", to: fighter_path(@conn, :new), class: "back-button hover-purple link white ml4-ns ml3 mv4 mb0-ns outline-0" %>
+              <div class="l-dark-grey fr k-mt3-5 fw4">
+                <%= link "Sign up", to: fighter_path(@conn, :new), class: "back-button hover-purple link l-dark-grey mv4 mb0-ns outline-0" %>
               </div>
           </div>
       </nav>
