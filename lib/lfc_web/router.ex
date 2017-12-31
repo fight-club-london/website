@@ -26,6 +26,7 @@ defmodule LfcWeb.Router do
     get "/verification/verify/:hash", VerificationController, :verify_again
     get "/verification/resend/:hash", VerificationController, :resend
     get "/sign-up", FighterController, :new
+    get "/thank-you", FighterController, :thank_you
     resources "/sign-up", FighterController, only: [:create]
   end
 

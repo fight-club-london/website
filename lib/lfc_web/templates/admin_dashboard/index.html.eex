@@ -54,22 +54,22 @@
             <div>
               <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1" id="days-s">00</div>
-                <div class="l-blue">days</div>
+                <div class="l-blue" id="days-text-s">days</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
               <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1" id="hours-s">00</div>
-                <div class="l-blue">hours</div>
+                <div class="l-blue" id="hours-text-s">hours</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
               <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1" id="minutes-s">00</div>
-                <div class="l-blue">minutes</div>
+                <div class="l-blue" id="minutes-text-s">minutes</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
               <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1" id="seconds-s">00</div>
-                <div class="l-blue">seconds</div>
+                <div class="l-blue" id="seconds-text-s">seconds</div>
               </div>
             </div>
             <div class="l-lighter-grey pt3">Time until next event</div>
@@ -115,22 +115,22 @@
             <div>
               <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1" id="days">00</div>
-                <div class="l-blue">days</div>
+                <div class="l-blue" id="days-text">days</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
               <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1" id="hours">00</div>
-                <div class="l-blue">hours</div>
+                <div class="l-blue" id="hours-text">hours</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
               <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1" id="minutes">00</div>
-                <div class="l-blue">minutes</div>
+                <div class="l-blue" id="minutes-text">minutes</div>
               </div>
               <div class="dib f1 clock-separator">:</div>
               <div class="dib mt4 mb4 l-minw-60">
                 <div class="dib f1" id="seconds">00</div>
-                <div class="l-blue">seconds</div>
+                <div class="l-blue" id="seconds-text">seconds</div>
               </div>
             </div>
             <div class="l-lighter-grey pt3">Time until next event</div>

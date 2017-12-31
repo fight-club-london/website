@@ -11,22 +11,22 @@
   <div class="tc l-destroy l-dark-grey">
     <div class="dib mt4 mb4 l-minw-60">
       <div class="dib f1-ns f2" id="days-d">00</div>
-      <div class="f6">days</div>
+      <div class="f6" id="days-text-d">days</div>
     </div>
     <div class="dib f1-ns f6 clock-separator">:</div>
     <div class="dib mt4 mb4 l-minw-60">
       <div class="dib f1-ns f2" id="hours-d">00</div>
-      <div class="f6">hours</div>
+      <div class="f6" id="eventHours-text-d">hours</div>
     </div>
     <div class="dib f1-ns f6 clock-separator">:</div>
     <div class="dib mt4 mb4 l-minw-60">
       <div class="dib f1-ns f2" id="minutes-d">00</div>
-      <div class="f6">minutes</div>
+      <div class="f6" id="minutes-text-d">minutes</div>
     </div>
     <div class="dib f1-ns f6 clock-separator">:</div>
     <div class="dib mt4 mb4 l-minw-60">
       <div class="dib f1-ns f2" id="seconds-d">00</div>
-      <div class="f6">secs</div>
+      <div class="f6" id="seconds-text-d">secs</div>
     </div>
   </div>
 </div>
