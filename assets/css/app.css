@@ -39,8 +39,20 @@ body {
 	transform: translateY(-66%);
 }
 
+.hero-container {
+	background-image: url("/images/fcl-7-final.jpg");
+	background-size: cover;
+	height: 93vh;
+	background-position: center;
+}
+
+
 .l-destroy {
   font-family: destroy;
+}
+
+.l-f3 {
+	font-size: 2rem;
 }
 
 .l-pt-1-6 {
@@ -49,6 +61,10 @@ body {
 
 .l-pt-1-8 {
 	padding-top: 1.8rem;
+}
+
+.l-w6 {
+	width: 10.5rem;
 }
 
 .k-right-0-5 {
@@ -206,6 +222,14 @@ opacity: 0;
   min-width: 60px;
 }
 
+.timer-container {
+	right: 50%;
+	z-index: 998;
+	top: 50%;
+	margin-right: -154.78px;
+	margin-top: -70px;
+}
+
 /*Nav hamburger animation*/
 
 /*mobile*/
@@ -243,12 +267,24 @@ nav {
   .l-ns {
     display: block;
   }
+	.timer-container {
+		margin-right: -168.96px;
+		margin-top: -70px;
+	}
 }
 
  /*lfc colours*/
 
 .l-b--dark-grey {
   border-color: #313540;
+}
+
+.l-b--main-red {
+  border-color: #D71F21;
+}
+
+.l-b--main-blue {
+  border-color: #003368;
 }
 
 .l-b--light-blue {
@@ -270,6 +306,14 @@ nav {
   background-color: #313540;
 }
 
+.l-bg-main-red {
+  background-color: #D71F21;
+}
+
+.l-bg-main-blue {
+  background-color: #003368;
+}
+
 .l-bg-light-blue {
   background-color: #F8FCFF;
 }
@@ -288,6 +332,14 @@ nav {
 
 .l-dark-grey {
   color: #313540;
+}
+
+.l-main-red {
+  color: #D71F21;
+}
+
+.l-main-blue {
+  color: #003368;
 }
 
 .l-light-blue {

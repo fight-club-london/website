@@ -6,27 +6,36 @@
       false -> nil
     end
 %>
-<div class="pt4">
-  <img src="/images/gradient-sparring.jpg" />
-  <div class="tc l-destroy l-dark-grey">
-    <div class="dib mt4 mb4 l-minw-60">
-      <div class="dib f1-ns f2" id="days-d">00</div>
-      <div class="f6" id="days-text-d">days</div>
-    </div>
-    <div class="dib f1-ns f6 clock-separator">:</div>
-    <div class="dib mt4 mb4 l-minw-60">
-      <div class="dib f1-ns f2" id="hours-d">00</div>
-      <div class="f6" id="eventHours-text-d">hours</div>
-    </div>
-    <div class="dib f1-ns f6 clock-separator">:</div>
-    <div class="dib mt4 mb4 l-minw-60">
-      <div class="dib f1-ns f2" id="minutes-d">00</div>
-      <div class="f6" id="minutes-text-d">minutes</div>
-    </div>
-    <div class="dib f1-ns f6 clock-separator">:</div>
-    <div class="dib mt4 mb4 l-minw-60">
-      <div class="dib f1-ns f2" id="seconds-d">00</div>
-      <div class="f6" id="seconds-text-d">secs</div>
+<div class="pt5">
+  <div class="relative hero-container">
+    <div class="tc l-destroy white absolute timer-container">
+      <%= if next_event do %>
+        <div class="dib mt4 mb4 l-minw-60">
+          <div class="dib f1-ns f2" id="days-d">00</div>
+          <div class="f6" id="days-text-d">days</div>
+        </div>
+        <div class="dib f1-ns f6 clock-separator">:</div>
+        <div class="dib mt4 mb4 l-minw-60">
+          <div class="dib f1-ns f2" id="hours-d">00</div>
+          <div class="f6" id="hours-text-d">hours</div>
+        </div>
+        <div class="dib f1-ns f6 clock-separator">:</div>
+        <div class="dib mt4 mb4 l-minw-60">
+          <div class="dib f1-ns f2" id="minutes-d">00</div>
+          <div class="f6" id="minutes-text-d">minutes</div>
+        </div>
+        <div class="dib f1-ns f6 clock-separator">:</div>
+        <div class="dib mt4 mb4 l-minw-60">
+          <div class="dib f1-ns f2" id="seconds-d">00</div>
+          <div class="f6" id="seconds-text-d">secs</div>
+        </div>
+        <div>Countdown to next event</div>
+      <% else %>
+        <div class="l-f3 pt5">Next event coming soon!</div>
+      <% end %>
+      <%= link to: fighter_path(@conn, :new), class: "link no-underline white" do %>
+        <div class="ba dib pa3 mt4 br2">Sign up</div>
+      <% end %>
     </div>
   </div>
 </div>

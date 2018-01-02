@@ -26,7 +26,9 @@
           <div class="app-container w-100 h4 mt2 center l-dark-grey">
               <a href="/" class="h4 ml0-ns">
                 <div class="h3 dt pb3 dib fl mr4">
-                  <p class="dib f3 pl1 fw4 l-dark-grey ma0 dtc v-mid l-pt-1-6">Fight Club London</p>
+                  <p class="dib f3 pl1 fw4 l-dark-grey ma0 dtc v-mid">
+                    <img src="/images/logo-main.png"  class="l-w6"/>
+                  </p>
                 </div>
               </a>
               <%= if @current_user do %>
