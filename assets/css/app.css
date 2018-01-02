@@ -42,8 +42,12 @@ body {
 .hero-container {
 	background-image: url("/images/fcl-7-final.jpg");
 	background-size: cover;
-	height: 93vh;
+	height: 93.7vh;
 	background-position: center;
+}
+
+.l-button {
+	transition: .5s;
 }
 
 
@@ -527,8 +531,14 @@ select {
 /*engine layout/custom components*/
 
 .hover-purple:hover {
-    color: #757de8;
+    color: #D71F21;
  }
+
+.hover-red:hover {
+	background-color: #ffffff;
+	border-color: #ffffff;
+	color: #D71F21;
+}
 
 .engine-input::after {
   content : "";

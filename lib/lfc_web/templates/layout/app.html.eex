@@ -39,7 +39,7 @@
                   <%= link "Admin", to: admin_dashboard_path(@conn, :index), class: "back-button hover-purple link l-dark-grey ml4-ns ml3 mv4 mb0-ns outline-0" %>
                 </div>
               <% end %>
-              <div class="l-dark-grey fr k-mt3-5 fw4">
+              <div class="l-dark-grey fr k-mt3-5 fw4 l-destroy pt1">
                 <%= link "Sign up", to: fighter_path(@conn, :new), class: "back-button hover-purple link l-dark-grey mv4 mb0-ns outline-0" %>
               </div>
           </div>
