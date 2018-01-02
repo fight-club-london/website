@@ -3,10 +3,10 @@
     <h1 class="l-destroy">Sign up</h1>
     <%= form_for @changeset, fighter_path(@conn, :create), fn f -> %>
         <%= component "dropdown.html",
-          form: f,
-          atom: :title,
-          options: ["Mr", "Mrs", "Ms", "Miss", "Dr", "Other"],
-          prompt: "select..."
+        form: f,
+        atom: :title,
+        options: ["Mr", "Mrs", "Ms", "Miss", "Dr", "Other"],
+        prompt: "select..."
         %>
         <%= component "input.html",
         form: f,
