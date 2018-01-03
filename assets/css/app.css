@@ -87,11 +87,19 @@ body {
   top: 0.5rem
 }
 
+.m-auto {
+	margin: 0 auto;
+}
+
 
 
 .nunito {
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
+}
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .pointer {
@@ -226,12 +234,27 @@ opacity: 0;
   min-width: 60px;
 }
 
+.testimonials {
+	background-image: url("/images/fcl-5-blue.jpg");
+	background-size: cover;
+	height: 93.7vh;
+	background-position: center;
+}
+
+.who-are-we {
+	background-image: url("/images/fcl-6-red.jpg");
+	background-size: cover;
+	height: 93.7vh;
+	background-position: center;
+}
+
 .timer-container {
 	right: 50%;
 	z-index: 998;
 	top: 50%;
-	margin-right: -154.78px;
+	margin-right: -170px;
 	margin-top: -70px;
+	min-width: 34rem;
 }
 
 /*Nav hamburger animation*/
@@ -272,7 +295,7 @@ nav {
     display: block;
   }
 	.timer-container {
-		margin-right: -168.96px;
+		margin-right: -170px;
 		margin-top: -70px;
 	}
 }
@@ -306,8 +329,13 @@ nav {
 .l-b--pink {
   border-color: #F34C76;
 }
+
 .l-bg-dark-grey {
   background-color: #313540;
+}
+
+.l-bg-grey {
+  background-color: #ecf0f1;
 }
 
 .l-bg-main-red {
@@ -524,6 +552,11 @@ nav {
 
 .k-link {
   color: #337ab7;
+}
+
+#map {
+	height: 44rem;
+	width: 100%;
 }
 
 select {
