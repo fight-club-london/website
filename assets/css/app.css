@@ -5,6 +5,16 @@
 	src: url('/fonts/DESTROY_.ttf');
 }
 
+/* scroll */
+
+.hideme {
+	opacity: 0;
+}
+
+.hidemenext {
+	opacity: 0;
+}
+
 html {
 font-size: 10px;
 font-family:sans-serif;
@@ -237,15 +247,15 @@ opacity: 0;
 .testimonials {
 	background-image: url("/images/fcl-5-blue.jpg");
 	background-size: cover;
-	height: 93.7vh;
+	min-height: 93.7vh;
 	background-position: center;
 }
 
 .who-are-we {
-	background-image: url("/images/fcl-6-red.jpg");
+	background-image: url("/images/fcl-6-red-dark.jpg");
 	background-size: cover;
-	height: 93.7vh;
-	background-position: center;
+	/*min-height: 93.7vh;*/
+	background-position: 50 50;
 }
 
 .timer-container {
@@ -579,6 +589,12 @@ select {
 	background-color: #ffffff;
 	border-color: #ffffff;
 	color: #D71F21;
+}
+
+.hover-white:hover {
+	background-color: #D71F21;
+	border-color: #D71F21;
+	color: #ffffff;
 }
 
 .engine-input::after {

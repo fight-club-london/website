@@ -42,15 +42,34 @@
     </div>
   </div>
   <div>
-    <div class="pa3 pt4 pb4 l-bg-main-red white tc who-are-we">
+    <div class="pa3 pt4 pb4 l-bg-main-red white tc who-are-we pb5">
       <div class="relative">
         <div class="l-destroy f2 br2 box-shadow-grey pa2 dib"><span class="anchor-span" id="who-are-we"></span>Who are we?</div>
+        <div class="pt4">
+          <div class="tl">
+            <div class="w-80-ns dib pa3 tl f1 l-destroy pt4 hideme">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              ut labore et dolore magna aliqua.
+            </div>
+          </div>
+          <div class="tl pb5">
+            <div class="w-80-ns dib pa3 tl f2 pt2 hidemenext">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              ut labore et dolore magna aliqua.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="pa3 pt4 pb4 l-bg-grey black tc how-it-works">
     <div class="relative max-w40 m-auto">
       <div class="l-destroy f2 black br2 box-shadow pa2"><span class="anchor-span" id="how-it-works"></span>How it works</div>
+      <div>
+        <%= link to: fighter_path(@conn, :new), class: "link no-underline white" do %>
+          <div class="ba dib pa3 l-pt3-5 mt4 br2 l-destroy l-main-red hover-white l-button pl4 pr4 bw2">Sign up now</div>
+        <% end %>
+      </div>
     </div>
   </div>
   <div>
@@ -76,7 +95,12 @@
     </div>
   </div>
 </div>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+<script>require("js/app").App.fadeIn()</script>
 <%= if next_event do %>
   <script>require("js/app").App.timerListeners(<%= next_event.day %>, <%= next_event.month %>, <%= next_event.year %>, "-d")</script>
 <% end %>
