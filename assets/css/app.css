@@ -49,6 +49,10 @@ body {
 	transform: translateY(-66%);
 }
 
+.fjalla {
+	font-family: 'Fjalla One', sans-serif;
+}
+
 .hero-container {
 	background-image: url("/images/fcl-7-final.jpg");
 	background-size: cover;
@@ -67,6 +71,10 @@ body {
 
 .l-f3 {
 	font-size: 2rem;
+}
+
+.l-minh-16 {
+	min-height: 16rem;
 }
 
 .l-pt-1-6 {
@@ -188,6 +196,9 @@ opacity: 0;
   .k-pt2-8 {
     padding-top: 2.5rem;
   }
+	.l-w-49-ns {
+		width: 49%;
+	}
 }
 
 .k-left--05 {

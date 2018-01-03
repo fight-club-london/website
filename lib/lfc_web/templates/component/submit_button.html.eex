@@ -1,8 +1,4 @@
-<% colours =
-  case assigns[:invert] do
-    true -> "bg-white k-b--light-indigo k-light-indigo"
-    _not_true -> "k-bg-light-indigo k-b--light-indigo white"
-  end
+<%
 class =
   case assigns[:class] do
     nil -> ""
@@ -11,6 +7,6 @@ class =
 %>
 <div class="tc">
   <div class="mb4">
-    <%= submit assigns[:title], class: "k-min-h-4-7 ttu ba pa3 pl4 pr4 k-f2-5 br2 w-100 lato mt3 no-outline-focus button-active #{colours} #{class}" %>
+    <%= submit assigns[:title], class: "ba dib pa3 l-pt3-5 mt4 br2 l-destroy l-main-red hover-white l-button pl4 pr4 bw2 l-b--main-red w-100 bg-white" %>
   </div>
 </div>

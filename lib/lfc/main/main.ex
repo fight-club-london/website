@@ -8,5 +8,6 @@ defmodule Lfc.Main do
   # Import modules below
   use Main.FighterApi
   use Main.EventApi
+  use Main.ContactApi
 
 end

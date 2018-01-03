@@ -28,6 +28,7 @@ defmodule LfcWeb.Router do
     get "/sign-up", FighterController, :new
     get "/thank-you", FighterController, :thank_you
     resources "/sign-up", FighterController, only: [:create]
+    resources "/contacts", ContactController, only: [:create]
   end
 
   # authed routes
