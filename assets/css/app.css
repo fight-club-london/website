@@ -39,8 +39,36 @@ body {
 	transform: translateY(-66%);
 }
 
+.hero-container {
+	background-image: url("/images/fcl-7-final.jpg");
+	background-size: cover;
+	height: 93.7vh;
+	background-position: center;
+}
+
+.l-button {
+	transition: .5s;
+}
+
+
 .l-destroy {
   font-family: destroy;
+}
+
+.l-f3 {
+	font-size: 2rem;
+}
+
+.l-pt-1-6 {
+	padding-top: 1.6rem;
+}
+
+.l-pt-1-8 {
+	padding-top: 1.8rem;
+}
+
+.l-w6 {
+	width: 10.5rem;
 }
 
 .k-right-0-5 {
@@ -59,11 +87,19 @@ body {
   top: 0.5rem
 }
 
+.m-auto {
+	margin: 0 auto;
+}
+
 
 
 .nunito {
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
+}
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .pointer {
@@ -198,6 +234,29 @@ opacity: 0;
   min-width: 60px;
 }
 
+.testimonials {
+	background-image: url("/images/fcl-5-blue.jpg");
+	background-size: cover;
+	height: 93.7vh;
+	background-position: center;
+}
+
+.who-are-we {
+	background-image: url("/images/fcl-6-red.jpg");
+	background-size: cover;
+	height: 93.7vh;
+	background-position: center;
+}
+
+.timer-container {
+	right: 50%;
+	z-index: 998;
+	top: 50%;
+	margin-right: -170px;
+	margin-top: -70px;
+	min-width: 34rem;
+}
+
 /*Nav hamburger animation*/
 
 /*mobile*/
@@ -235,12 +294,24 @@ nav {
   .l-ns {
     display: block;
   }
+	.timer-container {
+		margin-right: -170px;
+		margin-top: -70px;
+	}
 }
 
  /*lfc colours*/
 
 .l-b--dark-grey {
   border-color: #313540;
+}
+
+.l-b--main-red {
+  border-color: #D71F21;
+}
+
+.l-b--main-blue {
+  border-color: #003368;
 }
 
 .l-b--light-blue {
@@ -258,8 +329,21 @@ nav {
 .l-b--pink {
   border-color: #F34C76;
 }
+
 .l-bg-dark-grey {
   background-color: #313540;
+}
+
+.l-bg-grey {
+  background-color: #ecf0f1;
+}
+
+.l-bg-main-red {
+  background-color: #D71F21;
+}
+
+.l-bg-main-blue {
+  background-color: #003368;
 }
 
 .l-bg-light-blue {
@@ -280,6 +364,18 @@ nav {
 
 .l-dark-grey {
   color: #313540;
+}
+
+.l-footer-grey {
+	color: #5d657b;
+}
+
+.l-main-red {
+  color: #D71F21;
+}
+
+.l-main-blue {
+  color: #003368;
 }
 
 .l-light-blue {
@@ -304,6 +400,10 @@ nav {
 
 .l-mb--1 {
   margin-bottom: -1rem;
+}
+
+.l-pt3-5 {
+	padding-top: 1.5rem;
 }
 
 /*engine Colours*/
@@ -454,6 +554,11 @@ nav {
   color: #337ab7;
 }
 
+#map {
+	height: 44rem;
+	width: 100%;
+}
+
 select {
   color: #313540;
   border-style: none;
@@ -467,8 +572,14 @@ select {
 /*engine layout/custom components*/
 
 .hover-purple:hover {
-    color: #757de8;
+    color: #D71F21;
  }
+
+.hover-red:hover {
+	background-color: #ffffff;
+	border-color: #ffffff;
+	color: #D71F21;
+}
 
 .engine-input::after {
   content : "";

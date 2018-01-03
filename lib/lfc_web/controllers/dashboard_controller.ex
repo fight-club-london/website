@@ -3,9 +3,11 @@ defmodule LfcWeb.DashboardController do
   Dashboard Controller
   """
   use LfcWeb, :controller
+  alias Lfc.Main
 
   def index(conn, _params) do
-    render conn, "index.html"
+    events = Main.list_events()
+    render conn, "index.html", events: events
   end
 
 end
