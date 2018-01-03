@@ -33,7 +33,8 @@
         </div>
         <div><%= format_long_date(next_event) %></div>
       <% else %>
-        <div class="l-f3 pt3">White collar boxing</div>
+        <div class="pt3 f3 f2-ns">LONDON</div>
+        <div class="pt3 f2 f1-ns">White collar boxing</div>
         <div class="f3 pt3">Next event coming soon!</div>
       <% end %>
       <%= link to: fighter_path(@conn, :new), class: "link no-underline white" do %>

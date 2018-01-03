@@ -252,7 +252,7 @@ opacity: 0;
 }
 
 .who-are-we {
-	background-image: url("/images/fcl-6-red-dark.jpg");
+	background-image: url("/images/fcl-6-red.jpg");
 	background-size: cover;
 	/*min-height: 93.7vh;*/
 	background-position: 50 50;
@@ -262,9 +262,9 @@ opacity: 0;
 	right: 50%;
 	z-index: 998;
 	top: 50%;
-	margin-right: -170px;
+	margin-right: -160px;
 	margin-top: -70px;
-	min-width: 34rem;
+	min-width: 32rem;
 }
 
 /*Nav hamburger animation*/
@@ -305,8 +305,9 @@ nav {
     display: block;
   }
 	.timer-container {
-		margin-right: -170px;
+		margin-right: -205px;
 		margin-top: -70px;
+		min-width: 41rem;
 	}
 }
 
