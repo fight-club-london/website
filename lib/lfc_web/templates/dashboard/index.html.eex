@@ -120,9 +120,7 @@
                 class: "l-minh-16"
                 %>
               </div>
-              <div class="l-w-49-ns">
-                <%= component "submit_button.html", title: "SEND" %>
-              </div>
+              <%= component "submit_button.html", title: "SEND" %>
             </div>
           <% end %>
         </div>
