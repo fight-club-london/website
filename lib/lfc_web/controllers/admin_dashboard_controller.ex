@@ -8,11 +8,13 @@ defmodule LfcWeb.AdminDashboardController do
   def index(conn, _params) do
     events = Main.list_events()
     fighters = Main.list_fighters()
+    contacts = Main.list_contacts()
     changeset = Main.change_event(%Event{})
     render(conn,
     "index.html",
     layout: {LayoutView, "admin.html"},
     fighters: fighters,
+    contacts: contacts,
     events: events,
     changeset: changeset)
   end

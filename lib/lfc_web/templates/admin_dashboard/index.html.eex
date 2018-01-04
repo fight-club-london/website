@@ -224,6 +224,53 @@
           </table>
         </div>
     <% end %>
+    <div class="pt5">Recent sign ups</div>
+    <%= if length(@contacts) == 0 do %>
+      <div class="pt3 overflow-scroll">
+        <table class="w-100 data-table">
+          <tr class="data-tr bb">
+            <th align="left" class="nowrap pa4">Name</th>
+            <th align="left" class="nowrap pa4">Email</th>
+            <th align="left" class="nowrap pa4">Mobile number</th>
+            <th align="left" class="nowrap pa4">Date</th>
+          </tr>
+        </table>
+        <div class="pt4 pb4">
+          <div class="f1 tc l-lighter-grey">No messages yet!</div>
+        </div>
+      </div>
+    <% else %>
+      <div class="pt3 pb4 overflow-scroll">
+        <table class="w-100 data-table">
+          <tr class="data-tr bb">
+            <th align="left" class="nowrap pa4">Name</th>
+            <th align="left" class="nowrap pa4">Email</th>
+            <th align="left" class="nowrap pa4">Mobile number</th>
+            <th align="left" class="nowrap pa4">Date</th>
+          </tr>
+          <%= for {contact, index} <- Enum.with_index(@contacts) do %>
+          <% background_colour =
+            case rem(index, 2) == 0 || index == 0 do
+              true -> "l-bg-light-blue"
+              false -> ""
+            end
+            %>
+            <tr class="bb">
+              <td class="nowrap pa4 l-bg-light-blue"><%= contact.name %></td>
+              <td class="nowrap pa4 l-bg-light-blue"><%= contact.email %></td>
+              <td class="nowrap pa4 l-bg-light-blue"><%= contact.mobile_number %></td>
+              <td class="nowrap pa4 l-bg-light-blue"><%= get_time(contact.inserted_at) %></td>
+            </tr>
+            <tr class="bb">
+              <td class="pa4"><%= contact.message %></td>
+              <td class="nowrap pa4"></td>
+              <td class="nowrap pa4"></td>
+              <td class="nowrap pa4"></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+    <% end %>
   </div>
 </div>
 <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
