@@ -6,11 +6,16 @@ defmodule LfcWeb.FighterController do
 
   alias Lfc.Main.Fighter
   alias Lfc.Main
+  alias LfcWeb.LayoutView
 
   def new(conn, _params) do
     changeset = Fighter.changeset(%Fighter{})
 
-    render conn, "new.html", changeset: changeset
+    render(
+      conn,
+      "new.html",
+      layout: {LayoutView, "sign_up.html"},
+      changeset: changeset)
   end
 
   def create(conn, %{"fighter" => fighter_params}) do
