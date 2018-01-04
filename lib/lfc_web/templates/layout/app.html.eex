@@ -49,6 +49,12 @@
               </div>
           </div>
       </nav>
+      <%= if get_flash(@conn, :error) do %>
+        <p class="fixed l-mt6 z-999 w-100 error-message fjalla white l-bg-main-red tc pt3 pb3" role="alert"><%= get_flash(@conn, :error) %></p>
+      <% end %>
+      <%= if get_flash(@conn, :info) do %>
+        <p class="fixed l-mt6 z-999 w-100 error-message fjalla white l-bg-main-red tc pt3 pb3" role="alert"><%= get_flash(@conn, :info) %></p>
+      <% end %>
       <div class="tc bg-white pierlight pt2 pb2 mt-0-3 bt2-grey dn fixed l-mt6 z-999 fjalla right-0 w-50 w-20-ns nav-borders" id="nav-menu">
         <div class="tc m-auto bb1-grey pb3 pt3">
           <a href="#who-are-we" id="who-are-we-link" class="link no-underline l-dark-grey">

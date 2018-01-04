@@ -17,10 +17,11 @@ defmodule LfcWeb.ContactController do
         |> redirect(to: dashboard_path(conn, :index))
       {:error, changeset} ->
         events = Main.list_events()
-        render(
-          conn,
+        conn
+        |> put_flash(:error, "Oops something went wrong! Please try again")
+        |> render(
           LfcWeb.DashboardView,
-          "new.html",
+          "index.html",
           changeset: changeset,
           events: events)
     end
