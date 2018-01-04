@@ -262,7 +262,7 @@
               <td class="nowrap pa4 l-bg-light-blue"><%= get_time(contact.inserted_at) %></td>
             </tr>
             <tr class="bb">
-              <td class="pa4"><%= contact.message %></td>
+              <td class="l-minw-30 pa4"><%= contact.message %></td>
               <td class="nowrap pa4"></td>
               <td class="nowrap pa4"></td>
               <td class="nowrap pa4"></td>

@@ -295,6 +295,9 @@ opacity: 0;
 .l-minw-60 {
   min-width: 60px;
 }
+.l-minw-30 {
+  min-width: 30rem;
+}
 
 .testimonials {
 	background-image: url("/images/fcl-5-blue.jpg");
