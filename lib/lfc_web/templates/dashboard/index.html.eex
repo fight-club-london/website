@@ -65,8 +65,28 @@
   </div>
   <div class="pa3 pt4 pb4 l-bg-grey black tc how-it-works">
     <div class="relative max-w40 m-auto">
-      <div class="l-destroy f2 black br2 box-shadow pa2"><span class="anchor-span" id="how-it-works"></span>How it works</div>
-      <div>
+      <div class="l-destroy f2 black br2 pa2"><span class="anchor-span" id="how-it-works"></span>How it works</div>
+      <div class="tc m-auto pt5 pb4">
+        <%= component "how_it_works_tile.html",
+        title: "Sign up",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua.",
+        image: "1"
+        %>
+        <%= component "how_it_works_tile.html",
+        title: "Train",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua.",
+        image: "2"
+        %>
+        <%= component "how_it_works_tile.html",
+        title: "Fight",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua.",
+        image: "3"
+        %>
+      </div>
+      <div class="pb4">
         <%= link to: fighter_path(@conn, :new), class: "link no-underline white" do %>
           <div class="ba dib pa3 l-pt3-5 mt4 br2 l-destroy l-main-red hover-white l-button pl4 pr4 bw2">Sign up now</div>
         <% end %>
@@ -121,7 +141,7 @@
                 class: "l-minh-16"
                 %>
               </div>
-              <div class="w-50-ns m-auto">
+              <div class="w-50-ns m-auto pb2">
                 <%= component "submit_button.html", title: "SEND" %>
               </div>
             </div>

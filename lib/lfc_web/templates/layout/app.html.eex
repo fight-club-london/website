@@ -49,7 +49,7 @@
               </div>
           </div>
       </nav>
-      <div class="tc bg-white pierlight pt2 pb2 mt-0-3 bt2-grey dn fixed l-mt6 z-999 fjalla right-0 w-40 w-20-ns nav-borders" id="nav-menu">
+      <div class="tc bg-white pierlight pt2 pb2 mt-0-3 bt2-grey dn fixed l-mt6 z-999 fjalla right-0 w-50 w-20-ns nav-borders" id="nav-menu">
         <div class="tc m-auto bb1-grey pb3 pt3">
           <a href="#who-are-we" id="who-are-we-link" class="link no-underline l-dark-grey">
             <div>who are we?</div>

@@ -15,6 +15,16 @@
 	opacity: 0;
 }
 
+.hidehowitworks1 {
+	opacity: 0;
+}
+.hidehowitworks2 {
+	opacity: 0;
+}
+.hidehowitworks3 {
+	opacity: 0;
+}
+
 html {
 font-size: 10px;
 font-family:sans-serif;
@@ -47,6 +57,10 @@ body {
   color: white;
   background-color: #ff725c;
   border-radius: 3px;
+}
+
+.box-shadow {
+	box-shadow: 2px 2px 1px #bdc3c7;
 }
 
 .clock-separator {
@@ -116,12 +130,27 @@ body {
   top: 0.5rem
 }
 
+.max-w28 {
+	max-width: 28rem;
+}
+
 .m-auto {
 	margin: 0 auto;
 }
 
 .nav-borders {
 	border-radius: 0px 0px 0px 5px;
+}
+
+.number {
+	display: inline-block;
+  background-color: #003368;
+  color: white;
+  border-radius: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.3rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .nunito {
