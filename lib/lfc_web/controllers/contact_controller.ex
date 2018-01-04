@@ -18,7 +18,7 @@ defmodule LfcWeb.ContactController do
       {:error, changeset} ->
         events = Main.list_events()
         conn
-        |> put_flash(:error, "Oops something went wrong! Please try again")
+        |> put_flash(:error, "Oops something went wrong! Check the errors below")
         |> render(
           LfcWeb.DashboardView,
           "index.html",
@@ -26,6 +26,5 @@ defmodule LfcWeb.ContactController do
           events: events)
     end
   end
-
 
 end

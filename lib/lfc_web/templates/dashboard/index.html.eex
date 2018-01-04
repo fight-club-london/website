@@ -120,16 +120,19 @@
                 <%= component "input.html",
                 form: f,
                 atom: :name,
+                label: "Name*",
                 placeholder: ""
                 %>
                 <%= component "input.html",
                 form: f,
                 atom: :email,
+                label: "Email*",
                 placeholder: ""
                 %>
                 <%= component "input.html",
                 form: f,
                 atom: :mobile_number,
+                label: "Mobile number*",
                 placeholder: ""
                 %>
               </div>
@@ -137,6 +140,7 @@
                 <%= component "textarea.html",
                 form: f,
                 atom: :message,
+                label: "Message*",
                 placeholder: "",
                 class: "l-minh-16"
                 %>
