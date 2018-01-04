@@ -7,6 +7,6 @@ class =
 %>
 <div class="tc">
   <div class="mb4">
-    <%= submit assigns[:title], class: "ba dib pa3 l-pt3-5 mt4 br2 l-destroy l-main-red hover-white l-button pl4 pr4 bw2 l-b--main-red w-100 bg-white" %>
+    <%= submit assigns[:title], class: "pointer ba dib pa3 l-pt3-5 mt4 br2 l-destroy l-main-red hover-white l-button pl4 pr4 bw2 l-b--main-red w-100 bg-white" %>
   </div>
 </div>
