@@ -19,6 +19,43 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+var zenscroll = require('./zenscroll-min.js');
+function navListeners() {
+  var navMenuButton = document.getElementById('nav-menu-button').addEventListener('click', toggleNav);
+  var list = [
+    "who-are-we",
+    "how-it-works",
+    "where-is-it",
+    "testimonials",
+    "contact"
+  ]
+  list.forEach(function (item) {
+    var link = item + "-link"
+    document.getElementById(link).addEventListener('click', function () {
+      closeNav()
+      var destination = document.getElementById(item);
+      zenscroll.to(destination)
+    });
+  })
+}
+
+function toggleNav () {
+  var menu = document.getElementById('nav-menu')
+  if (menu.className.indexOf("dn") !== -1) {
+    menu.className = menu.className.replace("dn", "")
+  } else {
+    menu.className += " dn"
+  }
+}
+
+function openNav () {
+  menu.className = menu.className.replace("dn", "");
+}
+
+function closeNav () {
+  document.getElementById('nav-menu').className += " dn";
+}
+
 function timerListeners(day, month, year, id) {
   var timer = setInterval(function () {
     var eventDate = new Date(year, month - 1, day, 20).getTime();
@@ -119,5 +156,6 @@ function fadeIn() {
 
 export var App = {
   timerListeners: timerListeners,
+  navListeners: navListeners,
   fadeIn: fadeIn
 }

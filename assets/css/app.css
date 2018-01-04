@@ -22,11 +22,18 @@ font-family:sans-serif;
 -ms-text-size-adjust:100%
 }
 
+.anchor-span {
+  position: absolute;
+  top: -70px;
+	scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   margin:0
 }
+
 
   article {
     margin-top: 12rem;
@@ -77,6 +84,10 @@ body {
 	min-height: 16rem;
 }
 
+.l-mt6 {
+	margin-top: 6rem;
+}
+
 .l-pt-1-6 {
 	padding-top: 1.6rem;
 }
@@ -109,7 +120,9 @@ body {
 	margin: 0 auto;
 }
 
-
+.nav-borders {
+	border-radius: 0px 0px 0px 5px;
+}
 
 .nunito {
   font-family: 'Nunito', sans-serif;
@@ -138,7 +151,6 @@ body {
 
 input:focus, textarea:focus, select:focus {
     outline: none !important;
-    border: 1px solid #313540;
 }
 
 a {

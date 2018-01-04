@@ -92,6 +92,7 @@
     <div class="pa3 pt4 pb4 bg-white tc">
       <div class="relative">
         <div class="l-destroy f2 l-main-blue br2 box-shadow-grey pa2 dib"><span class="anchor-span" id="contact"></span>Contact</div>
+        <div class="fjalla f3 l-main-blue pt3 pb4">Please get in touch if you have any questions or want to find out more</div>
         <div class="pt4">
           <%= form_for @changeset, contact_path(@conn, :create), fn f -> %>
             <div class="w-80-ns m-auto">
@@ -120,7 +121,9 @@
                 class: "l-minh-16"
                 %>
               </div>
-              <%= component "submit_button.html", title: "SEND" %>
+              <div class="w-50-ns m-auto">
+                <%= component "submit_button.html", title: "SEND" %>
+              </div>
             </div>
           <% end %>
         </div>
