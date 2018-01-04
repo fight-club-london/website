@@ -1,8 +1,8 @@
 <div class="pt5">
   <div class="pt5 tc">
-    <h1 class="l-destroy l-main-blue">Sign up</h1>
+    <h1 class="l-destroy l-main-blue pt3">Sign up</h1>
     <div class="l-main-blue fjalla f3">Enter your details and sign up to one of our next events</div>
-    <div class="pa2 pt4 pb5 w-50-ns m-auto">
+    <div class="pa3 pt5 pb5 w-50-ns m-auto">
       <%= form_for @changeset, fighter_path(@conn, :create), fn f -> %>
       <%= component "dropdown.html",
       form: f,

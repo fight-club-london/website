@@ -25,7 +25,9 @@ defmodule LfcWeb.FighterController do
         # email admin
         render conn, "thank_you.html", fighter: fighter
       {:error, changeset} ->
-        render conn, "new.html", changeset: changeset
+        conn
+        |> put_flash(:error, "Oops something went wrong! Check the errors below")
+        |> render "new.html", changeset: changeset
     end
   end
 
