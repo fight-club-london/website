@@ -4,5 +4,5 @@
 <div class="w-100 br2 box-shadow-yellow pa3 mb5 pb3 max-w28 min-h9-5 dib ma1-m ma1-l box-shadow <%= view %>">
   <div class="l-destroy f1 number mt2"><%= assigns[:image] %></div>
   <div class="mb2 l-destroy pt3 pb3 mt3"><%= assigns[:title] %></div>
-  <div class="fjalla f0-8 pb3"><%= assigns[:subtitle] %></div>
+  <div class="fjalla f0-8 f3 pb3"><%= assigns[:subtitle] %></div>
 </div>
