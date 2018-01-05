@@ -10,6 +10,7 @@
   <div class="relative hero-container">
     <div class="tc l-destroy white absolute timer-container">
       <%= if next_event do %>
+      <div class="pt3 f3 f2-ns">LONDON</div>
       <div class="l-f3 pt3">White collar boxing</div>
       <div class="pt3">Countdown to next event</div>
         <div class="dib mt4 mb4 l-minw-60">
