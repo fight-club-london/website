@@ -224,7 +224,7 @@
           </table>
         </div>
     <% end %>
-    <div class="pt5">Recent sign ups</div>
+    <div class="pt5">Recent messages</div>
     <%= if length(@contacts) == 0 do %>
       <div class="pt3 overflow-scroll">
         <table class="w-100 data-table">

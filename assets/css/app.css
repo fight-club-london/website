@@ -70,11 +70,6 @@ body {
 	transform: translateY(-66%);
 }
 
-.d-grid {
-	display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
 .fjalla {
 	font-family: 'Fjalla One', sans-serif;
 }
@@ -239,6 +234,10 @@ opacity: 0;
   .app-container {
     max-width: 110rem;
   }
+	.d-grid {
+		display: grid;
+	  grid-template-columns: repeat(3, 1fr);
+	}
   .k-pt2-8 {
     padding-top: 2.5rem;
   }
