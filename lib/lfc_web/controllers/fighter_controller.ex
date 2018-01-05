@@ -24,16 +24,21 @@ defmodule LfcWeb.FighterController do
     case Main.create_fighter(fighter_params) do
       {:ok, fighter} ->
         # text the fighter
-        Message.create(to: fighter.mobile_number,
-          from: "+441344567920",
-          body: "Thanks for signing up #{fighter.first_name}!")
+        number =
+          case String.contains?(fighter.mobile_number, "+44") do
+            true -> fighter.mobile_number
+            false -> String.replace_leading(fighter.mobile_number, "0", "+44")
+          end
+        Message.create(to: number,
+          from: "Fight Club",
+          body: "Thanks for signing up #{fighter.first_name}! \n Welcome to Fight Club")
         # email admin
         Email.send_new_fighter_email(fighter)
         render conn, "thank_you.html", fighter: fighter
       {:error, changeset} ->
         conn
         |> put_flash(:error, "Oops something went wrong! Check the errors below")
-        |> render "new.html", changeset: changeset
+        |> render("new.html", changeset: changeset)
     end
   end
 
