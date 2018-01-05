@@ -105,6 +105,31 @@
     <div class="pa3 pt4 pb4 white tc testimonials">
       <div class="relative">
         <div class="l-destroy f2 br2 box-shadow-grey pa2 dib"><span class="anchor-span" id="testimonials"></span>Testimonials</div>
+        <div class="pb4 pt4">
+          <div class="tc m-auto w-90-ns d-grid">
+            <%= component "testimonial_tile.html",
+              person: "John Smith",
+              quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              ut labore et dolore magna aliqua." %>
+            <%= component "testimonial_tile.html",
+              person: "John Smith",
+              quote: "Lorem ipsum dolor sit amet." %>
+            <%= component "testimonial_tile.html",
+              person: "John Smith",
+              quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              ut labore." %>
+            <%= component "testimonial_tile.html",
+              person: "John Smith",
+              quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor." %>
+            <%= component "testimonial_tile.html",
+              person: "John Smith",
+              quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              ut labore et dolore magna aliqua." %>
+            <%= component "testimonial_tile.html",
+              person: "John Smith",
+              quote: "Lorem ipsum dolor sit amet, consectetur adipiscing." %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

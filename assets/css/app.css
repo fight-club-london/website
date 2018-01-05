@@ -70,6 +70,11 @@ body {
 	transform: translateY(-66%);
 }
 
+.d-grid {
+	display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .fjalla {
 	font-family: 'Fjalla One', sans-serif;
 }
@@ -398,6 +403,10 @@ nav {
 
 .l-bg-dark-grey {
   background-color: #313540;
+}
+
+.l-bg-transparent-blue {
+	background-color: rgba(0, 51, 104, 0.7);
 }
 
 .l-bg-grey {
