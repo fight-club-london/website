@@ -20,6 +20,7 @@ case Repo.get_by(User, first_name: "Admin") do
       first_name: "Admin",
       last_name: "User",
       email: System.get_env("ADMIN_EMAIL"),
+      verified: true,
       password: System.get_env("ADMIN_PASSWORD"),
       password_hash: Comeonin.Bcrypt.hashpwsalt(System.get_env("ADMIN_PASSWORD"))
     }
