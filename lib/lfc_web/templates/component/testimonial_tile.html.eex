@@ -1,4 +1,4 @@
-<div class="w-100 br3 pa3 mb3 pb3 max-w28 min-h9-5 dib ma1-m ma3-l tl fl-ns l-destroy l-bg-transparent-blue">
+<div class="w-100 br3 pa3 mb3 pb3 max-w28 min-h9-5 dib ma1-m ma3-l tl fl-ns l-destroy m-auto-3 l-bg-transparent-blue">
   <img src="/images/left-quote.svg" class="w3"  />
   <div>
     <%= assigns[:quote] %>
