@@ -13,7 +13,7 @@ defmodule Lfc.Email do
     |> from(System.get_env("ADMIN_EMAIL"))
     |> subject(subject)
     |> put_text_layout({LayoutView, "email.text"})
-    |> render("#{template}.text", [url: url] ++ assigns)
+    |> render("#{template}.text", assigns)
   end
 
   def send_html_email(recipient, subject, url, template, assigns \\ []) do
@@ -26,7 +26,7 @@ defmodule Lfc.Email do
   def send_verification_email(user) do
     rand_string = Accounts.set_as_value(user.email)
     url = "#{Utils.get_base_url()}/verification/#{rand_string}"
-    subject = "e n g i n e - verify your email"
+    subject = "verify your email"
     assigns = [
       first_name: user.first_name,
       last_name: user.last_name,
@@ -50,11 +50,24 @@ defmodule Lfc.Email do
     ]
     email = send_html_email(
       user.email,
-      "e n g i n e - reset your password",
+      "reset your password",
       url,
       "password_reset",
       assigns
     )
+
+    email
+    |> Mailer.deliver_later()
+  end
+
+  def send_new_fighter_email(fighter) do
+    email =
+      new_email()
+      |> to(System.get_env("ADMIN_EMAIL"))
+      |> from(System.get_env("ADMIN_EMAIL"))
+      |> subject("New fighter signed up!")
+      |> put_text_layout({LayoutView, "email.text"})
+      |> render("new_fighter.text", [fighter: fighter])
 
     email
     |> Mailer.deliver_later()

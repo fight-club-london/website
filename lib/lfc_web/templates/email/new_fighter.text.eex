@@ -1,0 +1,7 @@
+New fighter signed up:
+
+<%= "#{@fighter.title} #{@fighter.first_name} #{@fighter.last_name}" %>
+<%= @fighter.email %>
+<%= @fighter.mobile_number %>
+<%= @fighter.occupation %>
+<%= @fighter.location %>

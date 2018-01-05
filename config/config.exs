@@ -45,6 +45,10 @@ config :ex_aws,
    region: "eu-west-1"
   ]
 
+# Configure Twilio
+config :ex_twilio, account_sid:   System.get_env("TWILIO_ACCOUNT_SID"),
+                   auth_token:    System.get_env("TWILIO_AUTH_TOKEN")
+
 # add custom environment variables
 config :lfc, env: Mix.env
 config :lfc, IS_STAGING: System.get_env("IS_STAGING")

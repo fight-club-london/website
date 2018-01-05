@@ -28,7 +28,8 @@ defmodule Lfc.Mixfile do
     [
       mod: {Lfc.Application, []},
       extra_applications: [:logger, :runtime_tools, :comeonin, :bamboo,
-                           :redix, :ex_aws, :hackney, :poison, :httpoison]
+                           :redix, :ex_aws, :hackney, :poison, :httpoison,
+                           :ex_twilio]
     ]
   end
 
@@ -56,10 +57,11 @@ defmodule Lfc.Mixfile do
       {:mock, "~> 0.3.1", only: :test},
       {:redix, ">= 0.6.1"},
       {:ex_aws, "~> 1.1.5"},
-      {:poison, "~> 2.2.0"},
+      {:poison, "~> 3.0"},
       {:hackney, "~> 1.8.6"},
       {:uuid, "~> 1.1.8"},
       {:httpoison, "~> 0.11.2"},
+      {:ex_twilio, "~> 0.5.0"},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false}
     ]
   end

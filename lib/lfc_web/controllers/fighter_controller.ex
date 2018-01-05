@@ -7,6 +7,8 @@ defmodule LfcWeb.FighterController do
   alias Lfc.Main.Fighter
   alias Lfc.Main
   alias LfcWeb.LayoutView
+  alias Lfc.Email
+  alias ExTwilio.Message
 
   def new(conn, _params) do
     changeset = Fighter.changeset(%Fighter{})
@@ -22,7 +24,11 @@ defmodule LfcWeb.FighterController do
     case Main.create_fighter(fighter_params) do
       {:ok, fighter} ->
         # text the fighter
+        Message.create(to: fighter.mobile_number,
+          from: "+441344567920",
+          body: "Thanks for signing up #{fighter.first_name}!")
         # email admin
+        Email.send_new_fighter_email(fighter)
         render conn, "thank_you.html", fighter: fighter
       {:error, changeset} ->
         conn
