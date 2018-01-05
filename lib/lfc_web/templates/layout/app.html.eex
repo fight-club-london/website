@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,400,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 
@@ -23,7 +24,7 @@
   </head>
   <body class="k-bg-lighter-grey k-indigo mb0">
     <header>
-      <nav role="navigation" class="flex k-h6 bb bg-white l-dark-grey fixed w-100 z-999 bn">
+      <nav role="navigation" class="flex k-h6 bb bg-white l-dark-grey fixed w-100 z-999 bn shadow-1">
           <div class="app-container w-100 h4 mt2 center l-dark-grey">
               <a href="/" class="h4 ml0-ns">
                 <div class="h3 dt pb3 dib fl mr4">
@@ -32,19 +33,56 @@
                   </p>
                 </div>
               </a>
+              <div class="fr pt-1-5 mt2 nav-logo white pr2 pointer:hover">
+                <img src="/images/menu.svg" class="w3 ml4 pointer" id="nav-menu-button" />
+              </div>
               <%= if @current_user do %>
-                <div class="l-dark-grey fr k-mt3-5 fw4">
+                <div class="l-dark-grey fr k-mt3-5 fw4 fjalla">
                   <%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete", class: "back-button hover-purple link l-dark-grey ml4-ns ml3 mv4 mb0-ns outline-0" %>
                 </div>
-                <div class="l-dark-grey fr k-mt3-5 fw4">
+                <div class="l-dark-grey fr k-mt3-5 fw4 fjalla">
                   <%= link "Admin", to: admin_dashboard_path(@conn, :index), class: "back-button hover-purple link l-dark-grey ml4-ns ml3 mv4 mb0-ns outline-0" %>
                 </div>
+              <% else %>
+                <div class="black fr k-mt3-5 fw4 l-destroy pt1">
+                  <%= link "Sign up", to: fighter_path(@conn, :new), class: "back-button hover-purple link black mv4 mb0-ns outline-0" %>
+                </div>
               <% end %>
-              <div class="black fr k-mt3-5 fw4 l-destroy pt1">
-                <%= link "Sign up", to: fighter_path(@conn, :new), class: "back-button hover-purple link black mv4 mb0-ns outline-0" %>
-              </div>
           </div>
       </nav>
+      <%= if get_flash(@conn, :error) do %>
+        <p class="fixed l-mt6 z-999 w-100 error-message fjalla white l-bg-main-red tc pt3 pb3" role="alert"><%= get_flash(@conn, :error) %></p>
+      <% end %>
+      <%= if get_flash(@conn, :info) do %>
+        <p class="fixed l-mt6 z-999 w-100 error-message fjalla white l-bg-main-red tc pt3 pb3" role="alert"><%= get_flash(@conn, :info) %></p>
+      <% end %>
+      <div class="tc bg-white pierlight pt2 pb2 mt-0-3 bt2-grey dn fixed l-mt6 z-999 fjalla right-0 w-50 w-20-ns nav-borders" id="nav-menu">
+        <div class="tc m-auto bb1-grey pb3 pt3">
+          <a href="#who-are-we" id="who-are-we-link" class="link no-underline l-dark-grey">
+            <div>who are we?</div>
+          </a>
+        </div>
+        <div class="tc m-auto bb1-grey pb3 pt3">
+          <a href="#how-it-works" id="how-it-works-link" class="link no-underline l-dark-grey">
+            <div>how it works</div>
+          </a>
+        </div>
+        <div class="tc m-auto bb1-grey pb3 pt3">
+          <a href="#where-is-it" id="where-is-it-link" class="link no-underline l-dark-grey">
+            <div>where is it?</div>
+          </a>
+        </div>
+        <div class="tc m-auto bb1-grey pb3 pt3">
+          <a href="#testimonials" id="testimonials-link" class="link no-underline l-dark-grey">
+            <div>testimonials</div>
+          </a>
+        </div>
+        <div class="tc m-auto bb1-grey pb3 pt3">
+          <a href="#contact" id="contact-link" class="link no-underline l-dark-grey">
+            <div>contact</div>
+          </a>
+        </div>
+      </div>
     </header>
     <p class="absolute w-100 tc alert pa1-5 br2 mt0 dark-grey bg-light-green b--dark-green" role="alert"><%= get_flash(@conn, :info) %></p>
     <p class="absolute w-100 tc alert pa1-5 br2 mt0 mb4 white bg-light-red b--red" role="alert"><%= get_flash(@conn, :error) %></p>
@@ -275,5 +313,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuipT1y6uLyX3-UjGuNOV5OYqMitN3l2w&callback=initMap"
 async defer></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script>require("js/app").App.navListeners()</script>
   </body>
 </html>

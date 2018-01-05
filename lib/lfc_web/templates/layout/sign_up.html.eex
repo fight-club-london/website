@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Fight Club London</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,400,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+
+    <link rel="icon" href="/images/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/images/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/images/favicon-64.png" sizes="64x64" type="image/png">
+    <!--[if IE]><link rel="SHORTCUT ICON" href="/images/favicon.ico" type="image/x-icon" /><![endif]--><!-- Internet Explorer-->
+
+  </head>
+  <body class="k-bg-lighter-grey k-indigo mb0">
+    <header>
+      <nav role="navigation" class="flex k-h6 bb bg-white l-dark-grey fixed w-100 z-999 bn shadow-1">
+          <div class="app-container w-100 h4 mt2 center l-dark-grey">
+              <a href="/" class="h4 ml0-ns">
+                <div class="h3 dt pb3 dib fl mr4">
+                  <p class="dib f3 pl1 fw4 l-dark-grey ma0 dtc v-mid">
+                    <img src="/images/logo-main.png"  class="l-w6"/>
+                  </p>
+                </div>
+              </a>
+              <div class="black fr k-mt3-5 fw4 l-destroy pt1 ml3">
+                <%= link "Home", to: dashboard_path(@conn, :index), class: "back-button hover-purple link black mv4 mb0-ns outline-0" %>
+              </div>
+              <%= if @current_user do %>
+                <div class="l-dark-grey fr k-mt3-5 fw4 fjalla">
+                  <%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete", class: "back-button hover-purple link l-dark-grey ml4-ns ml3 mv4 mb0-ns outline-0" %>
+                </div>
+                <div class="l-dark-grey fr k-mt3-5 fw4 fjalla">
+                  <%= link "Admin", to: admin_dashboard_path(@conn, :index), class: "back-button hover-purple link l-dark-grey ml4-ns ml3 mv4 mb0-ns outline-0" %>
+                </div>
+              <% end %>
+          </div>
+      </nav>
+    </header>
+    <p class="absolute w-100 tc alert pa1-5 br2 mt0 dark-grey bg-light-green b--dark-green" role="alert"><%= get_flash(@conn, :info) %></p>
+    <p class="absolute w-100 tc alert pa1-5 br2 mt0 mb4 white bg-light-red b--red" role="alert"><%= get_flash(@conn, :error) %></p>
+    <div class="center h-100 bg-white relative-ns min-vh-100-ns relative">
+      <main role="main" class="h-100 bg-white center relative l-minh-100vh">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+    </div> <!-- /container -->
+
+    <!-- FOOTER -->
+    <footer class="relative l-bg-dark-grey l-footer-grey white tc">
+      <div class="w-100 h6-ns h-100 bottom-0 app-container center">
+        <div class="mt0 pt4 pb4 b--black-20 bt">
+          <article class="cf mt0">
+            <div class="w-100 mb0-ns">
+              <div class="h3 dib pt1">
+                <img src="/images/logo-main-grey.png"  class="l-w6"/>
+              </div>
+              <div class="pt2">
+                <a href="https://www.facebook.com/BeatsBoxing-London-1440831619515385/" class="no-underline">
+                  <img src="/images/facebook.svg" class="w2 dib ml1 mr1" />
+                </a>
+                <img src="/images/twitter.svg" class="w2 dib ml1 mr1" />
+                <img src="/images/instagram.svg" class="w2 dib ml1 mr1" />
+                <div class="pt2">
+                  <div class="dib">© 2018 Fight Club Events Ltd</div>
+                </div>
+              </div>
+            </div>
+          </article>
+          </div>
+      </div>
+    </footer>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

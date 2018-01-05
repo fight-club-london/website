@@ -5,6 +5,26 @@
 	src: url('/fonts/DESTROY_.ttf');
 }
 
+/* scroll */
+
+.hideme {
+	opacity: 0;
+}
+
+.hidemenext {
+	opacity: 0;
+}
+
+.hidehowitworks1 {
+	opacity: 0;
+}
+.hidehowitworks2 {
+	opacity: 0;
+}
+.hidehowitworks3 {
+	opacity: 0;
+}
+
 html {
 font-size: 10px;
 font-family:sans-serif;
@@ -12,11 +32,18 @@ font-family:sans-serif;
 -ms-text-size-adjust:100%
 }
 
+.anchor-span {
+  position: absolute;
+  top: -70px;
+	scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   margin:0
 }
+
 
   article {
     margin-top: 12rem;
@@ -32,11 +59,19 @@ body {
   border-radius: 3px;
 }
 
+.box-shadow {
+	box-shadow: 2px 2px 1px #bdc3c7;
+}
+
 .clock-separator {
   top: 50%;
 	-webkit-transform: translateY(-66%);
 	-o-transform: translateY(-66%);
 	transform: translateY(-66%);
+}
+
+.fjalla {
+	font-family: 'Fjalla One', sans-serif;
 }
 
 .hero-container {
@@ -57,6 +92,14 @@ body {
 
 .l-f3 {
 	font-size: 2rem;
+}
+
+.l-minh-16 {
+	min-height: 16rem;
+}
+
+.l-mt6 {
+	margin-top: 6rem;
 }
 
 .l-pt-1-6 {
@@ -87,11 +130,28 @@ body {
   top: 0.5rem
 }
 
+.max-w28 {
+	max-width: 28rem;
+}
+
 .m-auto {
 	margin: 0 auto;
 }
 
+.nav-borders {
+	border-radius: 0px 0px 0px 5px;
+}
 
+.number {
+	display: inline-block;
+  background-color: #003368;
+  color: white;
+  border-radius: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.3rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
 
 .nunito {
   font-family: 'Nunito', sans-serif;
@@ -120,7 +180,6 @@ body {
 
 input:focus, textarea:focus, select:focus {
     outline: none !important;
-    border: 1px solid #313540;
 }
 
 a {
@@ -175,9 +234,16 @@ opacity: 0;
   .app-container {
     max-width: 110rem;
   }
+	.d-grid {
+		display: grid;
+	  grid-template-columns: repeat(3, 1fr);
+	}
   .k-pt2-8 {
     padding-top: 2.5rem;
   }
+	.l-w-49-ns {
+		width: 49%;
+	}
 }
 
 .k-left--05 {
@@ -233,28 +299,31 @@ opacity: 0;
 .l-minw-60 {
   min-width: 60px;
 }
+.l-minw-30 {
+  min-width: 30rem;
+}
 
 .testimonials {
 	background-image: url("/images/fcl-5-blue.jpg");
 	background-size: cover;
-	height: 93.7vh;
+	min-height: 93.7vh;
 	background-position: center;
 }
 
 .who-are-we {
 	background-image: url("/images/fcl-6-red.jpg");
 	background-size: cover;
-	height: 93.7vh;
-	background-position: center;
+	/*min-height: 93.7vh;*/
+	background-position: 50 50;
 }
 
 .timer-container {
 	right: 50%;
 	z-index: 998;
 	top: 50%;
-	margin-right: -170px;
+	margin-right: -160px;
 	margin-top: -70px;
-	min-width: 34rem;
+	min-width: 32rem;
 }
 
 /*Nav hamburger animation*/
@@ -295,8 +364,9 @@ nav {
     display: block;
   }
 	.timer-container {
-		margin-right: -170px;
+		margin-right: -205px;
 		margin-top: -70px;
+		min-width: 41rem;
 	}
 }
 
@@ -332,6 +402,10 @@ nav {
 
 .l-bg-dark-grey {
   background-color: #313540;
+}
+
+.l-bg-transparent-blue {
+	background-color: rgba(0, 51, 104, 0.7);
 }
 
 .l-bg-grey {
@@ -566,7 +640,7 @@ select {
 
 .help-block {
   text-transform: capitalize;
-  color: #757de8;
+  color: #D71F21;
 }
 
 /*engine layout/custom components*/
@@ -579,6 +653,12 @@ select {
 	background-color: #ffffff;
 	border-color: #ffffff;
 	color: #D71F21;
+}
+
+.hover-white:hover {
+	background-color: #D71F21;
+	border-color: #D71F21;
+	color: #ffffff;
 }
 
 .engine-input::after {
@@ -759,7 +839,7 @@ select {
 
 .help-block {
   text-transform: capitalize;
-  color: #757de8;
+  color: #D71F21;
 }
 
 .no-outline-focus:focus {

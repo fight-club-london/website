@@ -19,6 +19,43 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+var zenscroll = require('./zenscroll-min.js');
+function navListeners() {
+  var navMenuButton = document.getElementById('nav-menu-button').addEventListener('click', toggleNav);
+  var list = [
+    "who-are-we",
+    "how-it-works",
+    "where-is-it",
+    "testimonials",
+    "contact"
+  ]
+  list.forEach(function (item) {
+    var link = item + "-link"
+    document.getElementById(link).addEventListener('click', function () {
+      closeNav()
+      var destination = document.getElementById(item);
+      zenscroll.to(destination)
+    });
+  })
+}
+
+function toggleNav () {
+  var menu = document.getElementById('nav-menu')
+  if (menu.className.indexOf("dn") !== -1) {
+    menu.className = menu.className.replace("dn", "")
+  } else {
+    menu.className += " dn"
+  }
+}
+
+function openNav () {
+  menu.className = menu.className.replace("dn", "");
+}
+
+function closeNav () {
+  document.getElementById('nav-menu').className += " dn";
+}
+
 function timerListeners(day, month, year, id) {
   var timer = setInterval(function () {
     var eventDate = new Date(year, month - 1, day, 20).getTime();
@@ -79,6 +116,82 @@ function zeroPad(time) {
   return sliced;
 }
 
+function fadeIn() {
+  $(document).ready(function() {
+
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function(){
+
+        /* Check the location of each desired element */
+        $('.hideme').each( function(i){
+
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object + 200){
+
+                $(this).animate({'opacity':'1'}, 1500);
+
+            }
+
+        });
+        $('.hidemenext').each( function(i){
+
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object + 500){
+
+                $(this).animate({'opacity':'1'}, 2000);
+
+            }
+
+        });
+        $('.hidehowitworks1').each( function(i){
+
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object + 1200){
+
+                $(this).animate({'opacity':'1'}, 1000);
+
+            }
+
+        });
+        $('.hidehowitworks2').each( function(i){
+
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object + 1200){
+
+                $(this).animate({'opacity':'1'}, 2000);
+
+            }
+
+        });
+        $('.hidehowitworks3').each( function(i){
+
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object + 1200){
+
+                $(this).animate({'opacity':'1'}, 3000);
+
+            }
+
+        });
+
+    });
+
+});
+}
+
 export var App = {
-  timerListeners: timerListeners
+  timerListeners: timerListeners,
+  navListeners: navListeners,
+  fadeIn: fadeIn
 }

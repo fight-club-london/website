@@ -1,5 +1,5 @@
 <% container_id = assigns[:container_id] || "" %>
-<div class="mb4 <%= assigns[:class] %>" id="<%= container_id %>">
+<div class="mb2 <%= assigns[:class] %> l-main-blue tl fjalla" id="<%= container_id %>">
   <% label = assigns[:label] || assigns[:atom] %>
   <%= label assigns[:form], label, class: "dib mw-100 mb2 fw4" %>
   <%= select assigns[:form], assigns[:atom], assigns[:options], prompt: assigns[:prompt], class: "w-100 k-bg-input br2 pa3 b-h3 outline-0 lato ba k-b--input", id: assigns[:id] || "" %>
