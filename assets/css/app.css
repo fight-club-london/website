@@ -5,6 +5,16 @@
 	src: url('/fonts/DESTROY_.ttf');
 }
 
+@font-face {
+	font-family: knockout;
+	src: url('/fonts/knockout.otf');
+}
+
+@font-face {
+	font-family: unisans;
+	src: url('/fonts/uni-sans-heavy.otf');
+}
+
 /* scroll */
 
 .hideme {
@@ -88,6 +98,10 @@ body {
 
 .l-destroy {
   font-family: destroy;
+}
+
+.unisans {
+  font-family: unisans;
 }
 
 .l-f3 {
