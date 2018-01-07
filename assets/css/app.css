@@ -314,6 +314,13 @@ opacity: 0;
 	background-position: center;
 }
 
+.thank-you {
+	background-image: url("/images/fcl-4-final.jpg");
+	background-size: cover;
+	min-height: 93.7vh;
+	background-position: center;
+}
+
 .who-are-we {
 	background-image: url("/images/fcl-6-red.jpg");
 	background-size: cover;
