@@ -1,5 +1,17 @@
 <div class="pt5">
-  <div class="pt2 tc">
-    <h1 class="l-destroy">THANK YOU!</h1>
+  <div class="pt5 tc">
+    <%= if @fighter do %>
+      <h1 class="l-destroy l-main-blue">THANK YOU, <%= @fighter.first_name %>!</h1>
+      <div>Thanks for signing up to The Fight Club!</div>
+      <div>You should receive a text shortly</div>
+      <div class="i">(If you didn't receive a text please email fightclubldn@gmail.com)</div>
+    <% else %>
+      <h1 class="l-destroy l-main-blue">THANK YOU!</h1>
+      <div class="fjalla">
+        <div>Thanks for signing up to The Fight Club!</div>
+        <div>You should receive a text shortly</div>
+        <div class="i">(If you didn't receive a text please email fightclubldn@gmail.com)</div>
+      </div>
+    <% end %>
   </div>
 </div>
