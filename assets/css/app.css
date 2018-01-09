@@ -101,6 +101,10 @@ body {
 	background-position: center;
 }
 
+.knockout {
+	font-family: knockout;
+}
+
 .l-button {
 	transition: .5s;
 }
@@ -116,6 +120,10 @@ body {
 
 .l-f3 {
 	font-size: 2rem;
+}
+
+.l-f1 {
+	font-size: 4rem;
 }
 
 .l-minh-16 {
