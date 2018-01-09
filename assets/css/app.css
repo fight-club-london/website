@@ -22,6 +22,7 @@
     bottom: 0;
     width: 100%;
     min-height: 93vh;
+		display: auto;
 }
 
 /* scroll */
@@ -265,15 +266,15 @@ opacity: 0;
 		display: grid;
 	  grid-template-columns: repeat(3, 1fr);
 	}
-	.hero-container {
-		height: auto;
-	}
   .k-pt2-8 {
     padding-top: 2.5rem;
   }
 	.l-w-49-ns {
 		width: 49%;
 	}
+}
+@media screen and (min-width: 765px) {
+
 }
 
 .k-left--05 {
@@ -324,6 +325,10 @@ opacity: 0;
 
 .l-ns {
   display: none;
+}
+
+.l-m {
+	display: none;
 }
 
 .l-minw-60 {
@@ -378,6 +383,15 @@ nav {
 
 .height-fixed {
   height: 16rem;
+}
+
+@media screen and (min-width: 765px)  {
+	.l-m {
+		display: block;
+	}
+	.hero-container {
+		height: auto;
+	}
 }
 
 @media screen and (min-width: 30em)  {
