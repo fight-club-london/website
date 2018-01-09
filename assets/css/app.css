@@ -15,6 +15,15 @@
 	src: url('/fonts/uni-sans-heavy.otf');
 }
 
+/* video */
+
+#myVideo {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 93vh;
+}
+
 /* scroll */
 
 .hideme {
@@ -256,6 +265,9 @@ opacity: 0;
 		display: grid;
 	  grid-template-columns: repeat(3, 1fr);
 	}
+	.hero-container {
+		height: auto;
+	}
   .k-pt2-8 {
     padding-top: 2.5rem;
   }
@@ -390,7 +402,7 @@ nav {
   }
 	.timer-container {
 		margin-right: -205px;
-		margin-top: -70px;
+		margin-top: -20%;
 		min-width: 41rem;
 	}
 }

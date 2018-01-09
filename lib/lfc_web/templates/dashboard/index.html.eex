@@ -8,6 +8,11 @@
 %>
 <div class="pt5">
   <div class="relative hero-container">
+    <div class="l-ns">
+      <video autoplay muted loop id="myVideo">
+        <source src="/images/video.mp4" type="video/mp4">
+        </video>
+      </div>
     <div class="tc l-destroy white absolute timer-container">
       <%= if next_event do %>
       <div class="pt3 f3 f2-ns">LONDON</div>
