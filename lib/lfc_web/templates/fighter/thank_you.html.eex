@@ -2,14 +2,14 @@
   <div class="pt5 l-minh-100vh white thank-you">
     <div class="pt5 tc">
       <div class="mt5 l-bg-transparent-blue white dib pa4 br3 pb5">
-        <h1 class="l-destroy l-main-blue">THANK YOU, <%= @fighter.first_name %>!</h1>
+        <h1 class="l-destroy white">THANK YOU, <%= @fighter.first_name %>!</h1>
         <div class="fjalla">
           <div class="pt3">Thanks for signing up to The Fight Club!</div>
           <div class="pt3">You should receive a text with more details shortly</div>
           <div class="i pt2">(If you didn't receive a text please email fightclubldn@gmail.com)</div>
         </div>
         <%= link to: fighter_path(@conn, :new), class: "link no-underline white" do %>
-          <div class="ba dib pa3 l-pt3-5 mt5 br2 l-main-red hover-red l-button pl4 pr4 bw2 l-destroy">Back</div>
+          <div class="ba dib pa3 l-pt3-5 mt5 br2 l-main-red hover-red l-button pl4 pr4 bw2 knockout f1 ttu">Back</div>
         <% end %>
       </div>
     </div>
@@ -18,7 +18,7 @@
     <div class="pt5 l-minh-100vh white thank-you">
       <div class="pt5 tc">
         <div class="mt5 l-bg-transparent-blue white dib pa4 br3 pb5">
-          <h1 class="l-destroy">THANK YOU!</h1>
+          <h1 class="l-destroy white">THANK YOU!</h1>
           <div class="fjalla">
             <div class="pt3">Thanks for signing up to The Fight Club!</div>
             <div class="pt3">You should receive a text with more details shortly</div>
