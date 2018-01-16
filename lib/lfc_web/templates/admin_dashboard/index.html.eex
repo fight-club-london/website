@@ -208,7 +208,7 @@
             <th align="left" class="nowrap pa4">Location</th>
             <th align="left" class="nowrap pa4">Signed up</th>
           </tr>
-          <%= for {fighter, index} <- Enum.with_index(@fighters) do %>
+          <%= for {fighter, index} <- Enum.reverse(Enum.with_index(@fighters)) do %>
           <% background_colour =
             case rem(index, 2) == 0 || index == 0 do
               true -> "l-bg-light-blue"
