@@ -1,7 +1,7 @@
 <div style="margin-bottom:1rem;" class="w-100 tc br3 dib pa3 mb3 pb3 max-w28 min-h9-5 dib ma1-m ma3-l tl fl-ns l-destroy testimonial-tile l-bg-transparent-blue">
   <div class="mb3">
     <img src="/images/left-quote.svg" class="w3"  />
-    <div class="ttu">
+    <div class="ttu tl">
       <%= assigns[:quote] %>
     </div>
     <div class="tr fjalla pt3"><%= assigns[:person] %></div>
