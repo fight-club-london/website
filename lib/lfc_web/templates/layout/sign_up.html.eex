@@ -24,16 +24,16 @@
   </head>
   <body class="k-bg-lighter-grey k-indigo mb0">
     <header>
-      <nav role="navigation" class="flex k-h6 bb bg-white l-dark-grey fixed w-100 z-999 bn shadow-1">
+      <nav role="navigation" class="flex k-h8 bb bg-white l-dark-grey fixed w-100 z-999 bn shadow-1">
           <div class="app-container w-100 h4 mt2 center l-dark-grey">
               <a href="/" class="h4 ml0-ns">
                 <div class="h3 dt pb3 dib fl mr4">
                   <p class="dib f3 pl1 fw4 l-dark-grey ma0 dtc v-mid">
-                    <img src="/images/logo-main.png"  class="l-w6"/>
+                    <img src="/images/logo-main.png"  class="l-w7"/>
                   </p>
                 </div>
               </a>
-              <div class="black fr k-mt3-5 fw4 l-destroy pt1 ml3">
+              <div class="black fr mt4 fw4 l-destroy pt3 ml3">
                 <%= link "Home", to: dashboard_path(@conn, :index), class: "back-button hover-purple link black mv4 mb0-ns outline-0" %>
               </div>
               <%= if @current_user do %>

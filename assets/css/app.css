@@ -54,7 +54,7 @@ font-family:sans-serif;
 
 .anchor-span {
   position: absolute;
-  top: -70px;
+  top: -90px;
 	scroll-behavior: smooth;
 }
 
@@ -144,6 +144,10 @@ body {
 
 .l-w6 {
 	width: 10.5rem;
+}
+
+.l-w7 {
+	width: 14.5rem;
 }
 
 .k-right-0-5 {
@@ -762,6 +766,10 @@ select {
 
 .k-h3-5r {
   height: 3.5rem;
+}
+
+.k-h8 {
+  height: 8rem;
 }
 
 .k-h6 {
