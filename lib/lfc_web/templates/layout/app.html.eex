@@ -37,10 +37,7 @@
                 <img src="/images/menu.svg" class="w3 ml4 pointer pt3" id="nav-menu-button" />
               </div>
               <%= if @current_user do %>
-                <div class="l-dark-grey fr k-mt3-5 fw4 fjalla">
-                  <%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete", class: "pt3 back-button hover-purple link l-dark-grey ml4-ns ml3 mv4 mb0-ns outline-0" %>
-                </div>
-                <div class="l-dark-grey fr k-mt3-5 fw4 fjalla">
+                <div class="l-dark-grey fr mt4 pt3 fw4 fjalla">
                   <%= link "Admin", to: admin_dashboard_path(@conn, :index), class: "pt3 back-button hover-purple link l-dark-grey ml4-ns ml3 mv4 mb0-ns outline-0" %>
                 </div>
               <% else %>
