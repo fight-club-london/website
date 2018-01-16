@@ -93,7 +93,7 @@
         %>
       </div>
       <div>
-        <video controls id="myOtherVideo" class=" w-100 w-70-ns m-auto">
+        <video controls id="myOtherVideo" class=" w-100 w-60-ns m-auto">
           <source src="/images/video.mp4" type="video/mp4">
         </video>
       </div>
