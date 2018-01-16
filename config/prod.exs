@@ -17,7 +17,7 @@ config :lfc, LfcWeb.Endpoint,
   load_from_system_env: true,
   url: [
     scheme: "https",
-    host: "lfc.herokuapp.com",
+    host: "fightclublondon.herokuapp.com",
     port: 443
     ],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
