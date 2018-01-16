@@ -177,7 +177,10 @@
         </table>
       </div>
     <% end %>
-    <div class="pt5">Recent sign ups</div>
+    <div class="pt5 mb4">Recent sign ups</div>
+    <div class="pt3 mb3">
+      <%= link "Download CSV", to: csv_path(@conn, :export_fighters), class: "no-underline white l-b--blue l-bg-blue ttu pa3 pl4 pr4 f3 br2 lato mt3 no-outline-focus" %>
+    </div>
     <%= if length(@fighters) == 0 do %>
       <div class="pt3 overflow-scroll">
         <table class="w-100 data-table">
@@ -195,7 +198,7 @@
         </div>
       </div>
     <% else %>
-      <div class="pt3 pb4 overflow-scroll">
+      <div class="pt4 pb4 overflow-scroll">
         <table class="w-100 data-table">
           <tr class="data-tr bb">
             <th align="left" class="nowrap pa4">Name</th>

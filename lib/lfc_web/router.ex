@@ -37,6 +37,7 @@ defmodule LfcWeb.Router do
 
     resources "/dashboard", AdminDashboardController, only: [:index]
     resources "/events", EventController, only: [:create, :delete]
+    get "/fighter-csv", CsvController, :export_fighters
   end
 
   # Other scopes may use custom stacks.
