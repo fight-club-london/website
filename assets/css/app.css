@@ -371,6 +371,10 @@ opacity: 0;
 	background-position: 50 50;
 }
 
+.testimonial-tile {
+	justify-self: center;
+}
+
 .timer-container {
 	right: 50%;
 	z-index: 998;
