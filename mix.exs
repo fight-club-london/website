@@ -62,6 +62,7 @@ defmodule Lfc.Mixfile do
       {:uuid, "~> 1.1.8"},
       {:httpoison, "~> 0.11.2"},
       {:ex_twilio, "~> 0.5.0"},
+      {:csv, "~> 2.0.0"},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false}
     ]
   end
