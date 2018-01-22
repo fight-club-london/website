@@ -22,7 +22,7 @@
     right: 0;
     bottom: 0;
     width: 100%;
-    min-height: 93vh;
+    min-height: 100vh;
 		display: auto;
 }
 
@@ -402,11 +402,13 @@ nav {
   height: 16rem;
 }
 
-@media screen and (min-width: 975px)  {
+@media screen and (min-width: 870px)  {
 	.l-m {
 		display: block;
 	}
 	.hero-container {
+		background-color: #000000;
+		background-image: none;
 		height: auto;
 	}
 }
