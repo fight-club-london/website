@@ -10,7 +10,7 @@
   <div class="relative hero-container">
     <div class="l-m">
       <video autoplay muted loop id="myVideo">
-        <source src="/images/video.mp4" type="video/mp4">
+        <source src="/images/video-main.mp4" type="video/mp4">
       </video>
     </div>
     <div class="tc l-destroy white absolute timer-container">
@@ -94,7 +94,7 @@
       </div>
       <div>
         <video controls id="myOtherVideo" class=" w-100 w-60-ns m-auto">
-          <source src="/images/video.mp4" type="video/mp4">
+          <source src="/images/video-main.mp4" type="video/mp4">
         </video>
       </div>
       <div class="pb4">
