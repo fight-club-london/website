@@ -18,6 +18,7 @@
 /* video */
 
 #myVideo {
+		margin-top: -2.5rem;
     right: 0;
     bottom: 0;
     width: 100%;
@@ -401,7 +402,7 @@ nav {
   height: 16rem;
 }
 
-@media screen and (min-width: 830px)  {
+@media screen and (min-width: 975px)  {
 	.l-m {
 		display: block;
 	}
